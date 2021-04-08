@@ -1,8 +1,7 @@
-import Menu from "../components/Menu";
-import { menuLinkHome } from "../services/menuData";
-
 const HomePage = () => {
-  return <Menu menuLink={menuLinkHome} />;
-};
+    return (
+        <div>HomePage</div>
+    )
+}
 
-export default HomePage;
+export default HomePage
