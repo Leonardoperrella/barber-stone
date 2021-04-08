@@ -8,6 +8,8 @@ import InputForm from "../components/InputForm";
 import GlobalContainer from "../components/GlobalContainer";
 import GlobalWrap from "../components/GlobalWrap";
 import Footer from "../components/Footer";
+import ButtonBackToHome from "../components/ButtonBackToHome";
+import { ButtonWrap } from "./styles";
 
 const BarberRegisterPage = () => {
   const [inputTitle, setInputTitle] = useState("");
@@ -25,8 +27,9 @@ const BarberRegisterPage = () => {
 
   const handleForm = async (data) => {
     console.log(data);
+
     await api
-      .post("register", data)
+      .post("/register", data)
       .then((response) => {
         console.log(response);
         reset();
@@ -38,6 +41,9 @@ const BarberRegisterPage = () => {
     <>
       <GlobalContainer>
         <GlobalWrap>
+          <ButtonWrap>
+            <ButtonBackToHome />
+          </ButtonWrap>
           <FormAction
             handleSubmit={handleSubmit(handleForm)}
             titleName="Cadastre-se"
@@ -80,6 +86,9 @@ const BarberRegisterPage = () => {
               Senha
             </InputForm>
           </FormAction>
+          <p>
+            Ja possui uma conta? <span>Entre Agora</span>
+          </p>
           <Footer />
         </GlobalWrap>
       </GlobalContainer>

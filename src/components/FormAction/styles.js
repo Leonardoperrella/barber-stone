@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLORS, FONTS } from "../../styles/theme";
+import { COLORS } from "../../styles/theme";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 export const FormActionContainer = styled.form``;
@@ -7,7 +7,6 @@ export const FormActionContainer = styled.form``;
 export const FormActionWrap = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: -30px;
 
   @media (min-width: 1024px) {
     margin-top: -65px;
@@ -39,22 +38,7 @@ export const FormActionTextWrap = styled.div`
   display: flex;
   justify-content: center;
   padding: 10px 0;
-`;
-
-export const FormActionBackButtonWrap = styled.button`
-  padding: 0px;
-  outline: none;
-  border: 0;
-  background-color: transparent;
-  margin: 0 !important;
-  position: relative;
-  left: -125px;
-  top: 26px;
-  cursor: pointer;
-
-  @media (min-width: 1024px) {
-    top: -9px;
-  }
+  margin-top: 20px;
 `;
 
 export const FormActionBackButtonIcon = styled(ArrowBackIcon)`
