@@ -1,7 +1,11 @@
-const HomePage = () => {
-    return (
-        <div>HomePage</div>
-    )
-}
+import Cover from "../components/Cover";
 
-export default HomePage
+const HomePage = () => {
+  return (
+    <>
+      <Cover></Cover>
+    </>
+  );
+};
+
+export default HomePage;
