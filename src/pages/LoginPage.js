@@ -1,8 +1,6 @@
-import Form from '../components/Form'
-
 const LoginPage = () => {
     return (
-        <div><Form></Form></div>
+        <div>LoginPage</div>
     )
 }
 
