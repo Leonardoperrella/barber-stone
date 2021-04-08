@@ -1,15 +1,8 @@
-import ButtonBackToHome from "./components/ButtonBackToHome";
-import Footer from "./components/Footer";
-
 import "./styles/global.css";
+import Routes from "./routes";
 
 function App() {
-  return (
-    <>
-      <ButtonBackToHome />
-      <Footer />
-    </>
-  );
+  return <Routes></Routes>;
 }
 
 export default App;
