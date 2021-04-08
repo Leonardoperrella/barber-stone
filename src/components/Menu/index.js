@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { ThemeProvider } from "styled-components";
-import { useOnClickOutside } from "../../hooks";
-import { theme } from "../../theme";
+import { useOnClickOutside } from "../../services/hooks";
+import { theme } from "../../styles/theme";
 import Burger from "../Burger";
 import MenuItem from "../MenuItem";
 
