@@ -33,7 +33,7 @@ export const SpanError = styled.span`
   letter-spacing: 1px;
   color: red;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 11px;
 `;
 
 export const ButtonForm = styled.button`
