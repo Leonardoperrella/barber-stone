@@ -1,7 +1,5 @@
 const BarberPerfilPage = () => {
-    return (
-        <div>BarberPerfilPage</div>
-    )
-}
+  return <div>BarberPerfilPage</div>;
+};
 
-export default BarberPerfilPage
+export default BarberPerfilPage;
