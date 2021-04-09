@@ -29,6 +29,17 @@ export const Input = styled.input`
   outline: none;
 `;
 
+export const TextArea = styled.textarea`
+  border: 3px solid #f7f4f3;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #f7f4f3;
+  font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
+  padding: 10px;
+  font-size: 1.5rem;
+  outline: none;
+`;
+
 export const SpanError = styled.span`
   font-size: 0.9rem;
   font-weight: 400;

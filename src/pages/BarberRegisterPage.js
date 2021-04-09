@@ -1,8 +1,3 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import api from "../services/api";
-import * as yup from "yup";
 import GlobalContainer from "../components/GlobalContainer";
 import GlobalWrap from "../components/GlobalWrap";
 import Footer from "../components/Footer";

@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import api from "../../services/api";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import {
@@ -10,6 +11,7 @@ import {
   ButtonForm,
   Label,
   DivInput,
+  TextArea,
 } from "../../styles/Form.styles";
 
 const FormBarberRegister = () => {
@@ -20,21 +22,31 @@ const FormBarberRegister = () => {
 
   const schema = yup.object().shape({
     name: yup.string().required("campo Obrigatório!"),
-    sobrenome: yup.string().required("campo Obrigatório!"),
     email: yup.string().email("email inválido").required("campo Obrigatório!"),
     senha: yup
       .string()
       .min(6, "mínimo de 6 caracteres")
       .required("campo obrigatório!"),
+    descricao: yup.string().required("campo Obrigatório!"),
   });
 
   const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (userData) => {
-    console.log(userData);
-    // login(userData, setError, history, reset);
+  const onSubmit = (data) => {
+    console.log(data);
+    //'Access-Control-Allow-Origin'
+    api
+      .post("register", data, {
+        headers: { "Access-Control-Allow-Origin": "http://localhost:3000" },
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
   };
 
   return (
@@ -45,11 +57,6 @@ const FormBarberRegister = () => {
         {!!errors && <SpanError>{errors.name?.message}</SpanError>}
       </DivInput>
       <DivInput>
-        <Label>Sobrenome</Label>
-        <Input name="sobrenome" ref={register} />
-        {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
-      </DivInput>
-      <DivInput>
         <Label>Email</Label>
         <Input name="email" ref={register} />
         {!!errors && <SpanError>{errors.email?.message}</SpanError>}
@@ -58,6 +65,11 @@ const FormBarberRegister = () => {
         <Label>Senha</Label>
         <Input name="senha" type="password" ref={register} />
         {!!errors && <SpanError>{errors.senha?.message}</SpanError>}
+      </DivInput>
+      <DivInput>
+        <Label>Descrição</Label>
+        <TextArea name="descricao" ref={register} />
+        {!!errors && <SpanError>{errors.descricao?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <ButtonForm type="submit">Cadastrar</ButtonForm>
