@@ -23,7 +23,7 @@ const FormBarberRegister = () => {
   const schema = yup.object().shape({
     name: yup.string().required("campo Obrigatório!"),
     email: yup.string().email("email inválido").required("campo Obrigatório!"),
-    senha: yup
+    password: yup
       .string()
       .min(6, "mínimo de 6 caracteres")
       .required("campo obrigatório!"),
@@ -34,13 +34,17 @@ const FormBarberRegister = () => {
     resolver: yupResolver(schema),
   });
 
+  const getRandomIntInclusive = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
   const onSubmit = (data) => {
-    console.log(data);
-    //'Access-Control-Allow-Origin'
+    data = { ...data, isBarber: true, rating: getRandomIntInclusive(1, 5) };
+
     api
-      .post("register", data, {
-        headers: { "Access-Control-Allow-Origin": "http://localhost:3000" },
-      })
+      .post("register", data)
       .then((response) => {
         console.log(response.data);
       })
@@ -63,8 +67,8 @@ const FormBarberRegister = () => {
       </DivInput>
       <DivInput>
         <Label>Senha</Label>
-        <Input name="senha" type="password" ref={register} />
-        {!!errors && <SpanError>{errors.senha?.message}</SpanError>}
+        <Input name="password" type="password" ref={register} />
+        {!!errors && <SpanError>{errors.password?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Descrição</Label>
