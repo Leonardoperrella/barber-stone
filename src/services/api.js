@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  // baseURL: "https://json-server-barberstone.herokuapp.com/",
-  baseURL: "localhost:3001",
+  baseURL: "https://json-server-barberstone.herokuapp.com/",
 });
 
 export default api;
