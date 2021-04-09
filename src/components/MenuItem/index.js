@@ -1,4 +1,3 @@
-import React from "react";
 import { bool } from "prop-types";
 import { StyledMenu } from "./styles";
 const MenuItem = ({ open, menuLink }) => {

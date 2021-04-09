@@ -1,21 +1,15 @@
 import Tesoura from "../../images/ScissorsGold.svg";
-import {Card, ImgContainer} from './styles';
+import { Card } from "./styles";
 
 const CardClient = () => {
-
-    return (
-
-        <Card>
-            <div>
-                <div>
-                    <img src={Tesoura} />
-                </div>
-                <p>Barbearia do seu zé</p>
-                <p>07/05/2021 - 14:00</p>
-                <p30>R$ 30</p30>
-            </div>
-        </Card>
-    )
+  return (
+    <Card>
+      <img src={Tesoura} />
+      <p>Barbearia do seu zé</p>
+      <p>07/05/2021 - 14:00</p>
+      <p>R$ 30</p>
+    </Card>
+  );
 };
 
 export default CardClient;
