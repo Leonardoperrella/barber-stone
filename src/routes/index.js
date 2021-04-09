@@ -8,6 +8,7 @@ import BarberPerfilPage from "../pages/BarberPerfilPage";
 import HomePage from "../pages/HomePage";
 import Route from "./route";
 import NotFound from "../pages/NotFoundPage";
+import Barbershop from "../pages/Barbershop";
 
 const Routes = () => {
   return (
@@ -31,6 +32,7 @@ const Routes = () => {
           component={BarberPerfilPage}
           isPrivate
         />
+        <Route path="/barbershops" component={Barbershop} isPrivate />
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>
