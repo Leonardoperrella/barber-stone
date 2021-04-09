@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import jwt_decode from "jwt-decode";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import api from "../../services/api";
@@ -21,7 +22,7 @@ const FormLogin = () => {
 
   const schema = yup.object().shape({
     email: yup.string().email("email inválido").required("campo Obrigatório!"),
-    senha: yup
+    password: yup
       .string()
       .min(6, "mínimo de 6 caracteres")
       .required("campo obrigatório!"),
@@ -32,18 +33,42 @@ const FormLogin = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
-    //'Access-Control-Allow-Origin'
     api
-      .post("login", data, {
-        headers: { "Access-Control-Allow-Origin": "http://localhost:3000" },
-      })
+      .post("/login", data)
       .then((response) => {
-        console.log(response.data);
+        const { sub } = jwt_decode(response.data.accessToken);
+        localStorage.clear();
+        localStorage.setItem(
+          "token",
+          JSON.stringify(response.data.accessToken)
+        );
+        localStorage.setItem("userId", JSON.stringify(sub));
+        reset();
+        getUser(sub);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  const getUser = (userId) => {
+    api
+      .get(`/users/${userId}`)
+      .then((response) => {
+        console.log(response.data.isBarber);
+        goToProfile(response.data.isBarber);
       })
       .catch((e) => {
         console.log(e.response);
       });
+  };
+
+  const goToProfile = (isBarber) => {
+    if (isBarber) {
+      history.push("/profile-barbershop");
+    } else {
+      history.push("/profile-client");
+    }
   };
 
   return (
@@ -55,11 +80,11 @@ const FormLogin = () => {
       </DivInput>
       <DivInput>
         <Label>Senha</Label>
-        <Input name="senha" type="password" ref={register} />
-        {!!errors && <SpanError>{errors.senha?.message}</SpanError>}
+        <Input name="password" type="password" ref={register} />
+        {!!errors && <SpanError>{errors.password?.message}</SpanError>}
       </DivInput>
       <DivInput>
-        <ButtonForm type="submit">Cadastrar</ButtonForm>
+        <ButtonForm type="submit">Entrar</ButtonForm>
       </DivInput>
       <DivInput></DivInput>
       {error && <SpanError> Usuário ou senha incorretas! </SpanError>}
