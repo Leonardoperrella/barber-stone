@@ -16,10 +16,13 @@ const BarberRegisterPage = () => {
   const [inputTitle, setInputTitle] = useState("");
 
   const schema = yup.object().shape({
-    nome: yup.string().required("Field Required"),
-    sobrenome: yup.string().required("Field Required"),
-    email: yup.string().email().required("Field Required"),
-    senha: yup.string().required("Field Required"),
+    nome: yup.string().required("Campo obrigatório"),
+    sobrenome: yup.string().required("Campo obrigatório"),
+    email: yup
+      .string()
+      .email("Formato do campo inválido")
+      .required("Campo obrigatório"),
+    senha: yup.string().required("Campo obrigatório"),
   });
 
   const { register, handleSubmit, errors, reset } = useForm({

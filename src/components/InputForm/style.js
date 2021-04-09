@@ -34,7 +34,7 @@ export const Input = styled.input`
   font-size: 20px;
   line-height: 38px;
   color: #f7f4f3;
-  border: 2px solid ${({ error }) => (error ? "red" : "#b7bfcc")};
+  border: 2px solid ${({ error }) => (error ? "#ec8989" : "#b7bfcc")};
   outline: none;
   margin: 0;
 
@@ -50,14 +50,14 @@ export const Span = styled.span`
   top: ${({ activeInput }) => (activeInput ? "12px" : "50%")};
   left: 0.8rem;
   transform: translateY(-50%);
-  color: ${({ error }) => (error ? "red" : "#f7f4f3")};
+  color: ${({ error }) => (error ? "#ec8989" : "#f7f4f3")};
 
   font-size: ${({ activeInput }) => (activeInput ? ".8rem" : "1rem")};
 `;
 
 export const MessageError = styled.p`
   position: absolute;
-  color: red;
+  color: #ec8989;
   left: 0.5rem;
   bottom: -2.1rem;
   font-size: 0.875rem;
