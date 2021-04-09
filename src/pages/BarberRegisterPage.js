@@ -9,7 +9,8 @@ import GlobalContainer from "../components/GlobalContainer";
 import GlobalWrap from "../components/GlobalWrap";
 import Footer from "../components/Footer";
 import ButtonBackToHome from "../components/ButtonBackToHome";
-import { ButtonWrap } from "./styles";
+import { ButtonWrap, ElemP } from "./styles";
+import LinkToLogin from "../components/LinkToLogin";
 
 const BarberRegisterPage = () => {
   const [inputTitle, setInputTitle] = useState("");
@@ -86,9 +87,10 @@ const BarberRegisterPage = () => {
               Senha
             </InputForm>
           </FormAction>
-          <p>
-            Ja possui uma conta? <span>Entre Agora</span>
-          </p>
+          <ElemP>
+            Ja possui uma conta? <LinkToLogin>Entre Agora</LinkToLogin>
+          </ElemP>
+
           <Footer />
         </GlobalWrap>
       </GlobalContainer>

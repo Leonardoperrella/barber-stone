@@ -32,6 +32,7 @@ export const FormActionButton = styled.button`
   text-transform: uppercase;
   cursor: pointer;
   font-family: "Bebas Neue", cursive;
+  font-size: 1.8rem;
 `;
 
 export const FormActionTextWrap = styled.div`

@@ -6,7 +6,7 @@ export const theme = {
 };
 
 export const COLORS = {
-  background: "#F9F9F9",
+  background: "#F7F4F3",
   highlight: "#FF4654",
   foreground: "#FFFFFF",
   text: "#1f1e1e",
@@ -14,9 +14,11 @@ export const COLORS = {
   gray: "#b7b9bc",
   dark: "#000000de",
   green: "#10ac84",
+  gold: "#BB8C4B",
+  yellow: "#FAEB67",
 };
 
 export const FONTS = {
-  normal: "'Noto Sans JP', sans-serif",
+  normal: "'Bebas Neue', cursive",
   highlight: "Tungsten",
 };

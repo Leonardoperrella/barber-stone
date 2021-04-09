@@ -14,10 +14,10 @@ export const ButtonWrap = styled.button`
   background-color: transparent;
   margin: 0 auto;
   position: relative;
-  top: 15px;
+  margin-top: 20px;
   cursor: pointer;
+`;
 
-  @media (min-width: 1024px) {
-    top: -9px;
-  }
+export const ElemP = styled.p`
+  font-size: 18px;
 `;
