@@ -4,7 +4,7 @@ import { StyledMenu } from "./styles";
 const MenuItem = ({ open, menuLink }) => {
   return (
     <StyledMenu open={open}>
-      {menuLink.map(({ href, content }) => (
+      {!!menuLink && menuLink.map(({ href, content }) => (
         <a href={href}>{content}</a>
       ))}
     </StyledMenu>
