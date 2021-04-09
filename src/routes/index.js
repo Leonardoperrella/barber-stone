@@ -20,7 +20,11 @@ const Routes = () => {
           component={BarberRegisterPage}
           isPrivate
         />
-        <Route path="/register-client" component={ClientRegisterPage} />
+        <Route
+          path="/register-client"
+          component={ClientRegisterPage}
+          isPrivate
+        />
         <Route path="/profile-client" component={ClientPerfilPage} isPrivate />
         <Route
           path="/profile-barbershop"
