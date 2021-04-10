@@ -3,9 +3,12 @@ import { StyledMenu } from "./styles";
 const MenuItem = ({ open, menuLink }) => {
   return (
     <StyledMenu open={open}>
-      {menuLink.map(({ href, content }) => (
-        <a href={href}>{content}</a>
-      ))}
+      {!!menuLink &&
+        menuLink.map(({ href, content }, index) => (
+          <a href={href} key={index}>
+            {content}
+          </a>
+        ))}
     </StyledMenu>
   );
 };
