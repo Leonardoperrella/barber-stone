@@ -14,6 +14,7 @@ export const Container = styled.section`
 export const Cover = styled.div`
   background-image: url(${background});
   background-size: cover;
+  background-position: center;
   height: 250px;
 
   &::before {
@@ -28,6 +29,10 @@ export const Cover = styled.div`
 
 export const SectionCard = styled.section`
   padding: 10px;
-  display: flex;
-  flex-direction: column;
+  cursor: grab;
+
+  & li {
+    display: flex;
+    justify-content: center;
+  }
 `;

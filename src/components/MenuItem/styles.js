@@ -13,22 +13,18 @@ export const StyledMenu = styled.nav`
   left: 0;
   transition: transform 0.3s ease-in-out;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
-  z-index: 2;
+  z-index: 1001;
 
   a {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     text-transform: uppercase;
     padding-top: 2rem;
     font-weight: 400;
     color: ${({ theme }) => theme.primaryLight};
     text-decoration: none;
     transition: color 0.3s linear;
-    max-width: 75vw;
-
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      font-size: 2.5rem;
-      text-align: center;
-    }
+    max-width: 125vw;
+    text-align: center;
 
     &:hover {
       color: ${({ theme }) => theme.primaryHover};

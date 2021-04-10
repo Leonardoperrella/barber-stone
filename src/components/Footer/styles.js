@@ -10,7 +10,7 @@ export const FooterContainer = styled.section`
   & img {
     width: 70vw;
     margin: auto;
-    max-width: 300px;
+    max-width: 200px;
   }
 
   & h4 {
