@@ -13,6 +13,7 @@ import FooterForm from "../../components/FooterForm";
 import FooterPage from "../../components/FooterPage";
 import BackGroundImage from "../../components/BackGroundImage";
 import Background from "../../images/backgroundLogin.jpg";
+import Notification from "../../components/Notification";
 
 const BarberRegisterPage = () => {
   return (
@@ -34,6 +35,7 @@ const BarberRegisterPage = () => {
           <H1Login>Encontre aqui a melhor barbearia da sua região!</H1Login>
           <FooterPage />
         </ContainerLogin>
+        <Notification />
       </GlobalContainer>
     </>
   );
