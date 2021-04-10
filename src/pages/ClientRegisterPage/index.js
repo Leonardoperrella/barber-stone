@@ -14,6 +14,7 @@ import LinkToLogin from "../../components/LinkToLogin";
 import FormClientRegister from "../../components/FormClientRegister";
 import BackGroundImage from "../../components/BackGroundImage";
 import Background from "../../images/backgroundClientRegister.jpg";
+import Notification from "../../components/Notification";
 
 const ClientRegisterPage = () => {
   return (
@@ -37,6 +38,7 @@ const ClientRegisterPage = () => {
           </H1Register>
           <FooterPage />
         </ContainerRegister>
+        <Notification />
       </GlobalContainer>
     </>
   );

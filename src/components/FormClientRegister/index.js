@@ -12,6 +12,7 @@ import {
   Label,
   DivInput,
 } from "../../styles/Form.styles";
+import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
 
 const FormClientRegister = () => {
   // const { login } = useProviderUser();
@@ -40,10 +41,12 @@ const FormClientRegister = () => {
       .post("/register", data)
       .then((response) => {
         console.log(response.data);
+        notifyRegisterSuccess();
         history.push("/");
       })
       .catch((e) => {
         console.log(e.response);
+        notifyError(e.response.data);
       });
   };
 

@@ -14,6 +14,7 @@ import LinkToLogin from "../../components/LinkToLogin";
 import FormBarberRegister from "../../components/FormBarberRegister";
 import BackGroundImage from "../../components/BackGroundImage";
 import Background from "../../images/backgroundBarberRegister.jpg";
+import Notification from "../../components/Notification";
 
 const BarberRegisterPage = () => {
   return (
@@ -37,6 +38,7 @@ const BarberRegisterPage = () => {
           </H1Register>
           <FooterPage />
         </ContainerRegister>
+        <Notification />
       </GlobalContainer>
     </>
   );

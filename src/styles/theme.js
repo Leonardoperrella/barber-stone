@@ -17,6 +17,7 @@ export const COLORS = {
   green: "#10ac84",
   gold: "#BB8C4B",
   yellow: "#FAEB67",
+  lightBlue: "#65AFFF",
 };
 
 export const FONTS = {

@@ -13,6 +13,7 @@ import {
   Label,
   DivInput,
 } from "../../styles/Form.styles";
+import { notifyError } from "../../services/notifyData";
 
 const FormLogin = () => {
   // const { login } = useProviderUser();
@@ -47,7 +48,8 @@ const FormLogin = () => {
         getUser(sub);
       })
       .catch((e) => {
-        console.log(e);
+        notifyError(e.response.data);
+        console.log(e.response.data);
       });
   };
 
