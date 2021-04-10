@@ -47,6 +47,7 @@ const FormBarberRegister = () => {
       .post("register", data)
       .then((response) => {
         console.log(response.data);
+        history.push("/");
       })
       .catch((e) => {
         console.log(e.response);
