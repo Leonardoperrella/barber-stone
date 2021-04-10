@@ -16,7 +16,7 @@ const HomePage = () => {
       <About />
       <ServicesProvided />
       <HowItWorks />
-      <RegisterSectionHomepage />
+      <RegisterSectionHomepage id="register" />
       <Footer />
     </>
   );
