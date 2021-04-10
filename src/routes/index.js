@@ -20,22 +20,7 @@ const Routes = () => {
         <Route path="/register-client" component={ClientRegisterPage} />
         <Route path="/profile-client" component={ClientPerfilPage} isPrivate />
         <Route path="/profile-barbershop" component={BarberPerfilPage} isPrivate />
-        <Route
-          path="/register-barber"
-          component={BarberRegisterPage}
-          isPrivate
-        />
-        <Route
-          path="/register-client"
-          component={ClientRegisterPage}
-          isPrivate
-        />
-        <Route path="/profile-client" component={ClientPerfilPage} isPrivate />
-        <Route
-          path="/profile-barbershop"
-          component={BarberPerfilPage}
-          isPrivate
-        />
+        <Route path="/description-barbershop" component={BarberPerfilPage} isPrivate />
         <Route path="/barbershops" component={Barbershop} isPrivate />
         <Route component={NotFound} />
       </Switch>
