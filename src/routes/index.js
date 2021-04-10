@@ -9,6 +9,7 @@ import HomePage from "../pages/HomePage";
 import Route from "./route";
 import NotFound from "../pages/NotFoundPage";
 import Barbershop from "../pages/Barbershop";
+import BarberPage from '../pages/BarberPage'
 
 const Routes = () => {
   return (
@@ -16,6 +17,8 @@ const Routes = () => {
       <Switch>
         <Route exact path="/" component={LoginPage} isPrivate />
         <Route path="/home" component={HomePage} isPrivate />
+<<<<<<< HEAD
+        <Route path="/barber-page" component={BarberPage} isPrivate />
         <Route
           path="/register-barber"
           component={BarberRegisterPage}
@@ -32,6 +35,13 @@ const Routes = () => {
           component={BarberPerfilPage}
           isPrivate
         />
+=======
+        <Route path="/register-barber" component={BarberRegisterPage} isPrivate />
+        <Route path="/register-client" component={ClientRegisterPage} />
+        <Route path="/profile-client" component={ClientPerfilPage} isPrivate />
+        <Route path="/profile-barbershop" component={BarberPerfilPage} isPrivate />
+        <Route path="/barber-page" component={BarberPage} isPrivate />
+>>>>>>> 6620ebb6fc0d17ebba30b17886c7993a720bd8fd
         <Route path="/barbershops" component={Barbershop} />
         <Route component={NotFound} />
       </Switch>
