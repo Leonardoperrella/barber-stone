@@ -2,7 +2,7 @@ import { FooterContainer } from "./styles";
 
 import Logo from "../../images/Logo.svg";
 
-const Footer = () => {
+const FooterPage = () => {
   return (
     <FooterContainer>
       <img src={Logo} alt="logo" />
@@ -13,4 +13,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterPage;

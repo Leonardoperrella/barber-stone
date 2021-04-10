@@ -16,6 +16,7 @@ export const Label = styled.p`
   color: #f7f4f3;
   margin: 15px 0 5px;
   text-align: start;
+  z-index: 1;
 `;
 
 export const Input = styled.input`
@@ -27,6 +28,7 @@ export const Input = styled.input`
   padding: 10px;
   font-size: 1.5rem;
   outline: none;
+  z-index: 1;
 `;
 
 export const TextArea = styled.textarea`
@@ -38,6 +40,7 @@ export const TextArea = styled.textarea`
   padding: 10px;
   font-size: 1.5rem;
   outline: none;
+  z-index: 1;
 `;
 
 export const SpanError = styled.span`
@@ -48,6 +51,7 @@ export const SpanError = styled.span`
   text-align: start;
   margin-top: 10px;
   color: #ec8989;
+  z-index: 2;
 `;
 
 export const ButtonForm = styled.button`
