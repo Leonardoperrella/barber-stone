@@ -35,3 +35,25 @@ export const menuLinkPerfil = [
     content: "perfil",
   },
 ];
+
+export const menuLinkPerfilClient = [
+  {
+    href: "/",
+    content: "barbearias",
+  },
+  {
+    href: "/profile-client",
+    content: "perfil",
+  },
+];
+
+export const menuLinkPerfilBarber = [
+  {
+    href: "/",
+    content: "barbearias",
+  },
+  {
+    href: "/profile-barber",
+    content: "perfil",
+  },
+];
