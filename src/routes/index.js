@@ -32,7 +32,7 @@ const Routes = () => {
           component={BarberPerfilPage}
           isPrivate
         />
-        <Route path="/barbershops" component={Barbershop} isPrivate />
+        <Route path="/barbershops" component={Barbershop} />
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>
