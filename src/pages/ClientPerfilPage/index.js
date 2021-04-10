@@ -3,11 +3,12 @@ import { BodyPage, BgPerfil, ImgPerfil, Nome, Estrelinha, TextoFidelidade, Descr
         BoxFidelidade, Tesoura, ContFidelidade, Logo } from './styles'
 import FormProfileClient from '../../components/FormProfileClient'
 import CardAgendamentos from '../../components/CardAgendamentos'
+import { menuLinkPerfilClient } from '../../services/menuData'
 
 const ClientPerfilPage = () => {
     return (
         <BodyPage>
-            <Menu />
+            <Menu menuLink={menuLinkPerfilClient} />
             <BgPerfil src='./img/imagePerfilClient.png' alt='background perfil' />
             <ImgPerfil src='./img/imageClient.png' alt='imagem de perfil' />
             <Nome>Filipe</Nome>
