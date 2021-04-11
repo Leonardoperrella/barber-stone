@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
-import { SpanError, Input, ButtonForm, Label, DivInput } from "./styles";
+import { SpanError, Input, ButtonForm, Label, DivInput, FormUpdate } from "./styles";
 
 const FormProfileClient = () => {
   // const { login } = useProviderUser();
@@ -28,7 +28,7 @@ const FormProfileClient = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <FormUpdate onSubmit={handleSubmit(onSubmit)}>
       <DivInput>
         <Label>Novo Nome</Label>
         <Input name='name' ref={register}/>
@@ -61,7 +61,7 @@ const FormProfileClient = () => {
       </DivInput>
       <DivInput>
         <Label>Endereço</Label>
-        <Input name="email" ref={register}/>
+        <Input name="email" ref={register} isDesktop />
         {!!errors && <SpanError>{errors.email?.message}</SpanError>}
       </DivInput>
       <DivInput>
@@ -73,7 +73,7 @@ const FormProfileClient = () => {
       <DivInput>
       </DivInput>
       {error && <SpanError> Usuário ou senha incorretas! </SpanError>}
-    </form>
+    </FormUpdate>
   );
 };
 
