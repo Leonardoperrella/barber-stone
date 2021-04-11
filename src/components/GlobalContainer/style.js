@@ -7,7 +7,4 @@ export const GlobalContainerStyled = styled.div`
   min-height: 100vh;
   text-align: center;
   align-items: center;
-
-  @media (min-width: 1024px) {
-  }
 `;
