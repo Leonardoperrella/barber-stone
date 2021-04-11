@@ -6,9 +6,8 @@ export const ContainerForm = styled(GlobalnWrapStyled)`
     position: absolute;
     top: 0;
     margin: 0;
-    right: -0px !important;
+    right: 0;
     border-radius: 0;
-    transform: initial;
     width: 50vw;
     background-color: rgb(27 40 69 / 90%);
   }
@@ -19,25 +18,26 @@ export const ContainerRegister = styled(GlobalnWrapStyled)`
     position: fixed;
     top: 0;
     margin: 0;
-    left: -0px !important;
+    left: 0;
     border-radius: 0;
-    transform: initial;
     width: 50vw;
 
     &::before {
       content: "";
       display: block;
       position: absolute;
-      background-color: rgba(0, 0, 0, 0.35);
-      height: 130vh;
-      width: 100%;
-      padding-bottom: 150px;
+      background-color: rgba(0, 0, 0, 0.75);
+      height: 100vh;
+      width: 50vw;
+      padding-bottom: 0;
     }
   }
 `;
 
 export const H1Title = styled.h1`
   z-index: 1;
+  margin: 35px 0 0;
+  font-weight: 400;
 `;
 
 export const ButtonWrap = styled.button`
@@ -47,22 +47,26 @@ export const ButtonWrap = styled.button`
   background-color: transparent;
   margin: 0 auto;
   position: relative;
-  margin-top: 90px;
+  margin-top: 25px;
   cursor: pointer;
 `;
 
 export const ElemP = styled.p`
-  font-size: 18px;
+  font-size: 1.5rem;
   z-index: 1;
+  margin: 25px 0;
 `;
 
 export const H1Register = styled.h1`
-  margin-top: 6rem;
   font-size: 3.5rem !important;
+  font-weight: 400;
   padding: 0 70px;
   z-index: 1;
   display: none;
   @media (min-width: 1024px) {
     display: block;
+  }
+  @media (min-width: 1094px) {
+    margin: 50px 0;
   }
 `;
