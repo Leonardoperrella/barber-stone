@@ -5,7 +5,7 @@ export const GlobalnWrapStyled = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-bottom: 150px;
+  padding-bottom: 0;
   text-align: center;
 
   h1 {

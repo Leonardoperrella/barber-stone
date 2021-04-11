@@ -8,5 +8,6 @@ export const BackGroundImageStyled = styled.div`
     height: 100vh;
     z-index: -1;
     background-size: cover;
+    background-position: center;
   }
 `;
