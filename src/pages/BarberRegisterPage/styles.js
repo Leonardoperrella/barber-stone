@@ -31,13 +31,14 @@ export const ContainerRegister = styled(GlobalnWrapStyled)`
       background-color: rgba(0, 0, 0, 0.35);
       height: 130vh;
       width: 100%;
-      padding-bottom: 150px;
+      padding-bottom: 0px;
     }
   }
 `;
 
 export const H1Title = styled.h1`
   z-index: 1;
+  font-weight: 400;
 `;
 
 export const ButtonWrap = styled.button`
