@@ -16,18 +16,14 @@ const Routes = () => {
     <AnimatePresence exitBeforeEnter>
       <Switch>
         <Route exact path="/" component={LoginPage} isPrivate />
-        <Route path="/home" component={HomePage} isPrivate />
+        <Route path="/home" component={HomePage} />
         <Route path="/barber-page" component={BarberPage} isPrivate />
         <Route
           path="/register-barber"
           component={BarberRegisterPage}
           isPrivate
         />
-        <Route
-          path="/register-client"
-          component={ClientRegisterPage}
-          isPrivate
-        />
+        <Route path="/register-client" component={ClientRegisterPage} />
         <Route path="/profile-client" component={ClientPerfilPage} isPrivate />
         <Route
           path="/profile-barbershop"
