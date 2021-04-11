@@ -21,6 +21,10 @@ export const ContainerRegister = styled(GlobalnWrapStyled)`
     left: 0;
     border-radius: 0;
     width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
     &::before {
       content: "";

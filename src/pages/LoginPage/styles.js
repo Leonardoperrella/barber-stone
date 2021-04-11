@@ -3,17 +3,13 @@ import { GlobalnWrapStyled } from "../../components/GlobalWrap/style";
 
 export const ContainerForm = styled(GlobalnWrapStyled)`
   @media (min-width: 1024px) {
-    position: fixed;
+    position: absolute;
     top: 0;
     margin: 0;
-    left: -0px !important;
+    left: 0;
     border-radius: 0;
-    transform: initial;
-    padding: 0px;
     width: 50vw;
     background-color: rgb(27 40 69 / 90%);
-    height: 100vh !important;
-    max-height: 100vh !important;
   }
 `;
 
@@ -22,19 +18,19 @@ export const ContainerLogin = styled(GlobalnWrapStyled)`
     position: fixed;
     top: 0;
     margin: 0;
-    right: -0px !important;
+    right: 0;
     border-radius: 0;
-    transform: initial;
-    padding: 0px;
     width: 50vw;
-    height: 100vh !important;
-    max-height: 100vh !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
     &::before {
       content: "";
       display: block;
       position: absolute;
-      background-color: rgba(0, 0, 0, 0.35);
+      background-color: rgba(0, 0, 0, 0.75);
       height: 100vh;
       width: 100%;
     }
@@ -48,21 +44,32 @@ export const ButtonWrap = styled.button`
   background-color: transparent;
   margin: 0 auto;
   position: relative;
-  margin-top: 90px;
+  margin-top: 25px;
   cursor: pointer;
 `;
 
+export const H1Title = styled.h1`
+  z-index: 1;
+  margin: 35px 0 0;
+  font-weight: 400;
+`;
+
 export const ElemP = styled.p`
-  font-size: 18px;
+  font-size: 1.5rem;
+  z-index: 1;
+  margin: 25px 10px;
 `;
 
 export const H1Login = styled.h1`
-  margin-top: 6rem;
   font-size: 3.5rem !important;
+  font-weight: 400;
   padding: 0 70px;
   z-index: 1;
   display: none;
   @media (min-width: 1024px) {
     display: block;
+  }
+  @media (min-width: 1094px) {
+    margin: 50px 0;
   }
 `;
