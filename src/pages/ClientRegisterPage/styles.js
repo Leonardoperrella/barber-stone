@@ -19,7 +19,7 @@ export const ContainerRegister = styled(GlobalnWrapStyled)`
     position: fixed;
     top: 0;
     margin: 0;
-    left: -0px !important;
+    left: -17px !important;
     border-radius: 0;
     transform: initial;
     width: 50vw;
