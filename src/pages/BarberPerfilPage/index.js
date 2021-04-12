@@ -34,33 +34,33 @@ const BarberPerfilPage = () => {
       <Icon src='./img/iconNovoFuncionario.png' alt='' />
       <IconePequeno src='./img/imgAgendamentos.png' alt='' />
       <TextoDescritivo>Seus clientes agendados</TextoDescritivo>
-            <Container>
-                <Carousel
-                    additionalTransfrom={0}
-                    arrows={false}
-                    autoPlay
-                    autoPlaySpeed={3000}
-                    centerMode={false}
-                    className=""
-                    containerClass="container"
-                    dotListClass=""
-                    draggable
-                    responsive={responsive}
-                    focusOnSelect={false}
-                    infinite
-                    itemClass=""
-                    keyBoardControl
-                    minimumTouchDrag={80}
-                    renderButtonGroupOutside={false}
-                    renderDotsOutside={false}
-                    sliderClass=""
-                    slidesToSlide={1}
-                    swipeable
-                    arrows
-                >
-                    <CardClient /><CardClient /><CardClient /><CardClient />
-                </Carousel>
-            </Container>
+        <Container>
+            <Carousel
+                additionalTransfrom={0}
+                arrows={false}
+                autoPlay
+                autoPlaySpeed={3000}
+                centerMode={false}
+                className=""
+                containerClass="container"
+                dotListClass=""
+                draggable
+                responsive={responsive}
+                focusOnSelect={false}
+                infinite
+                itemClass=""
+                keyBoardControl
+                minimumTouchDrag={80}
+                renderButtonGroupOutside={false}
+                renderDotsOutside={false}
+                sliderClass=""
+                slidesToSlide={1}
+                swipeable
+                arrows
+            >
+                <CardClient /><CardClient /><CardClient /><CardClient />
+            </Carousel>
+        </Container>
       <IconePequeno src='./img/imgAtualizar.png' alt='' />
       <TextoDescritivo>Atualizar Dados</TextoDescritivo>
       <FormProfileBarberShop />

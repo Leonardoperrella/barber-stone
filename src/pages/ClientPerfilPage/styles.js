@@ -102,6 +102,7 @@ export const Descricao = styled.p`
     font-size: 32px;
     margin: 10px auto;
     color: #F7F4F3;
+    width:90%;
 
     @media(min-width: 900px) {
         font-size: 48px;
@@ -131,6 +132,7 @@ export const ContFidelidade = styled.div`
     box-sizing:border-box;
 `
 export const Container = styled.div`
+    max-width:1030px;
     padding: 10px;
     cursor: grab;
     width: 90vw;
