@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 992 },

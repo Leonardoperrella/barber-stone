@@ -12,7 +12,7 @@ export const DivInput = styled.div`
 
 export const Label = styled.p`
   font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
-  font-size: 22px;
+  font-size: 1.7rem;
   color: #f7f4f3;
   margin: 15px 0 5px;
 `;
@@ -111,5 +111,6 @@ export const LabelCheck = styled.span`
     font-weight: normal;
     font-size: 25px;
     line-height: 38px;
-    color: #F7F4F3;    
+    color: #F7F4F3;
+    align-items: left;
 `

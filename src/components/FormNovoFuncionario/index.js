@@ -43,10 +43,10 @@ const FormNovoFuncionario = () => {
         {!!errors && <SpanError>{errors.name?.message}</SpanError>}
       </DivInput>
 
-      <DivCheck>
-          <FormControl
+      <DivCheck id="DivCheck">
+          <FormControl id='FormControl'
             control={
-              <CheckboxLazer
+              <CheckboxLazer id="CheckboxLazer"
                 icon={<ImgCheck src='./img/iconCheck.png' alt='' />}
                 checkedIcon={<ImgCheck src='./img/iconCheckOn.png' alt='' />}
               />}

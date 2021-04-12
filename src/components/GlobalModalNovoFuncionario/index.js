@@ -22,6 +22,8 @@ const GlobalModalNovoFuncionario = ({ show, close }) => {
 
       <ModalContent>
 
+      <p>Cadastrar novo funcionário</p>
+
         <p> Barbearia do seu zé </p>
 
         <FormNovoFuncionario />

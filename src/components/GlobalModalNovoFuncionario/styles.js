@@ -66,7 +66,7 @@ export const ModalContent = styled.div`
 padding: 1.5rem 1rem;
 background-color: #1B2845;
 border-radius: 0px 0px 20px 20px;
-font-size: 20px;
+font-size: 2rem;
 font-family: Bebas Neue;
 text-align: center;
 `
