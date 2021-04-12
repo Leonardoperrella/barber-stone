@@ -12,7 +12,7 @@ export const menuLinkHome = [
     content: "como funciona",
   },
   {
-    href: "/",
+    href: "#register",
     content: "cadastrar",
   },
   {

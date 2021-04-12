@@ -16,8 +16,6 @@ import {
 import { notifyError } from "../../services/notifyData";
 
 const FormLogin = () => {
-  // const { login } = useProviderUser();
-
   const [error, setError] = useState(false);
   const history = useHistory();
 
@@ -45,6 +43,7 @@ const FormLogin = () => {
         );
         localStorage.setItem("userId", JSON.stringify(sub));
         reset();
+
         getUser(sub);
       })
       .catch((e) => {
@@ -53,12 +52,11 @@ const FormLogin = () => {
       });
   };
 
-  const getUser = (userId) => {
-    api
+  const getUser = async (userId) => {
+    await api
       .get(`/users/${userId}`)
       .then((response) => {
-        console.log(response.data.isBarber);
-        goToProfile(response.data.isBarber);
+        goToProfile(response.data.isBarber, userId);
       })
       .catch((e) => {
         console.log(e.response);

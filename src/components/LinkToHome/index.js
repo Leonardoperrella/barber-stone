@@ -4,11 +4,11 @@ import { useHistory } from "react-router-dom";
 const LinkToHome = ({ children }) => {
   const history = useHistory();
 
-  const goToLogin = () => {
+  const goToHome = () => {
     history.push("/home");
   };
 
-  return <Link onClick={goToLogin}>{children}</Link>;
+  return <Link onClick={goToHome}>{children}</Link>;
 };
 
 export default LinkToHome;
