@@ -7,13 +7,15 @@ export const FormComponent = styled.form`
 export const DivInput = styled.div`
   display: flex;
   flex-direction: column;
+  width: 18rem;
 `;
 
 export const Label = styled.p`
   font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
-  font-size: 2rem;
+  font-size: 1.2rem;
   color: #f7f4f3;
   margin: 15px 0 5px;
+  text-align: start;
 `;
 
 export const Input = styled.input`
@@ -27,13 +29,25 @@ export const Input = styled.input`
   outline: none;
 `;
 
+export const TextArea = styled.textarea`
+  border: 3px solid #f7f4f3;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #f7f4f3;
+  font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
+  padding: 10px;
+  font-size: 1.5rem;
+  outline: none;
+`;
+
 export const SpanError = styled.span`
-  font-size: 1.25rem;
+  font-size: 0.9rem;
   font-weight: 400;
   letter-spacing: 1px;
   color: red;
-  text-align: center;
-  margin-top: 11px;
+  text-align: start;
+  margin-top: 10px;
+  color: #ec8989;
 `;
 
 export const ButtonForm = styled.button`

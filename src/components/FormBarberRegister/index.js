@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import api from "../../services/api";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import {
@@ -10,9 +11,10 @@ import {
   ButtonForm,
   Label,
   DivInput,
-} from "./styles";
+  TextArea,
+} from "../../styles/Form.styles";
 
-const Form = () => {
+const FormBarberRegister = () => {
   // const { login } = useProviderUser();
 
   const [error, setError] = useState(false);
@@ -20,21 +22,35 @@ const Form = () => {
 
   const schema = yup.object().shape({
     name: yup.string().required("campo Obrigatório!"),
-    sobrenome: yup.string().required("campo Obrigatório!"),
     email: yup.string().email("email inválido").required("campo Obrigatório!"),
-    senha: yup
+    password: yup
       .string()
       .min(6, "mínimo de 6 caracteres")
       .required("campo obrigatório!"),
+    descricao: yup.string().required("campo Obrigatório!"),
   });
 
   const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (userData) => {
-    console.log(userData);
-    // login(userData, setError, history, reset);
+  const getRandomIntInclusive = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
+  const onSubmit = (data) => {
+    data = { ...data, isBarber: true, rating: getRandomIntInclusive(1, 5) };
+
+    api
+      .post("register", data)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
   };
 
   return (
@@ -45,19 +61,19 @@ const Form = () => {
         {!!errors && <SpanError>{errors.name?.message}</SpanError>}
       </DivInput>
       <DivInput>
-        <Label>Sobrenome</Label>
-        <Input name="sobrenome" ref={register} />
-        {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
-      </DivInput>
-      <DivInput>
         <Label>Email</Label>
         <Input name="email" ref={register} />
         {!!errors && <SpanError>{errors.email?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Senha</Label>
-        <Input name="senha" type="password" ref={register} />
-        {!!errors && <SpanError>{errors.senha?.message}</SpanError>}
+        <Input name="password" type="password" ref={register} />
+        {!!errors && <SpanError>{errors.password?.message}</SpanError>}
+      </DivInput>
+      <DivInput>
+        <Label>Descrição</Label>
+        <TextArea name="descricao" ref={register} />
+        {!!errors && <SpanError>{errors.descricao?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <ButtonForm type="submit">Cadastrar</ButtonForm>
@@ -68,4 +84,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormBarberRegister;

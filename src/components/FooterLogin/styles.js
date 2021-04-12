@@ -6,11 +6,15 @@ export const FooterContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  z-index: 1;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 
   & img {
     width: 70vw;
     margin: auto;
-    max-width: 200px;
+    max-width: 300px;
   }
 
   & h4 {
