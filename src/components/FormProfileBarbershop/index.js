@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { SpanError, Input, ButtonForm, Label, DivInput, CheckboxLazer, LabelCheck, DivCheck,
-         FormControl, ImgCheck } from "./styles";
+         FormControl, ImgCheck, FormUpdate } from "./styles";
 
 const FormProfileBarberShop = () => {
   // const { login } = useProviderUser();
@@ -29,7 +29,7 @@ const FormProfileBarberShop = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <FormUpdate onSubmit={handleSubmit(onSubmit)}>
       <DivInput>
         <Label>Novo Nome</Label>
         <Input name='name' ref={register}/>
@@ -37,7 +37,7 @@ const FormProfileBarberShop = () => {
       </DivInput>
       <DivInput>
         <Label>Endereço</Label>
-        <Input name="endereco" ref={register}/>
+        <Input name="endereco" ref={register} />
         {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
       </DivInput>
       <DivInput>
@@ -62,52 +62,50 @@ const FormProfileBarberShop = () => {
       </DivInput>
       <DivInput>
         <Label>Descricao</Label>
-        <Input name="descricao" ref={register} style={{height:'150px'}} />
+        <Input name="descricao" ref={register} style={{height:'150px'}} isDesktop />
         {!!errors && <SpanError>{errors.email?.message}</SpanError>}
       </DivInput>
-      <DivInput>
-        <Label>Opções de lazer</Label>
-        <DivCheck>
-          <FormControl
-            control={
-              <CheckboxLazer 
-                icon={<ImgCheck src='./img/iconCheck.png' alt='' />}
-                checkedIcon={<ImgCheck src='./img/iconCheckOn.png' alt='' />}
-              />}
-              label={<LabelCheck>sinuca</LabelCheck>}
-          />
-        </DivCheck>
-        <DivCheck>
-          <FormControl
-            control={
-              <CheckboxLazer 
-                icon={<ImgCheck src='./img/iconCheck.png' alt='' />}
-                checkedIcon={<ImgCheck src='./img/iconCheckOn.png' alt=''/>}
-              />}
-              label={<LabelCheck>Churrasco</LabelCheck>}
-          />
-        </DivCheck>
-        <DivCheck>
-          <FormControl
-            control={
-              <CheckboxLazer 
-                icon={<ImgCheck src='./img/iconCheck.png' alt='' />}
-                checkedIcon={<ImgCheck src='./img/iconCheckOn.png' alt='' />}
-              />}
-              label={<LabelCheck>playground</LabelCheck>}
-          />
-        </DivCheck>
-        <DivCheck>
-          <FormControl
-            control={
-              <CheckboxLazer 
-                icon={<ImgCheck src='./img/iconCheck.png' alt='' />}
-                checkedIcon={<ImgCheck src='./img/iconCheckOn.png' alt='' />}
-              />}
-              label={<LabelCheck>bar</LabelCheck>}
-          />
-        </DivCheck>
-      </DivInput>
+      <Label isDesktop >Opções de lazer</Label>
+      <DivCheck>
+        <FormControl
+          control={
+            <CheckboxLazer 
+              icon={<ImgCheck src='./img/iconCheck.png' alt='' />}
+              checkedIcon={<ImgCheck src='./img/iconCheckOn.png' alt='' />}
+            />}
+            label={<LabelCheck>sinuca</LabelCheck>}
+        />
+      </DivCheck>
+      <DivCheck>
+        <FormControl
+          control={
+            <CheckboxLazer 
+              icon={<ImgCheck src='./img/iconCheck.png' alt='' />}
+              checkedIcon={<ImgCheck src='./img/iconCheckOn.png' alt=''/>}
+            />}
+            label={<LabelCheck>Churrasco</LabelCheck>}
+        />
+      </DivCheck>
+      <DivCheck>
+        <FormControl
+          control={
+            <CheckboxLazer 
+              icon={<ImgCheck src='./img/iconCheck.png' alt='' />}
+              checkedIcon={<ImgCheck src='./img/iconCheckOn.png' alt='' />}
+            />}
+            label={<LabelCheck>playground</LabelCheck>}
+        />
+      </DivCheck>
+      <DivCheck>
+        <FormControl
+          control={
+            <CheckboxLazer 
+              icon={<ImgCheck src='./img/iconCheck.png' alt='' />}
+              checkedIcon={<ImgCheck src='./img/iconCheckOn.png' alt='' />}
+            />}
+            label={<LabelCheck>bar</LabelCheck>}
+        />
+      </DivCheck>
       <DivInput>
         <ButtonForm type="submit">Cancelar</ButtonForm>
       </DivInput>
@@ -117,7 +115,7 @@ const FormProfileBarberShop = () => {
       <DivInput>
       </DivInput>
       {error && <SpanError> Usuário ou senha incorretas! </SpanError>}
-    </form>
+    </FormUpdate>
   );
 };
 
