@@ -14,9 +14,12 @@ import {
   DivInput,
 } from "../../styles/Form.styles";
 import { notifyError } from "../../services/notifyData";
+import { useSchedule } from "../../providers/Schedule";
+import { useUser } from "../../providers/User";
 
 const FormLogin = () => {
-  // const { login } = useProviderUser();
+  const { schedule, setSchedule } = useSchedule();
+  const { user, setUser } = useUser();
 
   const [error, setError] = useState(false);
   const history = useHistory();
@@ -45,6 +48,7 @@ const FormLogin = () => {
         );
         localStorage.setItem("userId", JSON.stringify(sub));
         reset();
+        getSchedule();
         getUser(sub);
       })
       .catch((e) => {
@@ -53,19 +57,30 @@ const FormLogin = () => {
       });
   };
 
-  const getUser = (userId) => {
-    api
-      .get(`/users/${userId}`)
+  const getSchedule = async () => {
+    await api
+      .get("/scheduling")
       .then((response) => {
-        console.log(response.data.isBarber);
-        goToProfile(response.data.isBarber);
+        setSchedule(response.data);
       })
       .catch((e) => {
         console.log(e.response);
       });
   };
 
-  const goToProfile = (isBarber) => {
+  const getUser = async (userId) => {
+    await api
+      .get(`/users/${userId}`)
+      .then((response) => {
+        setUser(response.data);
+        goToProfile(response.data.isBarber, userId);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
+  };
+
+  const goToProfile = (isBarber, userId) => {
     if (isBarber) {
       history.push("/profile-barbershop");
     } else {
