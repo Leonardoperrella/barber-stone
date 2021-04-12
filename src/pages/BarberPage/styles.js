@@ -8,12 +8,12 @@ export const responsive = {
       slidesToSlide: 1, // optional, default to 1.
     },
     tablet: {
-      breakpoint: { max: 992, min: 625 },
+      breakpoint: { max: 992, min: 664 },
       items: 2,
       slidesToSlide: 1, // optional, default to 1.
     },
     mobile: {
-      breakpoint: { max: 625, min: 0 },
+      breakpoint: { max: 664, min: 0 },
       items: 1,
       slidesToSlide: 1, // optional, default to 1.
     },
@@ -49,15 +49,12 @@ export const TextoDescritivo = styled.p`
     font-family: "Bebas Neue",Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: normal;
-    padding: 5px;
+    padding: 20px;
     font-size: 42px;
     margin: 5px auto;
     color: #F7F4F3;
     text-align:center;
     width:90%;
-    @media(min-width:900px) {
-        font-size:68px;
-    }
 `
 export const Icon = styled.img`
     width: 288px;
@@ -85,6 +82,14 @@ export const Descricao = styled.p`
     margin: 10px auto;
     color: #F7F4F3;
 `
+
+export const ImgLazer = styled.img`
+    border: 10px solid white;
+    border-radius: 30px;
+    width: 275px;
+    height: 275px;
+    box-sizing: border-box;
+`
 export const Container = styled.div`
     max-width:1030px;
     padding: 10px;
@@ -95,4 +100,19 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     }
+`
+export const BoxLazer = styled.div`
+    max-width: 908px;
+    display:flex;
+    flex-direction:column;
+    @media(min-width:912px){
+        flex-direction:row;
+        flex-wrap:wrap;
+        justify-content:space-between;
+    }
+`
+export const Atracao = styled.div`
+    max-width: 450px;
+    width:100%;
+    text-align:center;
 `
