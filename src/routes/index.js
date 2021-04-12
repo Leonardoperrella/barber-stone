@@ -15,6 +15,7 @@ const Routes = () => {
   return (
     <AnimatePresence exitBeforeEnter>
       <Switch>
+<<<<<<< HEAD
         <Route exact path="/" component={LoginPage} isPrivate />
         <Route path="/home" component={HomePage} />
         <Route path="/barber-page" component={BarberPage} isPrivate />
@@ -31,6 +32,16 @@ const Routes = () => {
           isPrivate
         />
         <Route path="/barbershops" component={Barbershop} />
+=======
+        <Route exact path="/" component={LoginPage} />
+        <Route path="/home" component={HomePage} isPrivate />
+        <Route path="/register-barber" component={BarberRegisterPage} isPrivate />
+        <Route path="/register-client" component={ClientRegisterPage} />
+        <Route path="/profile-client" component={ClientPerfilPage} isPrivate />
+        <Route path="/profile-barbershop" component={BarberPerfilPage} isPrivate />
+        <Route path="/description-barbershop" component={BarberPerfilPage} isPrivate />
+        <Route path="/barbershops" component={Barbershop} isPrivate />
+>>>>>>> feature/PagePerfilBarber
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>
