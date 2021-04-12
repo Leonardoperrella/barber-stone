@@ -59,7 +59,6 @@ export const ImgPerfil = styled.img`
 export const Logo = styled.img`
     max-width: 544px;
     width: 70%;
-    /* height: 148px; */
     margin-top:60px;
 `
 export const Nome = styled.p`

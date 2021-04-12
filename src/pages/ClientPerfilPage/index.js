@@ -44,9 +44,8 @@ const ClientPerfilPage = () => {
             </BoxFidelidade>
             <Estrelinha src='./img/imgAgendamentos.png' />
             <TextoFidelidade>Seus agendamentos</TextoFidelidade>
-            <Container id='odio'>
+            <Container>
                 <Carousel
-                    id='amor'
                     additionalTransfrom={0}
                     arrows={false}
                     autoPlay
