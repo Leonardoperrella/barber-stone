@@ -1,11 +1,11 @@
 import { ScheduleProvider } from "./Schedule";
-import { UserProvider } from "./User";
+import { UsersProvider } from "./Users";
 
 const Providers = ({ children }) => {
   return (
-    <UserProvider>
+    <UsersProvider>
       <ScheduleProvider>{children}</ScheduleProvider>;
-    </UserProvider>
+    </UsersProvider>
   );
 };
 

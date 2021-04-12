@@ -15,18 +15,17 @@ import {
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import FormProfileBarberShop from "../../components/FormProfileBarbershop";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
-import { useUser } from "../../providers/User";
+import { useUsers } from "../../providers/Users";
 
 const BarberPerfilPage = () => {
-  const { schedule, setSchedule } = useSchedule();
-  const { user, setUser } = useUser();
+  const { schedule, getSchedule } = useSchedule();
+  const { getUsers } = useUsers();
 
-  console.log(schedule);
-  console.log(user);
+  const userId = JSON.parse(localStorage.getItem("userId"));
 
   const qtd = 4;
 
@@ -44,6 +43,11 @@ const BarberPerfilPage = () => {
     }
     return array;
   };
+
+  useEffect(() => {
+    getSchedule(`/scheduling/?barbeariaId=${userId}`);
+    getUsers();
+  }, []);
 
   return (
     <BodyPage>
@@ -89,10 +93,9 @@ const BarberPerfilPage = () => {
           swipeable
           arrows
         >
-          <CardClient />
-          <CardClient />
-          <CardClient />
-          <CardClient />
+          {schedule.map(({ userId, dataHora }, index) => (
+            <CardClient key={index} userId={userId} dataHora={dataHora} />
+          ))}
         </Carousel>
       </Container>
       <IconePequeno src="./img/imgAtualizar.png" alt="" />
