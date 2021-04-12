@@ -1,6 +1,15 @@
 import styled from "styled-components";
 import { Checkbox, FormControlLabel } from "@material-ui/core"
 
+
+export const FormUpdate = styled.form`
+    max-width: 923px;
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+`
+
 export const SpanError = styled.span`
   font-size: 15px;
   color: red;
@@ -23,17 +32,27 @@ export const Input = styled.input`
     font-size: 20px;
     line-height: 38px;
     color: #F7F4F3;
+    margin: 0 20px;
+
+    @media(min-width: 912px) {
+        max-width: ${props => (props.isDesktop ? `873px` : `416px`)};
+    }
 `;
 
 export const Label = styled.p`
+    max-width: ${props => (props.isDesktop && `416px`)};  
+    width: ${props => (props.isDesktop && `90vw`)};   
     font-family: "Bebas Neue",Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 32px;
     line-height: 38px;
     color: #F7F4F3;
-    margin: 15px 0 5px 0;
-    width:100%;
+    margin: 15px 20px 5px 20px;
+    @media(min-width:912px) {
+        max-width: ${props => (props.isDesktop && `873px`)}; 
+        width: ${props => (props.isDesktop && `873px`)};
+    } 
 `;
 
 export const ButtonForm = styled.button`
@@ -44,12 +63,12 @@ export const ButtonForm = styled.button`
     box-sizing: border-box;
     border-radius: 10px;
     background-color: transparent;
-    margin-top:40px;
+    margin:40px 20px 0 20px;
     font-family: "Bebas Neue",Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 32px;
-    line-height: 38px;
+    line-height: 38px;  
     color: #F7F4F3;
     &:hover{
         background-color:white;
@@ -61,7 +80,7 @@ export const ButtonForm = styled.button`
 export const DivInput = styled.div`
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:left;
     flex-direction:column;
 `
 
@@ -82,10 +101,13 @@ export const ImgCheck = styled.img`
 export const FormControl = styled(FormControlLabel)`
 `
 export const DivCheck = styled.div`
-    width:100%;
-    display: flex;
-    justify-content: right;
-    margin:5px auto;
+    max-width:416px;
+    width:90vw;
+    display:flex;
+    justify-content:center;
+    align-items:left;
+    flex-direction:column;
+    margin:0 20px;
 `
 export const LabelCheck = styled.span`
     font-family: "Bebas Neue",Arial, Helvetica, sans-serif;

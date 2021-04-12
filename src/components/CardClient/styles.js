@@ -7,6 +7,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 350px;
 
   & img {
     width: 50px;
