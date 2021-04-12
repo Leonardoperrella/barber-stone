@@ -6,6 +6,7 @@ import {
   ContainerForm,
   ContainerLogin,
   H1Login,
+  H1Title,
 } from "./styles";
 import LinkToHome from "../../components/LinkToHome";
 import FormLogin from "../../components/FormLogin";
@@ -24,7 +25,7 @@ const BarberRegisterPage = () => {
           <ButtonWrap>
             <ButtonBackToHome />
           </ButtonWrap>
-          <h1>Entrar</h1>
+          <H1Title>Entrar</H1Title>
           <FormLogin />
           <ElemP>
             Ainda não possui uma conta? <LinkToHome>Cadastre-se</LinkToHome>

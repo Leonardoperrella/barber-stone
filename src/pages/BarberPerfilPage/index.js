@@ -1,4 +1,5 @@
 import Menu from "../../components/Menu";
+import Footer from "../../components/Footer";
 import { menuLinkPerfilBarber } from "../../services/menuData";
 import {
   BodyPage,
@@ -21,6 +22,10 @@ import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
 import { useUsers } from "../../providers/Users";
 
+// temporário
+import perfil from "../../images/barberIcon.svg";
+import calendar from "../../images/calendar.svg";
+import clock from "../../images/clock.svg";
 const BarberPerfilPage = () => {
   const { schedule, getSchedule } = useSchedule();
   const { getUsers } = useUsers();
@@ -52,22 +57,15 @@ const BarberPerfilPage = () => {
   return (
     <BodyPage>
       <Menu menuLink={menuLinkPerfilBarber} />
-      <BgPerfil
-        src={
-          isDesktop
-            ? "./img/imgBgProfileBarberDesktop.png"
-            : "./img/imgBgBarberProfile.png"
-        }
-        alt=""
-      />
-      <ImgPerfil src="./img/imgPerfilBarber.png" alt="" />
+      <BgPerfil />
+      <ImgPerfil src={perfil} />
       <Nome>Barbearia do seu Zé</Nome>
       <TextoDescritivo>
         Aqui você encontra o melhor serviço da região para cabelo e barba, além
         de ótimo atendimento!
       </TextoDescritivo>
       <Icon src="./img/iconNovoFuncionario.png" alt="" />
-      <IconePequeno src="./img/imgAgendamentos.png" alt="" />
+      <IconePequeno src={calendar} />
       <TextoDescritivo>Seus clientes agendados</TextoDescritivo>
       <Container>
         <Carousel
@@ -98,7 +96,7 @@ const BarberPerfilPage = () => {
           ))}
         </Carousel>
       </Container>
-      <IconePequeno src="./img/imgAtualizar.png" alt="" />
+      <IconePequeno src={clock} />
       <TextoDescritivo>Atualizar Dados</TextoDescritivo>
       <FormProfileBarberShop />
       <Logo src="./img/imgLogo.png" alt="logo" />

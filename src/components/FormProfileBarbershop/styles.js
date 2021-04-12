@@ -1,120 +1,154 @@
 import styled from "styled-components";
-import { Checkbox, FormControlLabel } from "@material-ui/core"
-
+import { Checkbox, FormControlLabel } from "@material-ui/core";
 
 export const FormUpdate = styled.form`
-    max-width: 923px;
-    width: 100%;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-`
+  max-width: 923px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
 
 export const SpanError = styled.span`
-  font-size: 15px;
+  font-size: 1.25rem;
   color: red;
   text-align: center;
-  margin:5px;
+  margin: 5px;
 `;
 
 export const Input = styled.input`
-    max-width: 416px;
-    width:90vw;
-    height: 63px;
-    border: 4px solid #F7F4F3;
-    box-sizing: border-box;
-    border-radius: 10px;
-    background-color: transparent;
-    font-family: "Bebas Neue",Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    padding:5px;
-    font-size: 20px;
-    line-height: 38px;
-    color: #F7F4F3;
-    margin: 0 20px;
+  max-width: 416px;
+  width: 90vw;
+  height: 63px;
+  border: 4px solid #f7f4f3;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: transparent;
+  font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  padding: 5px;
+  font-size: 20px;
+  line-height: 38px;
+  color: #f7f4f3;
+  outline: none;
 
-    @media(min-width: 912px) {
-        max-width: ${props => (props.isDesktop ? `873px` : `416px`)};
-    }
+  @media (min-width: 912px) {
+    max-width: ${(props) => (props.isDesktop ? `873px` : `416px`)};
+  }
 `;
 
 export const Label = styled.p`
-    max-width: ${props => (props.isDesktop && `416px`)};  
-    width: ${props => (props.isDesktop && `90vw`)};   
-    font-family: "Bebas Neue",Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 32px;
-    line-height: 38px;
-    color: #F7F4F3;
-    margin: 15px 20px 5px 20px;
-    @media(min-width:912px) {
-        max-width: ${props => (props.isDesktop && `873px`)}; 
-        width: ${props => (props.isDesktop && `873px`)};
-    } 
+  font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  line-height: 38px;
+  color: #f7f4f3;
+  margin: 0;
+
+  @media (min-width: 912px) {
+    max-width: ${(props) => props.isDesktop && `873px`};
+    width: ${(props) => props.isDesktop && `873px`};
+  }
 `;
 
 export const ButtonForm = styled.button`
-    max-width: 416px;
-    width:90vw;
-    height: 63px;
-    border: 4px solid #F7F4F3;
-    box-sizing: border-box;
-    border-radius: 10px;
-    background-color: transparent;
-    margin:40px 20px 0 20px;
-    font-family: "Bebas Neue",Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 32px;
-    line-height: 38px;  
-    color: #F7F4F3;
-    &:hover{
-        background-color:white;
-        color:black;
-        cursor:pointer;
-    }
+  max-width: 416px;
+  width: 90vw;
+  height: 63px;
+  border: 4px solid #f7f4f3;
+  border-radius: 10px;
+  background-color: transparent;
+  font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 38px;
+  color: #f7f4f3;
+  margin: 10px;
+  outline: none;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+  }
 `;
 
 export const DivInput = styled.div`
-    display:flex;
-    justify-content:center;
-    align-items:left;
-    flex-direction:column;
-`
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  padding: 10px;
+`;
 
 export const CardLogin = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
 };
 
 export const CheckboxLazer = styled(Checkbox)`
-    margin-right:20px;
-`
+  margin-right: 20px;
+`;
 export const ImgCheck = styled.img`
-    margin-right:20px;
-    border-radius:10px;
-`
-export const FormControl = styled(FormControlLabel)`
-`
+  margin-right: 20px;
+  border-radius: 10px;
+`;
+export const FormControl = styled(FormControlLabel)``;
 export const DivCheck = styled.div`
-    max-width:416px;
-    width:90vw;
-    display:flex;
-    justify-content:center;
-    align-items:left;
-    flex-direction:column;
-    margin:0 20px;
-`
+  max-width: 250px;
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+`;
 export const LabelCheck = styled.span`
-    font-family: "Bebas Neue",Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 32px;
-    line-height: 38px;
-    color: #F7F4F3;
-`
+  font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 38px;
+  color: #f7f4f3;
+`;
 
+export const LabelOptions = styled(Label)`
+  width: 100%;
+  text-align: center;
+`;
+
+export const ButtonsDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`;
+
+export const CheckboxContainer = styled.div`
+  width: 100vw;
+  max-width: 696px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+`;
+
+export const TextAreaInput = styled.textarea`
+  max-width: 416px;
+  width: 90vw;
+  height: 63px;
+  border: 4px solid #f7f4f3;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: transparent;
+  font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  padding: 5px;
+  font-size: 20px;
+  line-height: 38px;
+  color: #f7f4f3;
+  outline: none;
+`;
