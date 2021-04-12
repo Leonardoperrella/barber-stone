@@ -6,8 +6,8 @@ const UsersContext = createContext();
 export const UsersProvider = ({ children }) => {
   const [users, setUsers] = useState();
 
-  const getUsers = async () => {
-    await api
+  const getUsers = () => {
+    api
       .get("/users")
       .then((response) => {
         const object = {};
