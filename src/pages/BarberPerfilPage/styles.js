@@ -17,7 +17,7 @@ export const responsive = {
       items: 1,
       slidesToSlide: 1, // optional, default to 1.
     },
-  };
+};
 
 export const BodyPage = styled.div`
 display: flex;
@@ -54,6 +54,7 @@ export const TextoDescritivo = styled.p`
     margin: 5px auto;
     color: #F7F4F3;
     text-align:center;
+    width:90%;
     @media(min-width:900px) {
         font-size:68px;
     }
@@ -85,6 +86,7 @@ export const Descricao = styled.p`
     color: #F7F4F3;
 `
 export const Container = styled.div`
+    max-width:1030px;
     padding: 10px;
     cursor: grab;
     width: 90vw;
