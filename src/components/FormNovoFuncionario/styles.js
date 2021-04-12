@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { Checkbox, FormControlLabel } from "@material-ui/core"
 
 export const FormComponent = styled.form`
-  padding: 10px 35px;
+  padding: 10px 5px;
 `;
 
 export const DivInput = styled.div`
@@ -11,7 +12,7 @@ export const DivInput = styled.div`
 
 export const Label = styled.p`
   font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
-  font-size: 2rem;
+  font-size: 22px;
   color: #f7f4f3;
   margin: 15px 0 5px;
 `;
@@ -50,6 +51,7 @@ export const ButtonForm = styled.button`
   display: block;
   padding: 5px;
   outline: none;
+
   margin-top: 20px;
 
   &::before {
@@ -81,3 +83,33 @@ export const CardLogin = {
   justifyContent: "center",
   alignItems: "center",
 };
+
+export const DivCheck = styled.div`
+    max-width:416px;
+    width:90vw;
+    display:flex;
+    justify-content:center;
+    align-items:left;
+    flex-direction:column;
+    margin:0 20px;
+    `
+
+    export const FormControl = styled(FormControlLabel)`
+`
+
+export const CheckboxLazer = styled(Checkbox)`
+    margin-right:20px;
+`
+export const ImgCheck = styled.img`
+    margin-right:20px;
+    border-radius:10px;
+    width: 40px;
+`
+export const LabelCheck = styled.span`
+    font-family: "Bebas Neue",Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 38px;
+    color: #F7F4F3;    
+`

@@ -10,7 +10,9 @@ import {
   ButtonForm,
   Label,
   DivInput,
+  DivCheck, FormControl, CheckboxLazer, ImgCheck, LabelCheck, 
 } from "./styles";
+
 
 const FormNovoFuncionario = () => {
   // const { login } = useProviderUser();
@@ -40,6 +42,17 @@ const FormNovoFuncionario = () => {
         <Input name="name" ref={register} />
         {!!errors && <SpanError>{errors.name?.message}</SpanError>}
       </DivInput>
+
+      <DivCheck>
+          <FormControl
+            control={
+              <CheckboxLazer
+                icon={<ImgCheck src='./img/iconCheck.png' alt='' />}
+                checkedIcon={<ImgCheck src='./img/iconCheckOn.png' alt='' />}
+              />}
+            label={<LabelCheck>HomeOffice</LabelCheck>}
+          />
+        </DivCheck>
 
       <DivInput>
         <ButtonForm type="submit">Cadastrar</ButtonForm>

@@ -11,10 +11,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import React, { useState } from 'react';
-import GlobalModal from '../../components/GlobalModal';
+import GlobalModalNovoFuncionario from '../../components/GlobalModalNovoFuncionario';
 
-import { BtnOpenModal, BackDrop } from '../../components/GlobalModal/styles'
-
+import { BtnOpenModal, BackDrop } from '../../components/GlobalModalNovoFuncionario/styles'
 
 const BarberPerfilPage = () => {
 
@@ -41,32 +40,18 @@ const BarberPerfilPage = () => {
 
       <BodyPage>
         <Menu menuLink={menuLinkPerfilBarber} />
-        <BgPerfil src='./img/imgBgBarberProfile.png' alt='' />
+        <BgPerfil src={isDesktop ? './img/imgBgProfileBarberDesktop.png' : './img/imgBgBarberProfile.png'} alt='' />       
 
+        <ImgPerfil src='./img/imgPerfilBarber.png' alt='' />
+        <Nome>Barbearia do seu Zé</Nome>
+        <TextoDescritivo>Aqui você encontra o melhor serviço da região para cabelo e barba, além de ótimo atendimento!</TextoDescritivo>
+
+        {/* <Icon src='./img/iconNovoFuncionario.png' alt='' /> */}
+        
         {show ? <BackDrop onClick={closeModalHandler} > </BackDrop> : null}
         <BtnOpenModal onClick={() => setShow(true)} > </BtnOpenModal>
-        <GlobalModal show={show} close={closeModalHandler} />
-
-        <ImgPerfil src='./img/imgPerfilBarber.png' alt='' />
-        <Nome>Barbearia do seu Zé</Nome>
-        <TextoDescritivo>Aqui você encontra o melhor serviço da região para cabelo e barba, além de ótimo atendimento!</TextoDescritivo>
-
-
-        <IconePequeno src='./img/imgAgendamentos.png' alt='' />
-        <TextoDescritivo>Seus clientes agendados</TextoDescritivo>
-        <CardClient />
-        <IconePequeno src='./img/imgAtualizar.png' alt='' />
-        <TextoDescritivo>Atualizar Dados</TextoDescritivo>
-        <FormProfileBarberShop />
-        <Logo src='./img/imgLogo.png' alt='logo' />
-        <Descricao>Desenvolvido por <span style={{ color: '#BB8C4B' }}>squad 2</span></Descricao>
-
-        <Menu menuLink={menuLinkPerfilBarber} />
-        <BgPerfil src={isDesktop ? './img/imgBgProfileBarberDesktop.png' : './img/imgBgBarberProfile.png'} alt='' />
-        <ImgPerfil src='./img/imgPerfilBarber.png' alt='' />
-        <Nome>Barbearia do seu Zé</Nome>
-        <TextoDescritivo>Aqui você encontra o melhor serviço da região para cabelo e barba, além de ótimo atendimento!</TextoDescritivo>
-        <Icon src='./img/iconNovoFuncionario.png' alt='' />
+        <GlobalModalNovoFuncionario show={show} close={closeModalHandler} />        
+        
         <IconePequeno src='./img/imgAgendamentos.png' alt='' />
         <TextoDescritivo>Seus clientes agendados</TextoDescritivo>
         <Container>

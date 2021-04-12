@@ -40,7 +40,7 @@ export const Nome = styled.p`
     font-style: normal;
     font-weight: normal;
     padding: 5px;
-    font-size: 80px;
+    font-size: 100px;
     margin: 25px auto 0 auto;
     color: #F7F4F3;
     text-align:center;
