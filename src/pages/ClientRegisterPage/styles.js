@@ -9,7 +9,9 @@ export const ContainerForm = styled(GlobalnWrapStyled)`
     right: 0;
     border-radius: 0;
     width: 50vw;
-    background-color: rgb(27 40 69 / 90%);
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: rgba(27, 40, 69, 0.9);
   }
 `;
 
@@ -24,7 +26,7 @@ export const ContainerRegister = styled(GlobalnWrapStyled)`
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
 
     &::before {
       content: "";
