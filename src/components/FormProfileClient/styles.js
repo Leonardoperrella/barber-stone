@@ -7,6 +7,14 @@ export const SpanError = styled.span`
   margin:5px;
 `;
 
+export const FormUpdate = styled.form`
+    max-width: 923px;
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+`
+
 export const Input = styled.input`
     max-width: 416px;
     width:90vw;
@@ -22,6 +30,11 @@ export const Input = styled.input`
     font-size: 20px;
     line-height: 38px;
     color: #F7F4F3;
+    margin: 0 20px;
+    
+    @media(min-width: 914px) {
+        max-width: ${props => (props.isDesktop ? `873px` : `416px`)};
+    }
 `;
 
 export const Label = styled.p`
@@ -31,7 +44,7 @@ export const Label = styled.p`
     font-size: 32px;
     line-height: 38px;
     color: #F7F4F3;
-    margin: 15px 0 5px 0;
+    margin: 15px 20px 5px 20px;
 `;
 
 export const ButtonForm = styled.button`
@@ -42,7 +55,7 @@ export const ButtonForm = styled.button`
     box-sizing: border-box;
     border-radius: 10px;
     background-color: transparent;
-    margin-top:40px;
+    margin:40px 20px 0 20px;
     font-family: "Bebas Neue",Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -59,7 +72,7 @@ export const ButtonForm = styled.button`
 export const DivInput = styled.div`
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:left;
     flex-direction:column;
 `
 
