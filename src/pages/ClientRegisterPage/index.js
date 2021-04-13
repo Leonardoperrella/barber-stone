@@ -13,7 +13,7 @@ import {
 import LinkToLogin from "../../components/LinkToLogin";
 import FormClientRegister from "../../components/FormClientRegister";
 import BackGroundImage from "../../components/BackGroundImage";
-import Background from "../../images/backgroundClientRegister.jpg";
+import Background from "../../images/backgroundRegister.jpg";
 import Notification from "../../components/Notification";
 
 const ClientRegisterPage = () => {

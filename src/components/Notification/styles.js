@@ -9,8 +9,11 @@ export const NoticiationContainer = styled(ToastContainer).attrs({
   progressBarClassName: "progress",
 })`
   /* .toast-container */
-  width: 100%;
-  margin-top: -1vh;
+  width: 100vw;
+
+  @media screen and (min-width: 525px) {
+    width: 500px;
+  }
 
   .Toastify__toast--info {
     background: #4278f1;
