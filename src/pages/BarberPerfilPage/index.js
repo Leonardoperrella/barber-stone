@@ -71,7 +71,7 @@ const BarberPerfilPage = () => {
 
   useEffect(() => {
     getSchedule(`/scheduling/?barbeariaId=${userId}`);
-    // getUsers();
+    getUsers();
   }, []);
 
   return (
@@ -79,7 +79,7 @@ const BarberPerfilPage = () => {
       <Menu menuLink={menuLinkPerfilBarber} />
       <BgPerfil />
       <ImgPerfil src={perfil} />
-      <Nome>Joao</Nome>
+      <Nome>{users && users[userId][0]}</Nome>
       <TextoDescritivo>
         Aqui você encontra o melhor serviço da região para cabelo e barba, além
         de ótimo atendimento!

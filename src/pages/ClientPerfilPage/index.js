@@ -23,7 +23,7 @@ import { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
-import { useUsers } from "../../providers/Users";
+import { useUser } from "../../providers/User";
 
 // temporário
 import perfil from "../../images/perfilClient.jpg";
@@ -34,8 +34,8 @@ import clock from "../../images/clock.svg";
 
 const ClientPerfilPage = () => {
   const { schedule, getSchedule } = useSchedule();
-  const { users, getUsers } = useUsers();
-  const qtd = 4;
+  const { user, getUser } = useUser();
+
   const userId = JSON.parse(localStorage.getItem("userId"));
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth > 900 ? true : false
@@ -50,17 +50,10 @@ const ClientPerfilPage = () => {
   window.onresize = () =>
     window.innerWidth > 900 ? setIsDesktop(true) : setIsDesktop(false);
 
-  const buildArray = () => {
-    let array = [];
-    for (let i = 0; i < qtd; i++) {
-      array.push(i);
-    }
-    return array;
-  };
-
   useEffect(() => {
     getSchedule(`/scheduling/?userId=${userId}`);
-    // getUsers();
+    getUser(userId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -68,18 +61,20 @@ const ClientPerfilPage = () => {
       <Menu menuLink={menuLinkPerfilClient} />
       <BgPerfil />
       <ImgPerfil src={perfil} />
-      <Nome>Leo</Nome>
+      <Nome>{user && user.name}</Nome>
       <Estrelinha src={star} />
       <TextoFidelidade>Vale fidelidade</TextoFidelidade>
       <Descricao>
-        a cada dez agendamentos ganhe um de graça nas barbearias participantes
+        a cada dez serviços ganhe um de graça nas barbearias participantes
       </Descricao>
       <BoxFidelidade>
-        {isDesktop ? (
-          buildArray().map((e) => <Tesoura src={scissors} />)
+        {isDesktop && user && user.scissors < 5 ? (
+          Array(user && user.scissors)
+            .fill(0)
+            .map((item, index) => <Tesoura key={index} src={scissors} />)
         ) : (
           <>
-            <ContFidelidade>{qtd}x</ContFidelidade>
+            <ContFidelidade>{user && user.scissors}x</ContFidelidade>
             <Tesoura src={scissors} />
           </>
         )}

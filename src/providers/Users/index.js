@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 import api from "../../services/api";
 
 const UsersContext = createContext();
@@ -12,7 +12,7 @@ export const UsersProvider = ({ children }) => {
       .then((response) => {
         const object = {};
         response.data.forEach((obj) => {
-          object[obj.id] = [obj.name, obj.lastname];
+          object[obj.id] = [obj.name, obj.lastname, obj.scissors];
         });
         setUsers(object);
       })
@@ -20,10 +20,6 @@ export const UsersProvider = ({ children }) => {
         console.log(e.response);
       });
   };
-
-  useEffect(() => {
-    getUsers();
-  }, [users]);
 
   return (
     <UsersContext.Provider value={{ users, setUsers, getUsers }}>
