@@ -13,6 +13,15 @@ import {
   Descricao,
   Container,
   responsive,
+  BtnOpenModal,
+  BackDrop,
+  ModalWrapper,
+  ModalHeader,
+  ModalHeaderSpan,
+  ModalContent,
+  ModalBody,
+  ModalBodyP,
+  ModalBodyH4
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import FormProfileBarberShop from "../../components/FormProfileBarbershop";
@@ -21,12 +30,18 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
 import { useUsers } from "../../providers/Users";
+import GlobalModalAgendarHorario from "../../components/GlobalModalAgendarHorario";
 
 // temporário
 import perfil from "../../images/barberIcon.svg";
 import calendar from "../../images/calendar.svg";
 import clock from "../../images/clock.svg";
+
 const BarberPerfilPage = () => {
+
+  const [show, setShow] = useState(false);
+  const closeModalHandler = () => setShow(false);
+
   const { schedule, getSchedule } = useSchedule();
   const { getUsers } = useUsers();
 
@@ -64,7 +79,13 @@ const BarberPerfilPage = () => {
         Aqui você encontra o melhor serviço da região para cabelo e barba, além
         de ótimo atendimento!
       </TextoDescritivo>
-      <Icon src="./img/iconNovoFuncionario.png" alt="" />
+
+      { show ? <BackDrop onClick={closeModalHandler}> </BackDrop> : null}
+      <BtnOpenModal onClick={() => setShow(true)} > </BtnOpenModal>
+      <GlobalModalAgendarHorario show={show} close={closeModalHandler} />
+
+      {/* <Icon src="./img/iconNovoFuncionario.png" alt="" /> */}
+
       <IconePequeno src={calendar} />
       <TextoDescritivo>Seus clientes agendados</TextoDescritivo>
       {schedule.length > 0 ? (

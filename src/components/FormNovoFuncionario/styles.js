@@ -91,10 +91,11 @@ export const DivCheck = styled.div`
     justify-content:center;
     align-items:left;
     flex-direction:column;
-    margin:0 20px;
+    margin:0 6px;
     `
 
     export const FormControl = styled(FormControlLabel)`
+    
 `
 
 export const CheckboxLazer = styled(Checkbox)`
