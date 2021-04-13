@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "chart.js": "^2.9.4",
+    "cypress": "^7.1.0",
     "framer-motion": "^4.1.2",
     "jwt-decode": "^3.1.2",
     "react": "^17.0.2",
@@ -51,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-cypress": "^2.11.2"
   }
 }
