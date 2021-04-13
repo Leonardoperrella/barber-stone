@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
+<<<<<<< HEAD
+=======
 import BackgroundHeader from "../../images/background-barber-profile.jpg";
 
+>>>>>>> 4655cb43c4e8be5f6fd1d66fd81de9fe0bafb32f
 export const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 992 },
@@ -37,6 +40,22 @@ export const BgPerfil = styled.div`
 `;
 
 export const ImgPerfil = styled.img`
+<<<<<<< HEAD
+    width: 300px;
+    height: 300px;
+    margin: -150px auto 0 auto;
+`
+export const Nome = styled.p`
+    font-family: "Bebas Neue",Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    padding: 5px;
+    font-size: 100px;
+    margin: 25px auto 0 auto;
+    color: #F7F4F3;
+    text-align:center;
+`
+=======
   width: 250px;
   height: 250px;
   margin: -150px 0 0;
@@ -52,6 +71,7 @@ export const Nome = styled.h2`
   text-align: center;
 `;
 
+>>>>>>> 4655cb43c4e8be5f6fd1d66fd81de9fe0bafb32f
 export const TextoDescritivo = styled.p`
   font-size: 2rem;
   margin: 10px;
