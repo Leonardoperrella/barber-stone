@@ -21,7 +21,7 @@ import {
   ModalContent,
   ModalBody,
   ModalBodyP,
-  ModalBodyH4
+  ModalBodyH4,
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import FormProfileBarberShop from "../../components/FormProfileBarbershop";
@@ -38,7 +38,6 @@ import calendar from "../../images/calendar.svg";
 import clock from "../../images/clock.svg";
 
 const BarberPerfilPage = () => {
-
   const [show, setShow] = useState(false);
   const closeModalHandler = () => setShow(false);
 
@@ -80,8 +79,8 @@ const BarberPerfilPage = () => {
         de ótimo atendimento!
       </TextoDescritivo>
 
-      { show ? <BackDrop onClick={closeModalHandler}> </BackDrop> : null}
-      <BtnOpenModal onClick={() => setShow(true)} > </BtnOpenModal>
+      {show ? <BackDrop onClick={closeModalHandler}> </BackDrop> : null}
+      <BtnOpenModal onClick={() => setShow(true)}> </BtnOpenModal>
       <GlobalModalAgendarHorario show={show} close={closeModalHandler} />
 
       {/* <Icon src="./img/iconNovoFuncionario.png" alt="" /> */}

@@ -64,6 +64,7 @@ const FormLogin = () => {
   };
 
   const goToProfile = (isBarber) => {
+    console.log(isBarber);
     if (isBarber) {
       history.push("/perfil-barbearia");
     } else {
