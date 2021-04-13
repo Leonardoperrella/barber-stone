@@ -10,7 +10,7 @@ export const ContainerForm = styled(GlobalnWrapStyled)`
     border-radius: 0;
     width: 50vw;
     height: 100vh;
-    background-color: rgb(27 40 69 / 90%);
+    background-color: rgba(27, 40, 69, 0.9);
     display: flex;
     flex-direction: column;
     justify-content: center;

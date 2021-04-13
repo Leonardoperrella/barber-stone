@@ -3,7 +3,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
-import { SpanError, Input, ButtonForm, Label, DivInput, FormUpdate } from "./styles";
+import {
+  SpanError,
+  Input,
+  ButtonForm,
+  Label,
+  DivInput,
+  FormUpdate,
+  ButtonsDiv,
+} from "./styles";
 
 const FormProfileClient = () => {
   // const { login } = useProviderUser();
@@ -14,8 +22,11 @@ const FormProfileClient = () => {
   const schema = yup.object().shape({
     name: yup.string().required("campo Obrigatório!"),
     sobrenome: yup.string().required("campo Obrigatório!"),
-    email: yup.string().email('email inválido').required("campo Obrigatório!"),
-    senha: yup.string().min(6, "mínimo de 6 caracteres").required("campo obrigatório!"),
+    email: yup.string().email("email inválido").required("campo Obrigatório!"),
+    senha: yup
+      .string()
+      .min(6, "mínimo de 6 caracteres")
+      .required("campo obrigatório!"),
   });
 
   const { register, handleSubmit, errors, reset } = useForm({
@@ -23,7 +34,7 @@ const FormProfileClient = () => {
   });
 
   const onSubmit = (userData) => {
-    console.log(userData)
+    console.log(userData);
     // login(userData, setError, history, reset);
   };
 
@@ -31,32 +42,32 @@ const FormProfileClient = () => {
     <FormUpdate onSubmit={handleSubmit(onSubmit)}>
       <DivInput>
         <Label>Novo Nome</Label>
-        <Input name='name' ref={register}/>
+        <Input name="name" ref={register} />
         {!!errors && <SpanError>{errors.name?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Novo Sobrenome</Label>
-        <Input name="sobrenome" ref={register}/>
+        <Input name="sobrenome" ref={register} />
         {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Telefone</Label>
-        <Input name="sobrenome" ref={register}/>
+        <Input name="sobrenome" ref={register} />
         {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>CEP</Label>
-        <Input name="sobrenome" ref={register}/>
+        <Input name="sobrenome" ref={register} />
         {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Cidade</Label>
-        <Input name="sobrenome" ref={register}/>
+        <Input name="sobrenome" ref={register} />
         {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Estado</Label>
-        <Input name="sobrenome" ref={register}/>
+        <Input name="sobrenome" ref={register} />
         {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
       </DivInput>
       <DivInput>
@@ -64,14 +75,10 @@ const FormProfileClient = () => {
         <Input name="email" ref={register} isDesktop />
         {!!errors && <SpanError>{errors.email?.message}</SpanError>}
       </DivInput>
-      <DivInput>
+      <ButtonsDiv>
         <ButtonForm type="submit">Cancelar</ButtonForm>
-      </DivInput>
-      <DivInput>
         <ButtonForm type="submit">Salvar</ButtonForm>
-      </DivInput>
-      <DivInput>
-      </DivInput>
+      </ButtonsDiv>
       {error && <SpanError> Usuário ou senha incorretas! </SpanError>}
     </FormUpdate>
   );

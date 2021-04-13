@@ -16,7 +16,7 @@ import BackGroundImage from "../../components/BackGroundImage";
 import Background from "../../images/backgroundLogin.jpg";
 import Notification from "../../components/Notification";
 
-const BarberRegisterPage = () => {
+const Login = () => {
   return (
     <>
       <GlobalContainer>
@@ -42,4 +42,4 @@ const BarberRegisterPage = () => {
   );
 };
 
-export default BarberRegisterPage;
+export default Login;

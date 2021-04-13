@@ -1,37 +1,22 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  width:299px;
-  height:242px;
+  display: flex;
+  flex-direction: column;
   border-radius: 30px;
-  background: #BB8C4B;
-  margin-bottom:50px;
+  background-color: #bb8c4b;
+  align-items: center;
+  padding: 20px;
+  margin: 10px 0;
 
-p {
-  font-family: Bebas Neue;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 2rem;
-  line-height: 4px;
-  color: #1B2845;
-  margin-left: 53px;
-}
+  p {
+    font-size: 2rem;
+    color: #1b2845;
+    margin: 10px;
+  }
 
-img{
-  width: 60px;
-  margin-left: 130px;
-  margin-top: 10px;
-  padding: 10px 0;
-}
-
-p30{
-  font-family: Bebas Neue;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 2rem;
-  line-height: 4px;
-  color: #1B2845;
-  margin-left: 130px;
-}
+  img {
+    width: 75px;
+    margin: 10px;
+  }
 `;
-export default Card

@@ -8,6 +8,13 @@ export const Container = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 750px;
+    margin: auto;
+
+    @media screen and (min-width: 625px) {
+      flex-direction: row;
+      justify-content: space-around;
+    }
   }
 
   & h4 {
@@ -56,5 +63,9 @@ export const Card = styled.button`
 
   &:hover {
     transform: translateY(-6px);
+  }
+
+  @media screen and (min-width: 625px) {
+    margin: 0;
   }
 `;

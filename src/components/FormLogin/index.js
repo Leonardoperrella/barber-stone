@@ -65,9 +65,9 @@ const FormLogin = () => {
 
   const goToProfile = (isBarber) => {
     if (isBarber) {
-      history.push("/profile-barbershop");
+      history.push("/perfil-barbearia");
     } else {
-      history.push("/profile-client");
+      history.push("/perfil-cliente");
     }
   };
 

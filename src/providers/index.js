@@ -4,7 +4,7 @@ import { UsersProvider } from "./Users";
 const Providers = ({ children }) => {
   return (
     <UsersProvider>
-      <ScheduleProvider>{children}</ScheduleProvider>;
+      <ScheduleProvider>{children}</ScheduleProvider>
     </UsersProvider>
   );
 };

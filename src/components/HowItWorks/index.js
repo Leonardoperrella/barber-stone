@@ -1,4 +1,4 @@
-import { HowItWorksContainer, Card } from "./styles";
+import { HowItWorksContainer, Card, CardDiv } from "./styles";
 
 const HowItWorks = () => {
   const steps = [
@@ -24,14 +24,16 @@ const HowItWorks = () => {
       <HowItWorksContainer>
         <h1>Como funciona</h1>
 
-        {steps.map((currentStep, index) => (
-          <>
-            <Card key={index} style={{ backgroundColor: currentStep.color }}>
-              {currentStep.step}
-            </Card>
-            <h4>{currentStep.text}</h4>
-          </>
-        ))}
+        <CardDiv>
+          {steps.map((currentStep, index) => (
+            <div>
+              <Card key={index} style={{ backgroundColor: currentStep.color }}>
+                {currentStep.step}
+              </Card>
+              <h4>{currentStep.text}</h4>
+            </div>
+          ))}
+        </CardDiv>
 
         <p>*conforme disponibilidade do estabelecimento</p>
       </HowItWorksContainer>
