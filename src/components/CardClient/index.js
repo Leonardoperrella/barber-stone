@@ -1,13 +1,11 @@
 import { Card } from "./styles";
 import { useUsers } from "../../providers/Users";
 
-const CardClient = ({ userId, dataHora }) => {
+const CardClient = ({ userId, dateTime }) => {
   const { users } = useUsers();
-  const dateTime = new Date(dataHora).toLocaleString();
-  const data = dateTime.split(" ")[0];
-  const time = dateTime.split(" ")[1];
-
-  console.log(users);
+  const dateTimeUser = new Date(dateTime).toLocaleString();
+  const data = dateTimeUser.split(" ")[0];
+  const time = dateTimeUser.split(" ")[1];
 
   return (
     <Card>

@@ -67,35 +67,39 @@ const BarberPerfilPage = () => {
       <Icon src="./img/iconNovoFuncionario.png" alt="" />
       <IconePequeno src={calendar} />
       <TextoDescritivo>Seus clientes agendados</TextoDescritivo>
-      <Container>
-        <Carousel
-          additionalTransfrom={0}
-          arrows={false}
-          autoPlay
-          autoPlaySpeed={3000}
-          centerMode={false}
-          className=""
-          containerClass="container"
-          dotListClass=""
-          draggable
-          responsive={responsive}
-          focusOnSelect={false}
-          infinite
-          itemClass=""
-          keyBoardControl
-          minimumTouchDrag={80}
-          renderButtonGroupOutside={false}
-          renderDotsOutside={false}
-          sliderClass=""
-          slidesToSlide={1}
-          swipeable
-          arrows
-        >
-          {schedule.map(({ userId, dataHora }, index) => (
-            <CardClient key={index} userId={userId} dataHora={dataHora} />
-          ))}
-        </Carousel>
-      </Container>
+      {schedule.length > 0 ? (
+        <Container>
+          <Carousel
+            additionalTransfrom={0}
+            arrows={false}
+            autoPlay
+            autoPlaySpeed={3000}
+            centerMode={false}
+            className=""
+            containerClass="container"
+            dotListClass=""
+            draggable
+            responsive={responsive}
+            focusOnSelect={false}
+            infinite
+            itemClass=""
+            keyBoardControl
+            minimumTouchDrag={80}
+            renderButtonGroupOutside={false}
+            renderDotsOutside={false}
+            sliderClass=""
+            slidesToSlide={1}
+            swipeable
+            arrows
+          >
+            {schedule.map(({ userId, dateTime }, index) => (
+              <CardClient key={index} userId={userId} dataTime={dateTime} />
+            ))}
+          </Carousel>
+        </Container>
+      ) : (
+        <TextoDescritivo>Você não tem nenhum cliente agendado</TextoDescritivo>
+      )}
       <IconePequeno src={clock} />
       <TextoDescritivo>Atualizar Dados</TextoDescritivo>
       <FormProfileBarberShop />
