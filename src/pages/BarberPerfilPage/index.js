@@ -99,10 +99,7 @@ const BarberPerfilPage = () => {
       <IconePequeno src={clock} />
       <TextoDescritivo>Atualizar Dados</TextoDescritivo>
       <FormProfileBarberShop />
-      <Logo src="./img/imgLogo.png" alt="logo" />
-      <Descricao>
-        Desenvolvido por <span style={{ color: "#BB8C4B" }}>squad 2</span>
-      </Descricao>
+      <Footer />
     </BodyPage>
   );
 };
