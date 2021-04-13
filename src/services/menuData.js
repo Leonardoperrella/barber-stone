@@ -1,10 +1,10 @@
 export const menuLinkHome = [
   {
-    href: "/",
+    href: "#sobre",
     content: "sobre",
   },
   {
-    href: "/",
+    href: "#serviços",
     content: "serviços",
   },
   {
@@ -12,11 +12,11 @@ export const menuLinkHome = [
     content: "como funciona",
   },
   {
-    href: "#register",
+    href: "#cadastrar",
     content: "cadastrar",
   },
   {
-    href: "/",
+    href: "#entrar",
     content: "entrar",
   },
 ];
@@ -49,11 +49,11 @@ export const menuLinkPerfilClient = [
 
 export const menuLinkPerfilBarber = [
   {
-    href: "/",
+    href: "/barbearias",
     content: "barbearias",
   },
   {
-    href: "/profile-barber",
+    href: "/perfil-barbearia",
     content: "perfil",
   },
 ];

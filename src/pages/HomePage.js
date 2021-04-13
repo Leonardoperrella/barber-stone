@@ -13,10 +13,10 @@ const HomePage = () => {
     <>
       <Menu menuLink={menuLinkHome} />
       <Cover></Cover>
-      <About />
-      <ServicesProvided />
-      <HowItWorks />
-      <RegisterSectionHomepage id="register" />
+      <About id="sobre" />
+      <ServicesProvided id="serviços" />
+      <HowItWorks id="#como-funciona" />
+      <RegisterSectionHomepage id="cadastrar" />
       <Footer />
     </>
   );
