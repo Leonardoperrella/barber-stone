@@ -106,6 +106,15 @@ export const TextoFidelidade = styled.p`
   }
 `;
 
+export const TextoDescritivo = styled.p`
+  font-size: 2rem;
+  margin: 10px;
+  text-align: center;
+  max-width: 525px;
+
+  color: ${({ erro }) => erro && "#D2C65B"};
+`;
+
 export const Descricao = styled.p`
   width: 90vw;
   text-align: center;

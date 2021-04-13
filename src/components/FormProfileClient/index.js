@@ -2,7 +2,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import api from "../../services/api";
 import {
   SpanError,
   Input,
@@ -18,15 +19,18 @@ const FormProfileClient = () => {
 
   const [error, setError] = useState(false);
   const history = useHistory();
+  const [user, setuser] = useState([]);
+  const userId = JSON.parse(localStorage.getItem("userId"));
+  const token = JSON.parse(localStorage.getItem("token"));
 
   const schema = yup.object().shape({
     name: yup.string().required("campo Obrigatório!"),
-    sobrenome: yup.string().required("campo Obrigatório!"),
-    email: yup.string().email("email inválido").required("campo Obrigatório!"),
-    senha: yup
-      .string()
-      .min(6, "mínimo de 6 caracteres")
-      .required("campo obrigatório!"),
+    lastName: yup.string().required("campo Obrigatório!"),
+    address: yup.string().required("campo Obrigatório!"),
+    phone: yup.string().required("campo Obrigatório!"),
+    zipCode: yup.string().required("campo Obrigatório!"),
+    city: yup.string().required("campo Obrigatório!"),
+    state: yup.string().required("campo Obrigatório!"),
   });
 
   const { register, handleSubmit, errors, reset } = useForm({
@@ -35,48 +39,82 @@ const FormProfileClient = () => {
 
   const onSubmit = (userData) => {
     console.log(userData);
-    // login(userData, setError, history, reset);
+
+    api
+      .patch(`/users/${userId}`, userData, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
   };
+
+  const getUser = () => {
+    api
+      .get(`/users/${userId}`)
+      .then((response) => {
+        setuser(response.data);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
+  };
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
     <FormUpdate onSubmit={handleSubmit(onSubmit)}>
       <DivInput>
         <Label>Novo Nome</Label>
-        <Input name="name" ref={register} />
+        <Input name="name" ref={register} defaultValue={user.name} />
         {!!errors && <SpanError>{errors.name?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Novo Sobrenome</Label>
-        <Input name="sobrenome" ref={register} />
-        {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
+        <Input name="lastName" ref={register} defaultValue={user.lastName} />
+        {!!errors && <SpanError>{errors.lastName?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Telefone</Label>
-        <Input name="sobrenome" ref={register} />
-        {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
+        <Input name="phone" ref={register} defaultValue={user.phone} />
+        {!!errors && <SpanError>{errors.phone?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>CEP</Label>
-        <Input name="sobrenome" ref={register} />
-        {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
+        <Input name="zipCode" ref={register} defaultValue={user.zipCode} />
+        {!!errors && <SpanError>{errors.zipCode?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Cidade</Label>
-        <Input name="sobrenome" ref={register} />
-        {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
+        <Input name="city" ref={register} defaultValue={user.city} />
+        {!!errors && <SpanError>{errors.city?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Estado</Label>
-        <Input name="sobrenome" ref={register} />
-        {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
+        <Input name="state" ref={register} defaultValue={user.state} />
+        {!!errors && <SpanError>{errors.state?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Endereço</Label>
-        <Input name="email" ref={register} isDesktop />
-        {!!errors && <SpanError>{errors.email?.message}</SpanError>}
+        <Input
+          name="address"
+          ref={register}
+          isDesktop
+          defaultValue={user.address}
+        />
+        {!!errors && <SpanError>{errors.address?.message}</SpanError>}
       </DivInput>
       <ButtonsDiv>
-        <ButtonForm type="submit">Cancelar</ButtonForm>
+        <ButtonForm onClick={refreshPage}>Cancelar</ButtonForm>
         <ButtonForm type="submit">Salvar</ButtonForm>
       </ButtonsDiv>
       {error && <SpanError> Usuário ou senha incorretas! </SpanError>}
