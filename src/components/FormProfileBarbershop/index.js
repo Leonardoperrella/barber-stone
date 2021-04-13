@@ -82,7 +82,9 @@ const FormProfileBarberShop = () => {
       .get(`/users/${userId}`)
       .then((response) => {
         setuser(response.data);
-        setLeisureOptions(response.data.leisureOptions);
+        if (response.data.leisureOptions > 0) {
+          setLeisureOptions(response.data.leisureOptions);
+        }
       })
       .catch((e) => {
         console.log(e.response);

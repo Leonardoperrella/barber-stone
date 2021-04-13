@@ -98,7 +98,9 @@ const BarberPerfilPage = () => {
           </Carousel>
         </Container>
       ) : (
-        <TextoDescritivo>Você não tem nenhum cliente agendado</TextoDescritivo>
+        <TextoDescritivo erro>
+          Você ainda não tem nenhum cliente agendado
+        </TextoDescritivo>
       )}
       <IconePequeno src={clock} />
       <TextoDescritivo>Atualizar Dados</TextoDescritivo>
