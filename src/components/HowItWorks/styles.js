@@ -40,3 +40,14 @@ export const Card = styled.div`
   font-size: 2.5rem;
   margin: 25px auto;
 `;
+
+export const CardDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  margin: auto;
+
+  @media screen and (min-width: 625px) {
+    flex-direction: row;
+  }
+`;

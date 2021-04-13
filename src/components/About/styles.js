@@ -14,8 +14,9 @@ export const AboutContainer = styled.section`
     font-family: "Josefin Sans", sans-serif;
     font-size: 1.25rem;
     text-align: justify;
-    margin: 5px 30px 0;
+    margin: 5px auto 0;
     padding-top: 15px;
     line-height: 25px;
+    max-width: 725px;
   }
 `;
