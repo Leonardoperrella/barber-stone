@@ -23,19 +23,15 @@ const Routes = () => {
           isPrivate
         />
         <Route path="/register-client" component={ClientRegisterPage} />
-        <Route path="/profile-client" component={ClientPerfilPage} isPrivate />
-        <Route
-          path="/profile-barbershop"
-          component={BarberPerfilPage}
-          isPrivate
-        />
+        <Route path="/profile-client" component={ClientPerfilPage} />
+        <Route path="/profile-barbershop" component={BarberPerfilPage} />
         <Route
           path="/description-barbershop"
           component={BarberPerfilPage}
           isPrivate
         />
         <Route path="/barbershops" component={Barbershop} isPrivate />
-        <Route path="/barber-page" component={BarberPage} isPrivate />
+        <Route path="/barber-page" component={BarberPage} />
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>

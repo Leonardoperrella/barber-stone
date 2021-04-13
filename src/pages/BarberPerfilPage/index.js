@@ -54,12 +54,6 @@ const BarberPerfilPage = () => {
     getUsers();
   }, []);
 
-  const qtd = 4
-
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 900 ? true : false)
-
-  window.onresize = () => window.innerWidth > 911 ? setIsDesktop(true) : setIsDesktop(false)
-
   return (
     <BodyPage>
       <Menu menuLink={menuLinkPerfilBarber} />

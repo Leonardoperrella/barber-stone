@@ -99,7 +99,6 @@ export const ImgCheck = styled.img`
 export const FormControl = styled(FormControlLabel)``;
 export const DivCheck = styled.div`
   max-width: 250px;
-  width: 90vw;
   display: flex;
   justify-content: center;
   align-items: left;
@@ -127,9 +126,9 @@ export const ButtonsDiv = styled.div`
 `;
 
 export const CheckboxContainer = styled.div`
-  width: 100vw;
   max-width: 696px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   padding: 10px;
