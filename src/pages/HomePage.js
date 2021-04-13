@@ -15,7 +15,7 @@ const HomePage = () => {
       <Cover></Cover>
       <About id="sobre" />
       <ServicesProvided id="serviços" />
-      <HowItWorks id="#como-funciona" />
+      <HowItWorks id="como-funciona" />
       <RegisterSectionHomepage id="cadastrar" />
       <Footer />
     </>

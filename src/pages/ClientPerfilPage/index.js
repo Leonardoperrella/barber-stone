@@ -14,13 +14,16 @@ import {
   Logo,
   responsive,
   Container,
+  TextoDescritivo,
 } from "./styles";
 import FormProfileClient from "../../components/FormProfileClient";
 import CardAgendamentos from "../../components/CardAgendamentos";
 import { menuLinkPerfilClient } from "../../services/menuData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useSchedule } from "../../providers/Schedule";
+import { useUsers } from "../../providers/Users";
 
 // temporário
 import perfil from "../../images/perfilClient.jpg";
@@ -30,8 +33,10 @@ import calendar from "../../images/calendar.svg";
 import clock from "../../images/clock.svg";
 
 const ClientPerfilPage = () => {
+  const { schedule, getSchedule } = useSchedule();
+  const { getUsers } = useUsers();
   const qtd = 4;
-
+  const userId = JSON.parse(localStorage.getItem("userId"));
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth > 900 ? true : false
   );
@@ -46,6 +51,11 @@ const ClientPerfilPage = () => {
     }
     return array;
   };
+
+  useEffect(() => {
+    getSchedule(`/scheduling/?userId=${userId}`);
+    getUsers();
+  }, []);
 
   return (
     <BodyPage>
@@ -70,36 +80,46 @@ const ClientPerfilPage = () => {
       </BoxFidelidade>
       <Estrelinha src={calendar} />
       <TextoFidelidade>Seus agendamentos</TextoFidelidade>
-      <Container>
-        <Carousel
-          additionalTransfrom={0}
-          arrows={false}
-          autoPlay
-          autoPlaySpeed={3000}
-          centerMode={false}
-          className=""
-          containerClass="container"
-          dotListClass=""
-          draggable
-          responsive={responsive}
-          focusOnSelect={false}
-          infinite
-          itemClass=""
-          keyBoardControl
-          minimumTouchDrag={80}
-          renderButtonGroupOutside={false}
-          renderDotsOutside={false}
-          sliderClass=""
-          slidesToSlide={1}
-          swipeable
-          arrows
-        >
-          <CardAgendamentos />
-          <CardAgendamentos />
-          <CardAgendamentos />
-          <CardAgendamentos />
-        </Carousel>
-      </Container>
+      {schedule.length > 0 ? (
+        <Container>
+          <Carousel
+            additionalTransfrom={0}
+            arrows={false}
+            autoPlay
+            autoPlaySpeed={3000}
+            centerMode={false}
+            className=""
+            containerClass="container"
+            dotListClass=""
+            draggable
+            responsive={responsive}
+            focusOnSelect={false}
+            infinite
+            itemClass=""
+            keyBoardControl
+            minimumTouchDrag={80}
+            renderButtonGroupOutside={false}
+            renderDotsOutside={false}
+            sliderClass=""
+            slidesToSlide={1}
+            swipeable
+            arrows
+          >
+            {schedule.map(({ userId, dateTime, price }, index) => (
+              <CardAgendamentos
+                key={index}
+                price={price}
+                userId={userId}
+                dateTime={dateTime}
+              />
+            ))}
+          </Carousel>
+        </Container>
+      ) : (
+        <TextoDescritivo erro>
+          Você ainda não possui agendamentos
+        </TextoDescritivo>
+      )}
       <Estrelinha src={clock} />
       <TextoFidelidade>Atualizar Dados</TextoFidelidade>
       <FormProfileClient />

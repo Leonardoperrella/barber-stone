@@ -3,6 +3,7 @@ import { useUsers } from "../../providers/Users";
 
 const CardClient = ({ userId, dateTime }) => {
   const { users } = useUsers();
+  console.log(dateTime);
   const dateTimeUser = new Date(dateTime).toLocaleString();
   const data = dateTimeUser.split(" ")[0];
   const time = dateTimeUser.split(" ")[1];

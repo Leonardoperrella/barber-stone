@@ -93,13 +93,13 @@ const BarberPerfilPage = () => {
             arrows
           >
             {schedule.map(({ userId, dateTime }, index) => (
-              <CardClient key={index} userId={userId} dataTime={dateTime} />
+              <CardClient key={index} userId={userId} dateTime={dateTime} />
             ))}
           </Carousel>
         </Container>
       ) : (
         <TextoDescritivo erro>
-          Você ainda não tem nenhum cliente agendado
+          Você ainda não possui nenhum cliente agendado
         </TextoDescritivo>
       )}
       <IconePequeno src={clock} />

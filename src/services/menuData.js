@@ -8,7 +8,7 @@ export const menuLinkHome = [
     content: "serviços",
   },
   {
-    href: "/",
+    href: "#como-funciona",
     content: "como funciona",
   },
   {
@@ -39,6 +39,10 @@ export const menuLinkPerfil = [
 export const menuLinkPerfilClient = [
   {
     href: "/",
+    content: "home",
+  },
+  {
+    href: "/barbearias",
     content: "barbearias",
   },
   {
@@ -48,6 +52,10 @@ export const menuLinkPerfilClient = [
 ];
 
 export const menuLinkPerfilBarber = [
+  {
+    href: "/",
+    content: "home",
+  },
   {
     href: "/barbearias",
     content: "barbearias",
