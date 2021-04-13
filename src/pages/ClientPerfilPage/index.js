@@ -1,4 +1,5 @@
 import Menu from "../../components/Menu";
+import Footer from "../../components/Footer";
 import {
   BodyPage,
   BgPerfil,
@@ -21,6 +22,13 @@ import { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
+// temporário
+import perfil from "../../images/perfilClient.jpg";
+import scissors from "../../images/ScissorsGold.svg";
+import star from "../../images/star.svg";
+import calendar from "../../images/calendar.svg";
+import clock from "../../images/clock.svg";
+
 const ClientPerfilPage = () => {
   const qtd = 4;
 
@@ -42,32 +50,25 @@ const ClientPerfilPage = () => {
   return (
     <BodyPage>
       <Menu menuLink={menuLinkPerfilClient} />
-      <BgPerfil
-        src={
-          isDesktop
-            ? "./img/imgBgProfileClientDesktop.png"
-            : "./img/imagePerfilClient.png"
-        }
-        alt="background perfil"
-      />
-      <ImgPerfil src="./img/imageClient.png" alt="imagem de perfil" />
+      <BgPerfil />
+      <ImgPerfil src={perfil} />
       <Nome>Filipe</Nome>
-      <Estrelinha src="./img/imgEstrela.png" alt="background perfil" />
+      <Estrelinha src={star} />
       <TextoFidelidade>Vale fidelidade</TextoFidelidade>
       <Descricao>
         a cada dez agendamentos ganhe um de graça nas barbearias participantes
       </Descricao>
       <BoxFidelidade>
         {isDesktop ? (
-          buildArray().map((e) => <Tesoura src="./img/imgTesoura.png" />)
+          buildArray().map((e) => <Tesoura src={scissors} />)
         ) : (
           <>
             <ContFidelidade>{qtd}x</ContFidelidade>
-            <Tesoura src="./img/imgTesoura.png" />
+            <Tesoura src={scissors} />
           </>
         )}
       </BoxFidelidade>
-      <Estrelinha src="./img/imgAgendamentos.png" />
+      <Estrelinha src={calendar} />
       <TextoFidelidade>Seus agendamentos</TextoFidelidade>
       <Container>
         <Carousel
@@ -99,13 +100,10 @@ const ClientPerfilPage = () => {
           <CardAgendamentos />
         </Carousel>
       </Container>
-      <Estrelinha src="./img/imgAtualizar.png" />
+      <Estrelinha src={clock} />
       <TextoFidelidade>Atualizar Dados</TextoFidelidade>
       <FormProfileClient />
-      <Logo src="./img/imgLogo.png" />
-      <Descricao>
-        Desenvolvido por <span style={{ color: "#BB8C4B" }}>squad 2</span>
-      </Descricao>
+      <Footer />
     </BodyPage>
   );
 };
