@@ -19,18 +19,11 @@ const Routes = () => {
         <Route path="/home" component={HomePage} />
         <Route path="/cadastro-barbearia" component={BarberRegisterPage} />
         <Route path="/cadastro-cliente" component={ClientRegisterPage} />
-        <Route path="/perfil-cliente" component={ClientPerfilPage} isPrivate />
+        <Route path="/perfil-cliente" component={ClientPerfilPage} />
         <Route path="/perfil-barbearia" component={BarberPerfilPage} />
-        
-                  <Route path="/descricao-barbearia" component={BarberPerfilPage}/>   
-                
-                  <Route path="/detalhes-barbearia" component={BarberPage} />
-
-        
-        <Route path="/barbearias" component={Barbershop} isPrivate />
-        
-        
-        
+        <Route path="/descricao-barbearia" component={BarberPerfilPage} />
+        <Route path="/detalhes-barbearia" component={BarberPage} />
+        <Route path="/barbearias" component={Barbershop} />
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>
