@@ -42,7 +42,7 @@ const BarberPerfilPage = () => {
   const closeModalHandler = () => setShow(false);
 
   const { schedule, getSchedule } = useSchedule();
-  const { getUsers } = useUsers();
+  const { users, getUsers } = useUsers();
 
   const userId = JSON.parse(localStorage.getItem("userId"));
 
@@ -51,6 +51,12 @@ const BarberPerfilPage = () => {
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth > 900 ? true : false
   );
+
+  const baseDate = new Date().toLocaleString().split(" ")[0].split("/");
+  const baseDateYear = Number(baseDate[2]);
+  const baseDateMonth = Number(baseDate[1]) - 1;
+  const baseDateDay = Number(baseDate[0]);
+  const today = new Date(baseDateYear, baseDateMonth, baseDateDay);
 
   window.onresize = () =>
     window.innerWidth > 911 ? setIsDesktop(true) : setIsDesktop(false);
@@ -65,7 +71,7 @@ const BarberPerfilPage = () => {
 
   useEffect(() => {
     getSchedule(`/scheduling/?barbeariaId=${userId}`);
-    getUsers();
+    // getUsers();
   }, []);
 
   return (
@@ -73,7 +79,7 @@ const BarberPerfilPage = () => {
       <Menu menuLink={menuLinkPerfilBarber} />
       <BgPerfil />
       <ImgPerfil src={perfil} />
-      <Nome>Barbearia do seu Zé</Nome>
+      <Nome>Joao</Nome>
       <TextoDescritivo>
         Aqui você encontra o melhor serviço da região para cabelo e barba, além
         de ótimo atendimento!
@@ -112,9 +118,11 @@ const BarberPerfilPage = () => {
             swipeable
             arrows
           >
-            {schedule.map(({ userId, dateTime }, index) => (
-              <CardClient key={index} userId={userId} dateTime={dateTime} />
-            ))}
+            {schedule
+              .filter((obj) => new Date(obj.dateTime) >= today)
+              .map(({ userId, dateTime }, index) => (
+                <CardClient key={index} userId={userId} dateTime={dateTime} />
+              ))}
           </Carousel>
         </Container>
       ) : (

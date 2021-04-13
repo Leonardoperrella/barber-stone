@@ -34,12 +34,18 @@ import clock from "../../images/clock.svg";
 
 const ClientPerfilPage = () => {
   const { schedule, getSchedule } = useSchedule();
-  const { getUsers } = useUsers();
+  const { users, getUsers } = useUsers();
   const qtd = 4;
   const userId = JSON.parse(localStorage.getItem("userId"));
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth > 900 ? true : false
   );
+
+  const baseDate = new Date().toLocaleString().split(" ")[0].split("/");
+  const baseDateYear = Number(baseDate[2]);
+  const baseDateMonth = Number(baseDate[1]) - 1;
+  const baseDateDay = Number(baseDate[0]);
+  const today = new Date(baseDateYear, baseDateMonth, baseDateDay);
 
   window.onresize = () =>
     window.innerWidth > 900 ? setIsDesktop(true) : setIsDesktop(false);
@@ -54,7 +60,7 @@ const ClientPerfilPage = () => {
 
   useEffect(() => {
     getSchedule(`/scheduling/?userId=${userId}`);
-    getUsers();
+    // getUsers();
   }, []);
 
   return (
@@ -62,7 +68,7 @@ const ClientPerfilPage = () => {
       <Menu menuLink={menuLinkPerfilClient} />
       <BgPerfil />
       <ImgPerfil src={perfil} />
-      <Nome>Filipe</Nome>
+      <Nome>Leo</Nome>
       <Estrelinha src={star} />
       <TextoFidelidade>Vale fidelidade</TextoFidelidade>
       <Descricao>
@@ -105,14 +111,16 @@ const ClientPerfilPage = () => {
             swipeable
             arrows
           >
-            {schedule.map(({ userId, dateTime, price }, index) => (
-              <CardAgendamentos
-                key={index}
-                price={price}
-                userId={userId}
-                dateTime={dateTime}
-              />
-            ))}
+            {schedule
+              .filter((obj) => new Date(obj.dateTime) >= today)
+              .map(({ userId, dateTime, price }, index) => (
+                <CardAgendamentos
+                  key={index}
+                  price={price}
+                  userId={userId}
+                  dateTime={dateTime}
+                />
+              ))}
           </Carousel>
         </Container>
       ) : (

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import api from "../../services/api";
 
 const UsersContext = createContext();
@@ -20,6 +20,10 @@ export const UsersProvider = ({ children }) => {
         console.log(e.response);
       });
   };
+
+  useEffect(() => {
+    getUsers();
+  }, [users]);
 
   return (
     <UsersContext.Provider value={{ users, setUsers, getUsers }}>
