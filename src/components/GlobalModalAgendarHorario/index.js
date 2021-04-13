@@ -3,7 +3,7 @@ import { ModalWrapper, ModalHeader, ModalHeaderSpan, ModalContent, ModalBody, Mo
 import FormNovoFuncionario from '../FormNovoFuncionario'
 
 
-const GlobalModal = ({ show, close }) => {
+const GlobalModalAgendarHorario = ({ show, close }) => {
   return (
 
     <ModalWrapper
@@ -14,14 +14,13 @@ const GlobalModal = ({ show, close }) => {
     >
       <ModalHeader>
 
-        Cadastrar novo funcionário
-
         <ModalHeaderSpan onClick={close}> x </ModalHeaderSpan>
 
       </ModalHeader>
 
       <ModalContent>
 
+        <p> Cadastrar novo funcionário</p>
         <p> Barbearia do seu zé </p>
 
         <FormNovoFuncionario />
@@ -32,4 +31,4 @@ const GlobalModal = ({ show, close }) => {
   )
 };
 
-export default GlobalModal
+export default GlobalModalAgendarHorario

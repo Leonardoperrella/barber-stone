@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import NovoFuncionario from "../../images/NovoFuncionario.svg"
+import AgendarHorario from "../../images/AgendarHorario.svg"
 
 export const BtnOpenModal = styled.button`
     
@@ -13,7 +13,7 @@ export const BtnOpenModal = styled.button`
     border: none;
     outline: none;
     cursor: pointer;
-    background-image: url(${NovoFuncionario});
+    background-image: url(${AgendarHorario});
     background-position: center;
     border-radius: 17px;
 `
