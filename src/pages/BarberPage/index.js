@@ -1,5 +1,5 @@
 import Menu from "../../components/Menu";
-import { menuLinkPerfilBarber } from "../../services/menuData";
+import { menuLinkPerfil } from "../../services/menuData";
 import {
   BodyPage,
   BgPerfil,
@@ -61,7 +61,7 @@ const BarberPage = () => {
 
   return (
     <BodyPage>
-      <Menu menuLink={menuLinkPerfilBarber} />
+      <Menu menuLink={menuLinkPerfil} />
       <BgPerfil />
       <ImgPerfil src={perfil} />
       <Nome>{barberUser.state.name}</Nome>

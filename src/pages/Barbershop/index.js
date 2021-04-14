@@ -12,7 +12,6 @@ import "react-multi-carousel/lib/styles.css";
 import { useEffect } from "react";
 
 const Barbershop = () => {
-  
   const { barberUsers, getUsers } = useUsers();
 
   const responsive = {
@@ -33,7 +32,6 @@ const Barbershop = () => {
     },
   };
 
-  
   useEffect(() => {
     getUsers();
   }, [barberUsers]);
@@ -67,9 +65,15 @@ const Barbershop = () => {
           swipeable
           arrows
         >
-          {!!barberUsers && barberUsers.map(e=>(
-            <CardBarber name={e.name} rating={e.rating} scissors={e.scissors} id={e.id} />
-          ))}
+          {!!barberUsers &&
+            barberUsers.map((e) => (
+              <CardBarber
+                name={e.name}
+                rating={e.rating}
+                scissors={e.scissors}
+                id={e.id}
+              />
+            ))}
         </Carousel>
       </SectionCard>
       <Footer />
