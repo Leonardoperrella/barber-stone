@@ -8,21 +8,11 @@ import {
   ImgPerfil,
   Nome,
   TextoDescritivo,
-  Icon,
   IconePequeno,
-  Logo,
-  Descricao,
   Container,
   responsive,
   BtnOpenModal,
   BackDrop,
-  ModalWrapper,
-  ModalHeader,
-  ModalHeaderSpan,
-  ModalContent,
-  ModalBody,
-  ModalBodyP,
-  ModalBodyH4,
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import FormProfileBarberShop from "../../components/FormProfileBarbershop";
@@ -54,12 +44,6 @@ const BarberPerfilPage = () => {
     window.innerWidth > 900 ? true : false
   );
 
-  const baseDate = new Date().toLocaleString().split(" ")[0].split("/");
-  const baseDateYear = Number(baseDate[2]);
-  const baseDateMonth = Number(baseDate[1]) - 1;
-  const baseDateDay = Number(baseDate[0]);
-  const today = new Date(baseDateYear, baseDateMonth, baseDateDay);
-
   window.onresize = () =>
     window.innerWidth > 911 ? setIsDesktop(true) : setIsDesktop(false);
 
@@ -72,7 +56,10 @@ const BarberPerfilPage = () => {
   };
 
   useEffect(() => {
-    getSchedule(`/scheduling/?barbeariaId=${userId}`);
+    getSchedule(`/scheduling/?barberId=${userId}`);
+  }, [schedule]);
+
+  useEffect(() => {
     getUser(userId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -83,10 +70,7 @@ const BarberPerfilPage = () => {
       <BgPerfil />
       <ImgPerfil src={perfil} />
       <Nome>{user && user.name}</Nome>
-      <TextoDescritivo>
-        Aqui você encontra o melhor serviço da região para cabelo e barba, além
-        de ótimo atendimento!
-      </TextoDescritivo>
+      <TextoDescritivo>{user && user.description}</TextoDescritivo>
 
       {show ? <BackDrop onClick={closeModalHandler}> </BackDrop> : null}
       <BtnOpenModal onClick={() => setShow(true)}> </BtnOpenModal>
@@ -121,16 +105,14 @@ const BarberPerfilPage = () => {
             swipeable
             arrows
           >
-            {schedule
-              .filter((obj) => new Date(obj.dateTime) >= today)
-              .map(({ userId, dateTime, id }, index) => (
-                <CardClient
-                  key={index}
-                  userId={userId}
-                  dateTime={dateTime}
-                  id={id}
-                />
-              ))}
+            {schedule.map(({ userId, dateTime, id }, index) => (
+              <CardClient
+                key={index}
+                userId={userId}
+                dateTime={dateTime}
+                id={id}
+              />
+            ))}
           </Carousel>
         </Container>
       ) : (

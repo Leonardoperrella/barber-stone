@@ -7,7 +7,7 @@ import Tesoura from "../../images/ScissorsGold.svg";
 import api from "../../services/api";
 import { notifyDeleted } from "../../services/notifyData";
 
-const CardAgendamentos = ({ userId, dateTime, price, id }) => {
+const CardAgendamentos = ({ barberId, dateTime, price, id }) => {
   const { users, getUsers } = useUsers();
   const token = JSON.parse(localStorage.getItem("token"));
   const [flip, setFlip] = useState(false);
@@ -36,7 +36,7 @@ const CardAgendamentos = ({ userId, dateTime, price, id }) => {
         <div>
           <img src={Tesoura} alt="tesoura dourada" />
         </div>
-        <p>{!!users && `${users[userId][0]}`}</p>
+        <p>{!!users && `${users[barberId][0]}`}</p>
         <p>{`${data} - ${time}`}</p>
         <p>R$ {price}</p>
       </Card>

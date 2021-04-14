@@ -45,6 +45,12 @@ const ClientPerfilPage = () => {
   window.onresize = () =>
     window.innerWidth > 900 ? setIsDesktop(true) : setIsDesktop(false);
 
+  const baseDate = new Date().toLocaleString().split(" ")[0].split("/");
+  const baseDateYear = Number(baseDate[2]);
+  const baseDateMonth = Number(baseDate[1]) - 1;
+  const baseDateDay = Number(baseDate[0]);
+  const today = new Date(baseDateYear, baseDateMonth, baseDateDay);
+
   useEffect(() => {
     getSchedule(`/scheduling/?userId=${userId}`);
   }, [schedule]);
@@ -64,18 +70,24 @@ const ClientPerfilPage = () => {
       <Descricao>
         a cada dez serviços ganhe um de graça nas barbearias participantes
       </Descricao>
-      <BoxFidelidade>
-        {isDesktop && user && user.scissors < 5 ? (
-          Array(user && user.scissors)
-            .fill(0)
-            .map((item, index) => <Tesoura key={index} src={scissors} />)
-        ) : (
-          <>
-            <ContFidelidade>{user && user.scissors}x</ContFidelidade>
-            <Tesoura src={scissors} />
-          </>
-        )}
-      </BoxFidelidade>
+      {user && user.scissors > 0 ? (
+        <BoxFidelidade>
+          {isDesktop && user && user.scissors < 5 ? (
+            Array(user && user.scissors)
+              .fill(0)
+              .map((item, index) => <Tesoura key={index} src={scissors} />)
+          ) : (
+            <>
+              <ContFidelidade>{user && user.scissors}x</ContFidelidade>
+              <Tesoura src={scissors} />
+            </>
+          )}
+        </BoxFidelidade>
+      ) : (
+        <TextoDescritivo erro>
+          Você ainda não possui serviços concluídos
+        </TextoDescritivo>
+      )}
       <Estrelinha src={calendar} />
       <TextoFidelidade>Seus agendamentos</TextoFidelidade>
       {schedule.length > 0 ? (
@@ -103,15 +115,17 @@ const ClientPerfilPage = () => {
             swipeable
             arrows
           >
-            {schedule.map(({ userId, dateTime, price, id }, index) => (
-              <CardAgendamentos
-                key={index}
-                price={price}
-                userId={userId}
-                dateTime={dateTime}
-                id={id}
-              />
-            ))}
+            {schedule
+              .filter((obj) => new Date(obj.dateTime) >= today)
+              .map(({ barberId, dateTime, price, id }, index) => (
+                <CardAgendamentos
+                  key={index}
+                  price={price}
+                  barberId={barberId}
+                  dateTime={dateTime}
+                  id={id}
+                />
+              ))}
           </Carousel>
         </Container>
       ) : (
