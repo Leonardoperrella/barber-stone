@@ -5,6 +5,7 @@ const UsersContext = createContext();
 
 export const UsersProvider = ({ children }) => {
   const [users, setUsers] = useState();
+  const [barberUsers, setBarberUsers] = useState();
 
   const getUsers = () => {
     api
@@ -14,6 +15,7 @@ export const UsersProvider = ({ children }) => {
         response.data.forEach((obj) => {
           object[obj.id] = [obj.name, obj.lastName];
         });
+        setBarberUsers(response.data.filter(e=>e.isBarber));
         setUsers(object);
       })
       .catch((e) => {
@@ -22,7 +24,7 @@ export const UsersProvider = ({ children }) => {
   };
 
   return (
-    <UsersContext.Provider value={{ users, setUsers, getUsers }}>
+    <UsersContext.Provider value={{ users, setUsers, getUsers, barberUsers, setBarberUsers }}>
       {children}
     </UsersContext.Provider>
   );

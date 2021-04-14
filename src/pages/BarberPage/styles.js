@@ -25,6 +25,8 @@ export const BodyPage = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   align-items: center;
+  justify-content: center;
+  text-align:center;
 `;
 
 export const BgPerfil = styled.div`
