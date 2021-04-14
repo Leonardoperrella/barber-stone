@@ -7,18 +7,3 @@ export const ErrorMsgDiv = styled.div`
   background-position: center;
   background-size: contain;
 `;
-
-export const ButtonWrap = styled.button`
-  padding: 0px;
-  outline: none;
-  border: 0;
-  background-color: transparent;
-  margin: 0 auto;
-  position: relative;
-  margin-top: 20px;
-  cursor: pointer;
-`;
-
-export const ElemP = styled.p`
-  font-size: 18px;
-`;

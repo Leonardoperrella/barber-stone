@@ -8,7 +8,7 @@ import {
   H1Login,
   H1Title,
 } from "./styles";
-import LinkToHome from "../../components/LinkToHome";
+import LinkGoTo from "../../components/LinkGoTo";
 import FormLogin from "../../components/FormLogin";
 import FooterForm from "../../components/FooterForm";
 import FooterPage from "../../components/FooterPage";
@@ -28,7 +28,8 @@ const Login = () => {
           <H1Title>Entrar</H1Title>
           <FormLogin />
           <ElemP>
-            Ainda não possui uma conta? <LinkToHome>Cadastre-se</LinkToHome>
+            Ainda não possui uma conta?{" "}
+            <LinkGoTo to={"/home"}>Cadastre-se</LinkGoTo>
           </ElemP>
           <FooterForm />
         </ContainerForm>

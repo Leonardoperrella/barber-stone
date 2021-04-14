@@ -56,6 +56,10 @@ const FormLogin = () => {
     await api
       .get(`/users/${userId}`)
       .then((response) => {
+        localStorage.setItem(
+          "isBarber",
+          JSON.stringify(response.data.isBarber) || false
+        );
         goToProfile(response.data.isBarber, userId);
       })
       .catch((e) => {

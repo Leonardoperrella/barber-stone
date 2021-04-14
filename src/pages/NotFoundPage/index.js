@@ -1,4 +1,4 @@
-import { ErrorMsgDiv } from "../styles";
+import { ErrorMsgDiv } from "./styles";
 
 const NotFound = () => {
   return <ErrorMsgDiv />;

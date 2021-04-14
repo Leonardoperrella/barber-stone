@@ -25,6 +25,7 @@ export const StyledMenu = styled.nav`
     transition: color 0.3s linear;
     max-width: 125vw;
     text-align: center;
+    cursor: pointer;
 
     &:hover {
       color: ${({ theme }) => theme.primaryHover};

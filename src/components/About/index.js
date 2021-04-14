@@ -6,7 +6,7 @@ import BarberIcon from "../../images/barberIcon.svg";
 const About = () => {
   return (
     <>
-      <AboutContainer>
+      <AboutContainer id="sobre">
         <Title>Sobre</Title>
         <img src={BarberIcon} alt="barber-icon" />
         <p>

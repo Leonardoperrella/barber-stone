@@ -21,7 +21,7 @@ const HowItWorks = () => {
 
   return (
     <>
-      <HowItWorksContainer>
+      <HowItWorksContainer id="como-funciona">
         <h1>Como funciona</h1>
 
         <CardDiv>
