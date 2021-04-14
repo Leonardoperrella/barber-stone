@@ -10,7 +10,7 @@ import {
   H1Title,
   H1Register,
 } from "./styles";
-import LinkToLogin from "../../components/LinkToLogin";
+import LinkGoTo from "../../components/LinkGoTo";
 import FormClientRegister from "../../components/FormClientRegister";
 import BackGroundImage from "../../components/BackGroundImage";
 import Background from "../../images/backgroundRegister.jpg";
@@ -28,7 +28,7 @@ const ClientRegisterPage = () => {
           <H1Title>Cadastre-se</H1Title>
           <FormClientRegister />
           <ElemP>
-            Ja possui uma conta? <LinkToLogin>Entre Agora</LinkToLogin>
+            Ja possui uma conta? <LinkGoTo to={"/"}>Entre Agora</LinkGoTo>
           </ElemP>
           <FooterForm />
         </ContainerForm>

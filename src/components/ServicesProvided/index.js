@@ -12,10 +12,10 @@ import Title from "../Title";
 const ServicesProvided = () => {
   return (
     <>
-      <ServicesProvidedContainer>
+      <ServicesProvidedContainer id="serviços">
         <Title>Serviços</Title>
         <ServiceCard>
-          <img src={image1} />
+          <img src={image1} alt="imagem" />
           <div>
             <h4>Para clientes</h4>
             <p>

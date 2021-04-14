@@ -1,67 +1,84 @@
+const token = JSON.parse(localStorage.getItem("token"));
+const isBarber = JSON.parse(localStorage.getItem("isBarber"));
+
 export const menuLinkHome = [
   {
-    href: "#sobre",
+    anchor: true,
+    to: "sobre",
     content: "sobre",
   },
   {
-    href: "#serviços",
+    anchor: true,
+    to: "serviços",
     content: "serviços",
   },
   {
-    href: "#como-funciona",
+    anchor: true,
+    to: "como-funciona",
     content: "como funciona",
   },
   {
-    href: "#cadastrar",
+    anchor: true,
+    to: "cadastrar",
     content: "cadastrar",
   },
   {
-    href: "#entrar",
-    content: "entrar",
+    anchor: false,
+    to: `${!token ? "/" : `/perfil-${isBarber ? "barbearia" : "cliente"}`}`,
+    content: `${!token ? "entrar" : "perfil"}`,
   },
 ];
 
 export const menuLinkPerfil = [
   {
-    href: "/home",
+    anchor: false,
+    to: "/home",
     content: "home",
   },
   {
-    href: "/",
+    anchor: false,
+    to: "/barbearias",
     content: "barbearias",
   },
   {
-    href: "/",
+    anchor: false,
+    to: "/",
     content: "perfil",
   },
 ];
 
 export const menuLinkPerfilClient = [
   {
-    href: "/home",
+    anchor: false,
+    to: "/home",
     content: "home",
   },
   {
-    href: "/barbearias",
+    anchor: false,
+    to: "/barbearias",
     content: "barbearias",
   },
   {
-    href: "/profile-client",
+    anchor: false,
+    to: "/perfil-cliente",
     content: "perfil",
   },
 ];
 
 export const menuLinkPerfilBarber = [
   {
-    href: "/home",
+    anchor: false,
+    to: "/home",
     content: "home",
   },
   {
-    href: "/barbearias",
+    anchor: false,
+    to: "/barbearias",
     content: "barbearias",
   },
   {
-    href: "/perfil-barbearia",
+    anchor: false,
+    to: "/perfil-barbearia",
     content: "perfil",
   },
 ];

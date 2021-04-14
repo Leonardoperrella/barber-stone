@@ -6,7 +6,7 @@ const ButtonBackToHome = () => {
   const history = useHistory();
 
   const goToHome = () => {
-    history.push("/");
+    history.push("/home");
   };
 
   return (
