@@ -59,7 +59,7 @@ export const TextoDescritivo = styled.p`
 export const Icon = styled.img`
   width: 175px;
   height: 75px;
-  margin: 40px auto;
+  margin: 40px auto 10px auto;
 `;
 export const IconePequeno = styled.img`
   width: 80px;
@@ -84,11 +84,9 @@ export const Descricao = styled.p`
 `;
 
 export const ImgLazer = styled.img`
-  border: 10px solid white;
-  border-radius: 30px;
+  border-radius: 10px;
   width: 275px;
   height: 275px;
-  box-sizing: border-box;
 `;
 export const Container = styled.div`
   max-width: 1030px;

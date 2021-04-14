@@ -95,6 +95,8 @@ export const CheckboxLazer = styled(Checkbox)`
 export const ImgCheck = styled.img`
   margin-right: 20px;
   border-radius: 10px;
+  width: 59px;
+  height:59px;
 `;
 export const FormControl = styled(FormControlLabel)``;
 export const DivCheck = styled.div`

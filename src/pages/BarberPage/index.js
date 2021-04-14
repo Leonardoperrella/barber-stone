@@ -17,13 +17,27 @@ import {
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import Footer from "../../components/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
+import '../../styles/global.css'
+import Sinuca from "../../images/sinuca.jpg"
+import Playground from "../../images/playground.jpg"
+import Churrasqueira from "../../images/churrasqueira.jpg"
+import IcoAgenda from "../../images/icoAgenda.svg"
+import Bar from "../../images/bar.jpg"
 
 import perfil from "../../images/barberIcon.svg";
+import { useSchedule } from "../../providers/Schedule";
+import { useUsers, users } from "../../providers/Users";
 
 const BarberPage = () => {
   const qtd = 4;
+
+  
+  const { schedule, getSchedule } = useSchedule();
+  const { getUsers } = useUsers();
+  
+  const userId = JSON.parse(localStorage.getItem("userId"));
 
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth > 900 ? true : false
@@ -39,6 +53,14 @@ const BarberPage = () => {
     }
     return array;
   };
+
+  
+  useEffect(() => {
+    getSchedule(`/scheduling/?barbeariaId=${userId}`);
+    getUsers();
+  }, [schedule]);
+
+
   return (
     <BodyPage>
       <Menu menuLink={menuLinkPerfilBarber} />
@@ -52,7 +74,7 @@ const BarberPage = () => {
       <TextoDescritivo style={{}}>
         rua mimosa, 1234. Curitiba, paraná
       </TextoDescritivo>
-      <Icon src="./img/iconAgendar.png" alt="" />
+      <Icon src={IcoAgenda} alt="" />
       <TextoDescritivo style={{}}>clientes agendados</TextoDescritivo>
       <Container>
         <Carousel
@@ -61,7 +83,7 @@ const BarberPage = () => {
           autoPlay
           autoPlaySpeed={3000}
           centerMode={false}
-          className=""
+          className="carousel"
           containerClass="container"
           dotListClass=""
           draggable
@@ -78,10 +100,9 @@ const BarberPage = () => {
           swipeable
           arrows
         >
-          <CardClient />
-          <CardClient />
-          <CardClient />
-          <CardClient />
+          {schedule.map(({ userId, dateTime }, index) => (
+            <CardClient key={index} userId={userId} dateTime={dateTime} isDetails={true} />
+          ))}
         </Carousel>
       </Container>
       <TextoDescritivo style={{ marginTop: "60px" }}>
@@ -90,19 +111,19 @@ const BarberPage = () => {
       <BoxLazer>
         <Atracao>
           <TextoDescritivo>Sinuca</TextoDescritivo>
-          <ImgLazer src="./img/imgSinuca.png" alt="" />
+          <ImgLazer src={Sinuca} alt="" />
         </Atracao>
         <Atracao>
           <TextoDescritivo>Bar</TextoDescritivo>
-          <ImgLazer src="./img/imgBar.png" alt="" />
+          <ImgLazer src={Bar} alt="" />
         </Atracao>
         <Atracao>
           <TextoDescritivo>Churrasqueira</TextoDescritivo>
-          <ImgLazer src="./img/imgChurrasqueira.png" alt="" />
+          <ImgLazer src={Churrasqueira} alt="" />
         </Atracao>
         <Atracao>
           <TextoDescritivo>Playground</TextoDescritivo>
-          <ImgLazer src="./img/imgPlayground.png" alt="" />
+          <ImgLazer src={Playground} alt="" />
         </Atracao>
       </BoxLazer>
       <Footer />

@@ -21,6 +21,8 @@ import {
   CheckboxContainer,
   TextAreaInput,
 } from "./styles";
+import Check from '../../images/check.svg'
+import NoCheck from '../../images/noCheck.svg'
 
 const FormProfileBarberShop = () => {
   // const { login } = useProviderUser();
@@ -152,8 +154,8 @@ const FormProfileBarberShop = () => {
                   checked={pool}
                   onChange={handleChange}
                   name="pool"
-                  icon={<ImgCheck src="./img/iconCheck.png" alt="" />}
-                  checkedIcon={<ImgCheck src="./img/iconCheckOn.png" alt="" />}
+                  icon={<ImgCheck src={Check} alt="" />}
+                  checkedIcon={<ImgCheck src={NoCheck} alt="" />}
                 />
               }
               label={<LabelCheck>sinuca</LabelCheck>}
@@ -166,8 +168,8 @@ const FormProfileBarberShop = () => {
                   checked={barbecue}
                   onChange={handleChange}
                   name="barbecue"
-                  icon={<ImgCheck src="./img/iconCheck.png" alt="" />}
-                  checkedIcon={<ImgCheck src="./img/iconCheckOn.png" alt="" />}
+                  icon={<ImgCheck src={Check} alt="" />}
+                  checkedIcon={<ImgCheck src={NoCheck} alt="" />}
                 />
               }
               label={<LabelCheck>Churrasco</LabelCheck>}
@@ -180,8 +182,8 @@ const FormProfileBarberShop = () => {
                   checked={playGround}
                   onChange={handleChange}
                   name="playGround"
-                  icon={<ImgCheck src="./img/iconCheck.png" alt="" />}
-                  checkedIcon={<ImgCheck src="./img/iconCheckOn.png" alt="" />}
+                  icon={<ImgCheck src={Check} alt="" />}
+                  checkedIcon={<ImgCheck src={NoCheck} alt="" />}
                 />
               }
               label={<LabelCheck>playground</LabelCheck>}
@@ -194,8 +196,8 @@ const FormProfileBarberShop = () => {
                   checked={bar}
                   onChange={handleChange}
                   name="bar"
-                  icon={<ImgCheck src="./img/iconCheck.png" alt="" />}
-                  checkedIcon={<ImgCheck src="./img/iconCheckOn.png" alt="" />}
+                  icon={<ImgCheck src={Check} alt="" />}
+                  checkedIcon={<ImgCheck src={NoCheck} alt="" />}
                 />
               }
               label={<LabelCheck>bar</LabelCheck>}

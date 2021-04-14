@@ -9894,6 +9894,11 @@ react-calendar@^3.3.1:
     merge-class-names "^1.1.1"
     prop-types "^15.6.0"
 
+react-card-flip@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-card-flip/-/react-card-flip-1.1.0.tgz#e1785a26d80e67b5faf787bd145e396e175ceb0d"
+  integrity sha512-rrZ18lZb6Fsangia+mTgBfYB588oGfUN55MyOmoaG0YN8gaFk4aX4vJp4clxByw1WUJR9hYtV53LvLtPO8YsHw==
+
 react-chartjs-2@^2.11.1:
   version "2.11.1"
   resolved "https://registry.yarnpkg.com/react-chartjs-2/-/react-chartjs-2-2.11.1.tgz#a78d0df05fc8bc8ffcd4c4ab5b89a25dd2ca3278"
