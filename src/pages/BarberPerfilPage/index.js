@@ -1,28 +1,18 @@
 import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 import { menuLinkPerfilBarber } from "../../services/menuData";
-import '../../styles/global.css'
+import "../../styles/global.css";
 import {
   BodyPage,
   BgPerfil,
   ImgPerfil,
   Nome,
   TextoDescritivo,
-  Icon,
   IconePequeno,
-  Logo,
-  Descricao,
   Container,
   responsive,
   BtnOpenModal,
   BackDrop,
-  ModalWrapper,
-  ModalHeader,
-  ModalHeaderSpan,
-  ModalContent,
-  ModalBody,
-  ModalBodyP,
-  ModalBodyH4,
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import FormProfileBarberShop from "../../components/FormProfileBarbershop";
@@ -32,6 +22,7 @@ import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
 import { useUsers } from "../../providers/Users";
 import GlobalModalAgendarHorario from "../../components/GlobalModalAgendarHorario";
+import { useUser, getUser } from "../../providers/User";
 
 // temporário
 import perfil from "../../images/barberIcon.svg";
@@ -43,7 +34,7 @@ const BarberPerfilPage = () => {
   const closeModalHandler = () => setShow(false);
 
   const { schedule, getSchedule } = useSchedule();
-  const { getUsers } = useUsers();
+  const { user, getUser } = useUser();
 
   const userId = JSON.parse(localStorage.getItem("userId"));
 
@@ -65,20 +56,21 @@ const BarberPerfilPage = () => {
   };
 
   useEffect(() => {
-    getSchedule(`/scheduling/?barbeariaId=${userId}`);
-    getUsers();
+    getSchedule(`/scheduling/?barberId=${userId}`);
   }, [schedule]);
+
+  useEffect(() => {
+    getUser(userId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <BodyPage>
       <Menu menuLink={menuLinkPerfilBarber} />
       <BgPerfil />
       <ImgPerfil src={perfil} />
-      <Nome>Barbearia do seu Zé</Nome>
-      <TextoDescritivo>
-        Aqui você encontra o melhor serviço da região para cabelo e barba, além
-        de ótimo atendimento!
-      </TextoDescritivo>
+      <Nome>{user && user.name}</Nome>
+      <TextoDescritivo>{user && user.description}</TextoDescritivo>
 
       {show ? <BackDrop onClick={closeModalHandler}> </BackDrop> : null}
       <BtnOpenModal onClick={() => setShow(true)}> </BtnOpenModal>
@@ -114,7 +106,12 @@ const BarberPerfilPage = () => {
             arrows
           >
             {schedule.map(({ userId, dateTime, id }, index) => (
-              <CardClient key={index} userId={userId} dateTime={dateTime} id={id} />
+              <CardClient
+                key={index}
+                userId={userId}
+                dateTime={dateTime}
+                id={id}
+              />
             ))}
           </Carousel>
         </Container>

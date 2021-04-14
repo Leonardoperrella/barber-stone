@@ -23,9 +23,8 @@ import { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
-import { useUsers } from "../../providers/Users";
-import '../../styles/global.css'
-import Notification from '../../components/Notification'
+import { useUser } from "../../providers/User";
+import Notification from "../../components/Notification";
 
 // temporário
 import perfil from "../../images/perfilClient.jpg";
@@ -36,8 +35,8 @@ import clock from "../../images/clock.svg";
 
 const ClientPerfilPage = () => {
   const { schedule, getSchedule } = useSchedule();
-  const { getUsers, users } = useUsers();
-  const qtd = 4;
+  const { user, getUser } = useUser();
+
   const userId = JSON.parse(localStorage.getItem("userId"));
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth > 900 ? true : false
@@ -46,40 +45,49 @@ const ClientPerfilPage = () => {
   window.onresize = () =>
     window.innerWidth > 900 ? setIsDesktop(true) : setIsDesktop(false);
 
-  const buildArray = () => {
-    let array = [];
-    for (let i = 0; i < qtd; i++) {
-      array.push(i);
-    }
-    return array;
-  };
+  const baseDate = new Date().toLocaleString().split(" ")[0].split("/");
+  const baseDateYear = Number(baseDate[2]);
+  const baseDateMonth = Number(baseDate[1]) - 1;
+  const baseDateDay = Number(baseDate[0]);
+  const today = new Date(baseDateYear, baseDateMonth, baseDateDay);
 
   useEffect(() => {
     getSchedule(`/scheduling/?userId=${userId}`);
-    getUsers();
-  }, [users]);
+  }, [schedule]);
+
+  useEffect(() => {
+    getUser(userId);
+  }, []);
 
   return (
     <BodyPage>
       <Menu menuLink={menuLinkPerfilClient} />
       <BgPerfil />
       <ImgPerfil src={perfil} />
-      <Nome>Filipe</Nome>
+      <Nome>{user && user.name}</Nome>
       <Estrelinha src={star} />
       <TextoFidelidade>Vale fidelidade</TextoFidelidade>
       <Descricao>
-        a cada dez agendamentos ganhe um de graça nas barbearias participantes
+        a cada dez serviços ganhe um de graça nas barbearias participantes
       </Descricao>
-      <BoxFidelidade>
-        {isDesktop ? (
-          buildArray().map((e) => <Tesoura src={scissors} />)
-        ) : (
-          <>
-            <ContFidelidade>{qtd}x</ContFidelidade>
-            <Tesoura src={scissors} />
-          </>
-        )}
-      </BoxFidelidade>
+      {user && user.scissors > 0 ? (
+        <BoxFidelidade>
+          {isDesktop && user && user.scissors < 5 ? (
+            Array(user && user.scissors)
+              .fill(0)
+              .map((item, index) => <Tesoura key={index} src={scissors} />)
+          ) : (
+            <>
+              <ContFidelidade>{user && user.scissors}x</ContFidelidade>
+              <Tesoura src={scissors} />
+            </>
+          )}
+        </BoxFidelidade>
+      ) : (
+        <TextoDescritivo erro>
+          Você ainda não possui serviços concluídos
+        </TextoDescritivo>
+      )}
       <Estrelinha src={calendar} />
       <TextoFidelidade>Seus agendamentos</TextoFidelidade>
       {schedule.length > 0 ? (
@@ -107,15 +115,17 @@ const ClientPerfilPage = () => {
             swipeable
             arrows
           >
-            {schedule.map(({ userId, dateTime, price, id }, index) => (
-              <CardAgendamentos
-                key={index}
-                price={price}
-                userId={userId}
-                dateTime={dateTime}
-                id={id}
-              />
-            ))}
+            {schedule
+              .filter((obj) => new Date(obj.dateTime) >= today)
+              .map(({ barberId, dateTime, price, id }, index) => (
+                <CardAgendamentos
+                  key={index}
+                  price={price}
+                  barberId={barberId}
+                  dateTime={dateTime}
+                  id={id}
+                />
+              ))}
           </Carousel>
         </Container>
       ) : (

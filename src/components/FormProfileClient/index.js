@@ -17,8 +17,7 @@ import {
 const FormProfileClient = () => {
   // const { login } = useProviderUser();
 
-  const [error, setError] = useState(false);
-  const history = useHistory();
+  const [error] = useState(false);
   const [user, setuser] = useState([]);
   const userId = JSON.parse(localStorage.getItem("userId"));
   const token = JSON.parse(localStorage.getItem("token"));
@@ -33,7 +32,7 @@ const FormProfileClient = () => {
     state: yup.string().required("campo Obrigatório!"),
   });
 
-  const { register, handleSubmit, errors, reset } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -74,12 +73,12 @@ const FormProfileClient = () => {
   return (
     <FormUpdate onSubmit={handleSubmit(onSubmit)}>
       <DivInput>
-        <Label>Novo Nome</Label>
+        <Label>Nome</Label>
         <Input name="name" ref={register} defaultValue={user.name} />
         {!!errors && <SpanError>{errors.name?.message}</SpanError>}
       </DivInput>
       <DivInput>
-        <Label>Novo Sobrenome</Label>
+        <Label>Sobrenome</Label>
         <Input name="lastName" ref={register} defaultValue={user.lastName} />
         {!!errors && <SpanError>{errors.lastName?.message}</SpanError>}
       </DivInput>

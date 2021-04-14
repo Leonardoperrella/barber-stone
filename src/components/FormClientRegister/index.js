@@ -17,12 +17,12 @@ import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
 const FormClientRegister = () => {
   // const { login } = useProviderUser();
 
-  const [error, setError] = useState(false);
+  const [error] = useState(false);
   const history = useHistory();
 
   const schema = yup.object().shape({
     name: yup.string().required("campo Obrigatório!"),
-    sobrenome: yup.string().required("campo Obrigatório!"),
+    lastName: yup.string().required("campo Obrigatório!"),
     email: yup.string().email("email inválido").required("campo Obrigatório!"),
     password: yup
       .string()
@@ -30,12 +30,12 @@ const FormClientRegister = () => {
       .required("campo obrigatório!"),
   });
 
-  const { register, handleSubmit, errors, reset } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = (data) => {
-    data = { ...data, isBarber: false, rating: 0 };
+    data = { ...data, isBarber: false, scissors: 0 };
 
     api
       .post("/register", data)
@@ -59,8 +59,8 @@ const FormClientRegister = () => {
       </DivInput>
       <DivInput>
         <Label>Sobrenome</Label>
-        <Input name="sobrenome" ref={register} />
-        {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
+        <Input name="lastName" ref={register} />
+        {!!errors && <SpanError>{errors.lastName?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Email</Label>

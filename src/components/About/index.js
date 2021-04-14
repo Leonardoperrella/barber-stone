@@ -8,7 +8,7 @@ const About = () => {
     <>
       <AboutContainer>
         <Title>Sobre</Title>
-        <img src={BarberIcon} />
+        <img src={BarberIcon} alt="barber-icon" />
         <p>
           A Barberstone é uma solução online para você, cliente, que quer
           encontrar as melhores opções de barbearia na sua região e também para

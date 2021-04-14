@@ -6,7 +6,7 @@ const Cover = () => {
   return (
     <>
       <CoverContainer>
-        <img src={Logo} />
+        <img src={Logo} alt="logo" />
 
         <i class="fas fa-chevron-down"></i>
       </CoverContainer>
