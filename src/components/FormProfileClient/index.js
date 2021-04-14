@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import api from "../../services/api";
 import {
@@ -49,7 +48,7 @@ const FormProfileClient = () => {
         notifyRegisterSuccess();
       })
       .catch((e) => {
-        console.log(e.response);
+        notifyError(e.response);
       });
   };
 
@@ -70,6 +69,7 @@ const FormProfileClient = () => {
 
   useEffect(() => {
     getUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -18,10 +18,8 @@ import { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
-import { useUsers } from "../../providers/Users";
 import TransitionsModal from "../../components/ModalNewFunc";
-import GlobalModalAgendarHorario from "../../components/GlobalModalAgendarHorario";
-import { useUser, getUser } from "../../providers/User";
+import { useUser } from "../../providers/User";
 
 // temporário
 import perfil from "../../images/barberIcon.svg";
