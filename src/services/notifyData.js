@@ -13,9 +13,16 @@ export const notifyError = (error) =>
     position: "top-center",
   });
 
-export const notifyRegisterSuccess = () =>
+  export const notifyRegisterSuccess = () =>
   toast.success("Cadastrado com sucesso!", {
     autoClose: 2000,
     hideProgressBar: true,
     position: "top-center",
   });
+
+  export const notifyDeleted = () =>
+    toast.success("Cancelado com sucesso!", {
+      autoClose: 2000,
+      hideProgressBar: true,
+      position: "top-center",
+    });
