@@ -62,6 +62,8 @@ export const FadeStyled = styled(Fade)`
   max-width: 496px;
   background-color: #1b2845;
   text-align: center;
+  overflow-y: scroll;
+  max-height: 75vh;
 
   & h2 {
     font-size: 2.5rem;

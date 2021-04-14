@@ -1,7 +1,7 @@
 import Backdrop from "@material-ui/core/Backdrop";
 import { useState } from "react";
 
-import { Button, ModalStyled, FadeStyled } from "../ModalNewFunc/styles";
+import { Button, ModalStyled, FadeStyled } from "./styles";
 
 import FormAgendamentos from "../FormAgend";
 

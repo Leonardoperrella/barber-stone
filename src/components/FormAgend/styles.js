@@ -16,7 +16,7 @@ export const Label = styled.p`
   margin: 15px 0 5px;
 `;
 
-export const Input = styled.input`
+export const Calendar = styled.input`
   border: 3px solid #f7f4f3;
   border-radius: 10px;
   background-color: transparent;
@@ -75,9 +75,26 @@ export const ButtonForm = styled.button`
   }
 `;
 
-export const CardLogin = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-};
+export const Select = styled.select`
+  outline: none;
+  padding: 15px;
+  font-size: 1.5rem;
+  font-family: "Bebas Neue", cursive;
+  text-align: center;
+  max-width: 496px;
+  background-color: transparent;
+  border: 4px solid #f7f4f3;
+  border-radius: 20px;
+  color: #f7f4f3;
+  margin-bottom: 20px;
+
+  & option {
+    background-color: #1b2845;
+  }
+`;
+
+export const Price = styled.h4`
+  & span {
+    color: #bb8c4b;
+  }
+`;
