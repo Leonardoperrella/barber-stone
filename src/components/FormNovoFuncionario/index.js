@@ -16,8 +16,24 @@ import {
   LabelCheck,
 } from "./styles";
 
+import api from "../../services/api";
+
+import check from "../../images/noCheck.svg";
+import checked from "../../images/check.svg";
+
+import notifyRegisterSuccess from "../Notification";
+
 const FormNovoFuncionario = () => {
   const [error] = useState(false);
+
+  const [iconState, setIconState] = useState({
+    homeOffice: false,
+  });
+
+  const userId = JSON.parse(localStorage.getItem("userId"));
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const { homeOffice } = iconState;
 
   const schema = yup.object().shape({
     name: yup.string().required("campo Obrigatório!"),
@@ -27,9 +43,29 @@ const FormNovoFuncionario = () => {
     resolver: yupResolver(schema),
   });
 
+  const handleChange = (event) => {
+    setIconState({
+      ...iconState,
+      [event.target.name]: event.target.checked,
+    });
+  };
+
   const onSubmit = (userData) => {
+    const { homeOffice } = iconState;
+    userData = { ...userData, homeOffice, barberId: userId };
     console.log(userData);
-    // login(userData, setError, history, reset);
+
+    api
+      .post(`/employee`, userData, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        console.log(response.data);
+        notifyRegisterSuccess();
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
   };
 
   return (
@@ -39,21 +75,21 @@ const FormNovoFuncionario = () => {
         <Input name="name" ref={register} />
         {!!errors && <SpanError>{errors.name?.message}</SpanError>}
       </DivInput>
-
       <DivCheck id="DivCheck">
         <FormControl
           id="FormControl"
           control={
             <CheckboxLazer
-              id="CheckboxLazer"
-              icon={<ImgCheck src="./img/iconCheck.png" alt="" />}
-              checkedIcon={<ImgCheck src="./img/iconCheckOn.png" alt="" />}
+              icon={<ImgCheck src={check} />}
+              checkedIcon={<ImgCheck src={checked} />}
+              name="homeOffice"
+              checked={homeOffice}
+              onChange={handleChange}
             />
           }
           label={<LabelCheck>HomeOffice</LabelCheck>}
         />
       </DivCheck>
-
       <DivInput>
         <ButtonForm type="submit">Cadastrar</ButtonForm>
       </DivInput>
