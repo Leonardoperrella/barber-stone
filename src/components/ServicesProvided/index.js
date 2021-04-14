@@ -26,7 +26,7 @@ const ServicesProvided = () => {
           </div>
         </ServiceCard>
         <ServiceCardTwo>
-          <img src={image2} />
+          <img src={image2} alt="image2" />
           <div>
             <h4>Para barbeiros</h4>
             <p>

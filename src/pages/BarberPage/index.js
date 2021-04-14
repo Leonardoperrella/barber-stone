@@ -25,13 +25,12 @@ import IcoAgenda from "../../images/icoAgenda.svg";
 import Bar from "../../images/bar.jpg";
 import perfil from "../../images/barberIcon.svg";
 import { useSchedule } from "../../providers/Schedule";
-import { useUsers, users } from "../../providers/Users";
+import { useUsers } from "../../providers/Users";
 import { useLocation } from "react-router-dom";
 import TransitionsModal from "../../components/ModalNewAgend";
 
 const BarberPage = () => {
-
-  const barberUser = useLocation()
+  const barberUser = useLocation();
   const qtd = 4;
 
   const { schedule, getSchedule } = useSchedule();
@@ -57,6 +56,7 @@ const BarberPage = () => {
   useEffect(() => {
     getSchedule(`/scheduling/?barbeariaId=${barberUser.state.id}`);
     getUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [schedule]);
 
   return (
@@ -65,7 +65,9 @@ const BarberPage = () => {
       <BgPerfil />
       <ImgPerfil src={perfil} />
       <Nome>{barberUser.state.name}</Nome>
-      <TextoDescritivo style={{ fontSize: "32px" }}>{barberUser.state.description}</TextoDescritivo>
+      <TextoDescritivo style={{ fontSize: "32px" }}>
+        {barberUser.state.description}
+      </TextoDescritivo>
       <TextoDescritivo style={{}}>{barberUser.state.address}</TextoDescritivo>
       <TransitionsModal />
       <Icon src={IcoAgenda} alt="" />
@@ -92,7 +94,6 @@ const BarberPage = () => {
           sliderClass=""
           slidesToSlide={1}
           swipeable
-          arrows
         >
           {schedule.map(({ userId, dateTime }, index) => (
             <CardClient

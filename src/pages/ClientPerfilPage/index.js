@@ -37,6 +37,8 @@ const ClientPerfilPage = () => {
   const { schedule, getSchedule } = useSchedule();
   const { user, getUser } = useUser();
 
+  const [filteredSchedule, setFilteredSchedule] = useState([]);
+
   const userId = JSON.parse(localStorage.getItem("userId"));
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth > 900 ? true : false
@@ -53,10 +55,15 @@ const ClientPerfilPage = () => {
 
   useEffect(() => {
     getSchedule(`/scheduling/?userId=${userId}`);
+    setFilteredSchedule(
+      schedule.filter((obj) => new Date(obj.dateTime) >= today)
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [schedule]);
 
   useEffect(() => {
     getUser(userId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -90,7 +97,7 @@ const ClientPerfilPage = () => {
       )}
       <Estrelinha src={calendar} />
       <TextoFidelidade>Seus agendamentos</TextoFidelidade>
-      {schedule.length > 0 ? (
+      {filteredSchedule.length > 0 ? (
         <Container>
           <Carousel
             additionalTransfrom={0}
@@ -115,7 +122,7 @@ const ClientPerfilPage = () => {
             swipeable
             arrows
           >
-            {schedule
+            {filteredSchedule
               .filter((obj) => new Date(obj.dateTime) >= today)
               .map(({ barberId, dateTime, price, id }, index) => (
                 <CardAgendamentos
