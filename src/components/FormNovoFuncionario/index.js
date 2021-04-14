@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import {
   FormComponent,
@@ -10,22 +9,21 @@ import {
   ButtonForm,
   Label,
   DivInput,
-  DivCheck, FormControl, CheckboxLazer, ImgCheck, LabelCheck, 
+  DivCheck,
+  FormControl,
+  CheckboxLazer,
+  ImgCheck,
+  LabelCheck,
 } from "./styles";
 
-
 const FormNovoFuncionario = () => {
-  // const { login } = useProviderUser();
-
-  const [error, setError] = useState(false);
-  const history = useHistory();
+  const [error] = useState(false);
 
   const schema = yup.object().shape({
     name: yup.string().required("campo Obrigatório!"),
-  
   });
 
-  const { register, handleSubmit, errors, reset } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -36,7 +34,6 @@ const FormNovoFuncionario = () => {
 
   return (
     <FormComponent onSubmit={handleSubmit(onSubmit)}>
-
       <DivInput>
         <Label>nome do funcionário</Label>
         <Input name="name" ref={register} />
@@ -44,15 +41,18 @@ const FormNovoFuncionario = () => {
       </DivInput>
 
       <DivCheck id="DivCheck">
-          <FormControl id='FormControl'
-            control={
-              <CheckboxLazer id="CheckboxLazer"
-                icon={<ImgCheck src='./img/iconCheck.png' alt='' />}
-                checkedIcon={<ImgCheck src='./img/iconCheckOn.png' alt='' />}
-              />}
-            label={<LabelCheck>HomeOffice</LabelCheck>}
-          />
-        </DivCheck>
+        <FormControl
+          id="FormControl"
+          control={
+            <CheckboxLazer
+              id="CheckboxLazer"
+              icon={<ImgCheck src="./img/iconCheck.png" alt="" />}
+              checkedIcon={<ImgCheck src="./img/iconCheckOn.png" alt="" />}
+            />
+          }
+          label={<LabelCheck>HomeOffice</LabelCheck>}
+        />
+      </DivCheck>
 
       <DivInput>
         <ButtonForm type="submit">Cadastrar</ButtonForm>

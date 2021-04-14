@@ -16,9 +16,7 @@ import {
 import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
 
 const FormBarberRegister = () => {
-  // const { login } = useProviderUser();
-
-  const [error, setError] = useState(false);
+  const [error] = useState(false);
   const history = useHistory();
 
   const schema = yup.object().shape({
@@ -28,10 +26,10 @@ const FormBarberRegister = () => {
       .string()
       .min(6, "mínimo de 6 caracteres")
       .required("campo obrigatório!"),
-    descricao: yup.string().required("campo Obrigatório!"),
+    description: yup.string().required("campo Obrigatório!"),
   });
 
-  const { register, handleSubmit, errors, reset } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -76,8 +74,8 @@ const FormBarberRegister = () => {
       </DivInput>
       <DivInput>
         <Label>Descrição</Label>
-        <TextArea name="descricao" ref={register} />
-        {!!errors && <SpanError>{errors.descricao?.message}</SpanError>}
+        <TextArea name="description" ref={register} />
+        {!!errors && <SpanError>{errors.description?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <ButtonForm type="submit">Cadastrar</ButtonForm>

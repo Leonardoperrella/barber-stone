@@ -16,7 +16,7 @@ import {
 import { notifyError } from "../../services/notifyData";
 
 const FormLogin = () => {
-  const [error, setError] = useState(false);
+  const [error] = useState(false);
   const history = useHistory();
 
   const schema = yup.object().shape({

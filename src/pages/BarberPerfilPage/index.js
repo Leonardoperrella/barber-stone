@@ -20,6 +20,8 @@ import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
 import { useUsers } from "../../providers/Users";
 import TransitionsModal from "../../components/ModalNewFunc";
+import GlobalModalAgendarHorario from "../../components/GlobalModalAgendarHorario";
+import { useUser, getUser } from "../../providers/User";
 
 // temporário
 import perfil from "../../images/barberIcon.svg";
@@ -31,7 +33,7 @@ const BarberPerfilPage = () => {
   const closeModalHandler = () => setShow(false);
 
   const { schedule, getSchedule } = useSchedule();
-  const { getUsers } = useUsers();
+  const { user, getUser } = useUser();
 
   const userId = JSON.parse(localStorage.getItem("userId"));
 
@@ -53,20 +55,21 @@ const BarberPerfilPage = () => {
   };
 
   useEffect(() => {
-    getSchedule(`/scheduling/?barbeariaId=${userId}`);
-    getUsers();
+    getSchedule(`/scheduling/?barberId=${userId}`);
   }, [schedule]);
+
+  useEffect(() => {
+    getUser(userId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <BodyPage>
       <Menu menuLink={menuLinkPerfilBarber} />
       <BgPerfil />
       <ImgPerfil src={perfil} />
-      <Nome>Barbearia do seu Zé</Nome>
-      <TextoDescritivo>
-        Aqui você encontra o melhor serviço da região para cabelo e barba, além
-        de ótimo atendimento!
-      </TextoDescritivo>
+      <Nome>{user && user.name}</Nome>
+      <TextoDescritivo>{user && user.description}</TextoDescritivo>
       <TransitionsModal />
       <IconePequeno src={calendar} />
       <TextoDescritivo>Seus clientes agendados</TextoDescritivo>

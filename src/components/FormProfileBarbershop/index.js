@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import api from "../../services/api";
-import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
   SpanError,
@@ -26,11 +25,8 @@ import Check from "../../images/check.svg";
 import NoCheck from "../../images/noCheck.svg";
 
 const FormProfileBarberShop = () => {
-  // const { login } = useProviderUser();
-
-  const [error, setError] = useState(false);
+  const [error] = useState(false);
   const [user, setuser] = useState([]);
-  const history = useHistory();
   const userId = JSON.parse(localStorage.getItem("userId"));
   const token = JSON.parse(localStorage.getItem("token"));
 
@@ -51,7 +47,7 @@ const FormProfileBarberShop = () => {
     description: yup.string().required("campo Obrigatório!"),
   });
 
-  const { register, handleSubmit, errors, reset } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 

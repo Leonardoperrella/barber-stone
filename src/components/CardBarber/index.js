@@ -7,14 +7,14 @@ const CardBarber = ({ name }) => {
   return (
     <>
       <Card>
-        <img src={BarberIcon} />
+        <img src={BarberIcon} alt="barber-icon" />
         <h4>Barbearia do seu zé</h4>
         <ScissorsRate>
-          <img src={ScissorsIcon} />
-          <img src={ScissorsIcon} />
-          <img src={ScissorsIcon} />
-          <img src={ScissorsIcon} />
-          <img src={ScissorsIcon} />
+          <img src={ScissorsIcon} alt="scissors-icon" />
+          <img src={ScissorsIcon} alt="scissors-icon" />
+          <img src={ScissorsIcon} alt="scissors-icon" />
+          <img src={ScissorsIcon} alt="scissors-icon" />
+          <img src={ScissorsIcon} alt="scissors-icon" />
         </ScissorsRate>
       </Card>
     </>
