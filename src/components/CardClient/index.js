@@ -1,12 +1,17 @@
+import { useEffect } from "react";
 import { Card } from "./styles";
 import { useUsers } from "../../providers/Users";
 
 const CardClient = ({ userId, dateTime }) => {
-  const { users } = useUsers();
-  console.log(dateTime);
+  const { users, getUsers } = useUsers();
   const dateTimeUser = new Date(dateTime).toLocaleString();
   const data = dateTimeUser.split(" ")[0];
   const time = dateTimeUser.split(" ")[1];
+
+  useEffect(() => {
+    getUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Card>

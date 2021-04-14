@@ -79,9 +79,6 @@ const BarberPage = () => {
           arrows
         >
           <CardClient />
-          <CardClient />
-          <CardClient />
-          <CardClient />
         </Carousel>
       </Container>
       <TextoDescritivo style={{ marginTop: "60px" }}>

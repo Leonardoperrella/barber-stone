@@ -12,7 +12,7 @@ export const UsersProvider = ({ children }) => {
       .then((response) => {
         const object = {};
         response.data.forEach((obj) => {
-          object[obj.id] = [obj.name, obj.lastname, obj.scissors];
+          object[obj.id] = [obj.name, obj.lastName];
         });
         setUsers(object);
       })
