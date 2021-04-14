@@ -8,8 +8,6 @@ import {
   TextoDescritivo,
   Icon,
   ImgLazer,
-  Logo,
-  Descricao,
   responsive,
   Container,
   BoxLazer,
@@ -21,6 +19,8 @@ import { useState } from "react";
 import Carousel from "react-multi-carousel";
 
 import perfil from "../../images/barberIcon.svg";
+
+import TransitionsModal from "../../components/ModalNewAgend";
 
 const BarberPage = () => {
   const qtd = 4;
@@ -52,7 +52,7 @@ const BarberPage = () => {
       <TextoDescritivo style={{}}>
         rua mimosa, 1234. Curitiba, paraná
       </TextoDescritivo>
-      <Icon src="./img/iconAgendar.png" alt="" />
+      <TransitionsModal />
       <TextoDescritivo style={{}}>clientes agendados</TextoDescritivo>
       <Container>
         <Carousel

@@ -23,7 +23,7 @@ export const menuLinkHome = [
 
 export const menuLinkPerfil = [
   {
-    href: "/",
+    href: "/home",
     content: "home",
   },
   {
@@ -38,7 +38,7 @@ export const menuLinkPerfil = [
 
 export const menuLinkPerfilClient = [
   {
-    href: "/",
+    href: "/home",
     content: "home",
   },
   {
@@ -53,7 +53,7 @@ export const menuLinkPerfilClient = [
 
 export const menuLinkPerfilBarber = [
   {
-    href: "/",
+    href: "/home",
     content: "home",
   },
   {

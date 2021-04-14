@@ -13,6 +13,7 @@ import {
   FormUpdate,
   ButtonsDiv,
 } from "./styles";
+import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
 
 const FormProfileClient = () => {
   // const { login } = useProviderUser();
@@ -46,6 +47,7 @@ const FormProfileClient = () => {
       })
       .then((response) => {
         console.log(response.data);
+        notifyRegisterSuccess();
       })
       .catch((e) => {
         console.log(e.response);

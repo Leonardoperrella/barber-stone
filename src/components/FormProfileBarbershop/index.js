@@ -21,6 +21,7 @@ import {
   CheckboxContainer,
   TextAreaInput,
 } from "./styles";
+import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
 
 const FormProfileBarberShop = () => {
   // const { login } = useProviderUser();
@@ -62,6 +63,7 @@ const FormProfileBarberShop = () => {
       })
       .then((response) => {
         console.log(response.data);
+        notifyRegisterSuccess();
       })
       .catch((e) => {
         console.log(e.response);

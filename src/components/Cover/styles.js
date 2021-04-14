@@ -7,6 +7,7 @@ export const CoverContainer = styled.div`
   background-image: url(${background});
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
