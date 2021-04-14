@@ -42,8 +42,8 @@ export const menuLinkPerfil = [
   },
   {
     anchor: false,
-    to: "/",
-    content: "perfil",
+    to: `${!token ? "/" : `/perfil-${isBarber ? "barbearia" : "cliente"}`}`,
+    content: `${!token ? "entrar" : "perfil"}`,
   },
 ];
 
