@@ -25,7 +25,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
 import { useUser } from "../../providers/User";
-import Notification from "../../components/Notification";
 
 // temporário
 import perfil from "../../images/perfilClient.jpg";

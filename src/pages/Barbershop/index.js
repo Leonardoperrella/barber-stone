@@ -1,6 +1,7 @@
 import Menu from "../../components/Menu";
 import CardBarber from "../../components/CardBarber";
 import Footer from "../../components/Footer";
+import { useUsers } from "../../providers/Users";
 
 import { Container, Cover, SectionCard } from "./styles";
 
@@ -8,8 +9,12 @@ import { menuLinkPerfil } from "../../services/menuData";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useEffect } from "react";
 
 const Barbershop = () => {
+  
+  const { barberUsers, getUsers } = useUsers();
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 992 },
@@ -27,6 +32,11 @@ const Barbershop = () => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
+
+  
+  useEffect(() => {
+    getUsers();
+  }, [barberUsers]);
 
   return (
     <Container>
@@ -57,10 +67,9 @@ const Barbershop = () => {
           swipeable
           arrows
         >
-          <CardBarber></CardBarber>
-          <CardBarber></CardBarber>
-          <CardBarber></CardBarber>
-          <CardBarber></CardBarber>
+          {!!barberUsers && barberUsers.map(e=>(
+            <CardBarber name={e.name} rating={e.rating} scissors={e.scissors} id={e.id} />
+          ))}
         </Carousel>
       </SectionCard>
       <Footer />
