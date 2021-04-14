@@ -23,9 +23,8 @@ import { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
-import { useUsers } from "../../providers/Users";
-import '../../styles/global.css'
-import Notification from '../../components/Notification'
+import { useUser } from "../../providers/User";
+import Notification from "../../components/Notification";
 
 // temporário
 import perfil from "../../images/perfilClient.jpg";
@@ -36,46 +35,46 @@ import clock from "../../images/clock.svg";
 
 const ClientPerfilPage = () => {
   const { schedule, getSchedule } = useSchedule();
-  const { getUsers, users } = useUsers();
-  const qtd = 4;
+  const { user, getUser } = useUser();
+
   const userId = JSON.parse(localStorage.getItem("userId"));
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth > 900 ? true : false
   );
 
+  const baseDate = new Date().toLocaleString().split(" ")[0].split("/");
+  const baseDateYear = Number(baseDate[2]);
+  const baseDateMonth = Number(baseDate[1]) - 1;
+  const baseDateDay = Number(baseDate[0]);
+  const today = new Date(baseDateYear, baseDateMonth, baseDateDay);
+
   window.onresize = () =>
     window.innerWidth > 900 ? setIsDesktop(true) : setIsDesktop(false);
 
-  const buildArray = () => {
-    let array = [];
-    for (let i = 0; i < qtd; i++) {
-      array.push(i);
-    }
-    return array;
-  };
-
   useEffect(() => {
     getSchedule(`/scheduling/?userId=${userId}`);
-    getUsers();
-  }, [users]);
+    getUser(userId);
+  }, []);
 
   return (
     <BodyPage>
       <Menu menuLink={menuLinkPerfilClient} />
       <BgPerfil />
       <ImgPerfil src={perfil} />
-      <Nome>Filipe</Nome>
+      <Nome>{user && user.name}</Nome>
       <Estrelinha src={star} />
       <TextoFidelidade>Vale fidelidade</TextoFidelidade>
       <Descricao>
-        a cada dez agendamentos ganhe um de graça nas barbearias participantes
+        a cada dez serviços ganhe um de graça nas barbearias participantes
       </Descricao>
       <BoxFidelidade>
-        {isDesktop ? (
-          buildArray().map((e) => <Tesoura src={scissors} />)
+        {isDesktop && user && user.scissors < 5 ? (
+          Array(user && user.scissors)
+            .fill(0)
+            .map((item, index) => <Tesoura key={index} src={scissors} />)
         ) : (
           <>
-            <ContFidelidade>{qtd}x</ContFidelidade>
+            <ContFidelidade>{user && user.scissors}x</ContFidelidade>
             <Tesoura src={scissors} />
           </>
         )}
@@ -107,15 +106,17 @@ const ClientPerfilPage = () => {
             swipeable
             arrows
           >
-            {schedule.map(({ userId, dateTime, price, id }, index) => (
-              <CardAgendamentos
-                key={index}
-                price={price}
-                userId={userId}
-                dateTime={dateTime}
-                id={id}
-              />
-            ))}
+            {schedule
+              .filter((obj) => new Date(obj.dateTime) >= today)
+              .map(({ userId, dateTime, price, id }, index) => (
+                <CardAgendamentos
+                  key={index}
+                  price={price}
+                  userId={userId}
+                  dateTime={dateTime}
+                  id={id}
+                />
+              ))}
           </Carousel>
         </Container>
       ) : (

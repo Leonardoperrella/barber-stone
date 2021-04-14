@@ -19,12 +19,12 @@ import CardClient from "../../components/CardClient";
 import Footer from "../../components/Footer";
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
-import '../../styles/global.css'
-import Sinuca from "../../images/sinuca.jpg"
-import Playground from "../../images/playground.jpg"
-import Churrasqueira from "../../images/churrasqueira.jpg"
-import IcoAgenda from "../../images/icoAgenda.svg"
-import Bar from "../../images/bar.jpg"
+import "../../styles/global.css";
+import Sinuca from "../../images/sinuca.jpg";
+import Playground from "../../images/playground.jpg";
+import Churrasqueira from "../../images/churrasqueira.jpg";
+import IcoAgenda from "../../images/icoAgenda.svg";
+import Bar from "../../images/bar.jpg";
 
 import perfil from "../../images/barberIcon.svg";
 import { useSchedule } from "../../providers/Schedule";
@@ -33,10 +33,9 @@ import { useUsers, users } from "../../providers/Users";
 const BarberPage = () => {
   const qtd = 4;
 
-  
   const { schedule, getSchedule } = useSchedule();
   const { getUsers } = useUsers();
-  
+
   const userId = JSON.parse(localStorage.getItem("userId"));
 
   const [isDesktop, setIsDesktop] = useState(
@@ -54,12 +53,10 @@ const BarberPage = () => {
     return array;
   };
 
-  
   useEffect(() => {
     getSchedule(`/scheduling/?barbeariaId=${userId}`);
     getUsers();
   }, [schedule]);
-
 
   return (
     <BodyPage>
@@ -100,9 +97,7 @@ const BarberPage = () => {
           swipeable
           arrows
         >
-          {schedule.map(({ userId, dateTime }, index) => (
-            <CardClient key={index} userId={userId} dateTime={dateTime} isDetails={true} />
-          ))}
+          <CardClient />
         </Carousel>
       </Container>
       <TextoDescritivo style={{ marginTop: "60px" }}>

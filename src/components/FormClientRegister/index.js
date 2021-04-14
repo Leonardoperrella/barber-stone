@@ -22,7 +22,7 @@ const FormClientRegister = () => {
 
   const schema = yup.object().shape({
     name: yup.string().required("campo Obrigatório!"),
-    sobrenome: yup.string().required("campo Obrigatório!"),
+    lastName: yup.string().required("campo Obrigatório!"),
     email: yup.string().email("email inválido").required("campo Obrigatório!"),
     password: yup
       .string()
@@ -60,7 +60,7 @@ const FormClientRegister = () => {
       <DivInput>
         <Label>Sobrenome</Label>
         <Input name="sobrenome" ref={register} />
-        {!!errors && <SpanError>{errors.sobrenome?.message}</SpanError>}
+        {!!errors && <SpanError>{errors.lastName?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Email</Label>
