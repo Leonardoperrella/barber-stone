@@ -42,17 +42,14 @@ const ClientPerfilPage = () => {
     window.innerWidth > 900 ? true : false
   );
 
-  const baseDate = new Date().toLocaleString().split(" ")[0].split("/");
-  const baseDateYear = Number(baseDate[2]);
-  const baseDateMonth = Number(baseDate[1]) - 1;
-  const baseDateDay = Number(baseDate[0]);
-  const today = new Date(baseDateYear, baseDateMonth, baseDateDay);
-
   window.onresize = () =>
     window.innerWidth > 900 ? setIsDesktop(true) : setIsDesktop(false);
 
   useEffect(() => {
     getSchedule(`/scheduling/?userId=${userId}`);
+  }, [schedule]);
+
+  useEffect(() => {
     getUser(userId);
   }, []);
 
@@ -106,17 +103,15 @@ const ClientPerfilPage = () => {
             swipeable
             arrows
           >
-            {schedule
-              .filter((obj) => new Date(obj.dateTime) >= today)
-              .map(({ userId, dateTime, price, id }, index) => (
-                <CardAgendamentos
-                  key={index}
-                  price={price}
-                  userId={userId}
-                  dateTime={dateTime}
-                  id={id}
-                />
-              ))}
+            {schedule.map(({ userId, dateTime, price, id }, index) => (
+              <CardAgendamentos
+                key={index}
+                price={price}
+                userId={userId}
+                dateTime={dateTime}
+                id={id}
+              />
+            ))}
           </Carousel>
         </Container>
       ) : (
