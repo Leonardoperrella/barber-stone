@@ -1,5 +1,6 @@
 import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
+import Notification from "../../components/Notification";
 import {
   BodyPage,
   BgPerfil,

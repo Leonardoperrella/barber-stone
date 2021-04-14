@@ -11,8 +11,6 @@ import {
   IconePequeno,
   Container,
   responsive,
-  BtnOpenModal,
-  BackDrop,
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import FormProfileBarberShop from "../../components/FormProfileBarbershop";
@@ -21,6 +19,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
 import { useUsers } from "../../providers/Users";
+import TransitionsModal from "../../components/ModalNewFunc";
 import GlobalModalAgendarHorario from "../../components/GlobalModalAgendarHorario";
 import { useUser, getUser } from "../../providers/User";
 
@@ -71,13 +70,7 @@ const BarberPerfilPage = () => {
       <ImgPerfil src={perfil} />
       <Nome>{user && user.name}</Nome>
       <TextoDescritivo>{user && user.description}</TextoDescritivo>
-
-      {show ? <BackDrop onClick={closeModalHandler}> </BackDrop> : null}
-      <BtnOpenModal onClick={() => setShow(true)}> </BtnOpenModal>
-      <GlobalModalAgendarHorario show={show} close={closeModalHandler} />
-
-      {/* <Icon src="./img/iconNovoFuncionario.png" alt="" /> */}
-
+      <TransitionsModal />
       <IconePequeno src={calendar} />
       <TextoDescritivo>Seus clientes agendados</TextoDescritivo>
       {schedule.length > 0 ? (

@@ -8,8 +8,6 @@ import {
   TextoDescritivo,
   Icon,
   ImgLazer,
-  Logo,
-  Descricao,
   responsive,
   Container,
   BoxLazer,
@@ -29,6 +27,8 @@ import Bar from "../../images/bar.jpg";
 import perfil from "../../images/barberIcon.svg";
 import { useSchedule } from "../../providers/Schedule";
 import { useUsers, users } from "../../providers/Users";
+
+import TransitionsModal from "../../components/ModalNewAgend";
 
 const BarberPage = () => {
   const qtd = 4;
@@ -71,6 +71,7 @@ const BarberPage = () => {
       <TextoDescritivo style={{}}>
         rua mimosa, 1234. Curitiba, paraná
       </TextoDescritivo>
+      <TransitionsModal />
       <Icon src={IcoAgenda} alt="" />
       <TextoDescritivo style={{}}>clientes agendados</TextoDescritivo>
       <Container>
@@ -97,7 +98,14 @@ const BarberPage = () => {
           swipeable
           arrows
         >
-          <CardClient />
+          {schedule.map(({ userId, dateTime }, index) => (
+            <CardClient
+              key={index}
+              userId={userId}
+              dateTime={dateTime}
+              isDetails={true}
+            />
+          ))}
         </Carousel>
       </Container>
       <TextoDescritivo style={{ marginTop: "60px" }}>

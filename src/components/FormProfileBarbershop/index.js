@@ -20,6 +20,7 @@ import {
   CheckboxContainer,
   TextAreaInput,
 } from "./styles";
+import { notifyRegisterSuccess } from "../../services/notifyData";
 import Check from "../../images/check.svg";
 import NoCheck from "../../images/noCheck.svg";
 
@@ -60,6 +61,7 @@ const FormProfileBarberShop = () => {
       })
       .then((response) => {
         console.log(response.data);
+        notifyRegisterSuccess();
       })
       .catch((e) => {
         console.log(e.response);
