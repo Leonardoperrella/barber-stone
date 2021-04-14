@@ -6,3 +6,7 @@ body {
   background-color: #1b2845;
   color: #f7f4f3;
 }
+
+.carousel {
+  height: 400px;
+}

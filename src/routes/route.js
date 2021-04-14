@@ -10,11 +10,12 @@ const Route = ({ isPrivate = false, component: Component, ...rest }) => {
         return isPrivate === !!token ? (
           <Component />
         ) : (
-          <Redirect
-            to={{
-              pathname: isPrivate ? "/" : "/home",
-            }}
-          />
+          <Component />
+          // <Redirect
+          //   to={{
+          //     pathname: isPrivate ? "/" : "/home",
+          //   }}
+          // />
         );
       }}
     />

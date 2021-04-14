@@ -1,6 +1,7 @@
 import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 import { menuLinkPerfilBarber } from "../../services/menuData";
+import "../../styles/global.css";
 import {
   BodyPage,
   BgPerfil,
@@ -54,7 +55,7 @@ const BarberPerfilPage = () => {
   useEffect(() => {
     getSchedule(`/scheduling/?barbeariaId=${userId}`);
     getUsers();
-  }, []);
+  }, [schedule]);
 
   return (
     <BodyPage>
@@ -77,7 +78,7 @@ const BarberPerfilPage = () => {
             autoPlay
             autoPlaySpeed={3000}
             centerMode={false}
-            className=""
+            className="carousel"
             containerClass="container"
             dotListClass=""
             draggable
@@ -94,8 +95,13 @@ const BarberPerfilPage = () => {
             swipeable
             arrows
           >
-            {schedule.map(({ userId, dateTime }, index) => (
-              <CardClient key={index} userId={userId} dateTime={dateTime} />
+            {schedule.map(({ userId, dateTime, id }, index) => (
+              <CardClient
+                key={index}
+                userId={userId}
+                dateTime={dateTime}
+                id={id}
+              />
             ))}
           </Carousel>
         </Container>

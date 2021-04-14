@@ -25,6 +25,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
 import { useUsers } from "../../providers/Users";
+import '../../styles/global.css'
+import Notification from '../../components/Notification'
 
 // temporário
 import perfil from "../../images/perfilClient.jpg";
@@ -35,7 +37,7 @@ import clock from "../../images/clock.svg";
 
 const ClientPerfilPage = () => {
   const { schedule, getSchedule } = useSchedule();
-  const { getUsers } = useUsers();
+  const { getUsers, users } = useUsers();
   const qtd = 4;
   const userId = JSON.parse(localStorage.getItem("userId"));
   const [isDesktop, setIsDesktop] = useState(
@@ -56,7 +58,7 @@ const ClientPerfilPage = () => {
   useEffect(() => {
     getSchedule(`/scheduling/?userId=${userId}`);
     getUsers();
-  }, []);
+  }, [users]);
 
   return (
     <BodyPage>
@@ -89,7 +91,7 @@ const ClientPerfilPage = () => {
             autoPlay
             autoPlaySpeed={3000}
             centerMode={false}
-            className=""
+            className="carousel"
             containerClass="container"
             dotListClass=""
             draggable
@@ -106,12 +108,13 @@ const ClientPerfilPage = () => {
             swipeable
             arrows
           >
-            {schedule.map(({ userId, dateTime, price }, index) => (
+            {schedule.map(({ userId, dateTime, price, id }, index) => (
               <CardAgendamentos
                 key={index}
                 price={price}
                 userId={userId}
                 dateTime={dateTime}
+                id={id}
               />
             ))}
           </Carousel>
