@@ -47,16 +47,10 @@ const ClientPerfilPage = () => {
   window.onresize = () =>
     window.innerWidth > 900 ? setIsDesktop(true) : setIsDesktop(false);
 
-  const baseDate = new Date().toLocaleString().split(" ")[0].split("/");
-  const baseDateYear = Number(baseDate[2]);
-  const baseDateMonth = Number(baseDate[1]) - 1;
-  const baseDateDay = Number(baseDate[0]);
-  const today = new Date(baseDateYear, baseDateMonth, baseDateDay);
-
   useEffect(() => {
     getSchedule(`/scheduling/?userId=${userId}`);
     setFilteredSchedule(
-      schedule.filter((obj) => new Date(obj.dateTime) >= today)
+      schedule.filter((obj) => obj.dateTime >= new Date().getTime())
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [schedule]);
@@ -120,11 +114,9 @@ const ClientPerfilPage = () => {
             sliderClass=""
             slidesToSlide={1}
             swipeable
-            arrows
           >
-            {filteredSchedule
-              .filter((obj) => new Date(obj.dateTime) >= today)
-              .map(({ barberId, dateTime, price, id }, index) => (
+            {filteredSchedule.map(
+              ({ barberId, dateTime, price, id }, index) => (
                 <CardAgendamentos
                   key={index}
                   price={price}
@@ -132,7 +124,8 @@ const ClientPerfilPage = () => {
                   dateTime={dateTime}
                   id={id}
                 />
-              ))}
+              )
+            )}
           </Carousel>
         </Container>
       ) : (
