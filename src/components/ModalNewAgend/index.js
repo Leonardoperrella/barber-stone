@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { Button, ModalStyled, FadeStyled } from "./styles";
 
-import FormAgendamentos from "../FormAgend";
+import FormAgendamentos from "../FormAgendamentos";
 
 export default function TransitionsModal({ barberId }) {
   const [open, setOpen] = useState(false);

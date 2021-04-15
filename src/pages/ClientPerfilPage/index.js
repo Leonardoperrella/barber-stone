@@ -56,14 +56,12 @@ const ClientPerfilPage = () => {
   useEffect(() => {
     getSchedule(`/scheduling/?userId=${userId}`);
     setFilteredSchedule(
-      schedule.filter((obj) => new Date(obj.dateTime) >= today)
+      schedule.filter((obj) => obj.dateTime >= new Date().getTime())
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [schedule]);
 
   useEffect(() => {
     getUser(userId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -123,7 +121,6 @@ const ClientPerfilPage = () => {
             arrows
           >
             {filteredSchedule
-              .filter((obj) => new Date(obj.dateTime) >= today)
               .map(({ barberId, dateTime, price, id }, index) => (
                 <CardAgendamentos
                   key={index}

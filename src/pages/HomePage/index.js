@@ -5,18 +5,33 @@ import ServicesProvided from "../../components/ServicesProvided";
 import HowItWorks from "../../components/HowItWorks";
 import RegisterSectionHomepage from "../../components/RegisterSectionHomepage";
 import Footer from "../../components/Footer";
+import { useLocation } from "react-router-dom"
+import * as Scroll from 'react-scroll';
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 import { menuLinkHome } from "../../services/menuData";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const HomePage = () => {
+
+  const [goRegister, setGoRegister] = useState(false)
+
+  const isRegister = useLocation().state
+  
+  useEffect(() =>{ 
+    setGoRegister(isRegister)
+  })
+
   return (
     <>
-      <Menu menuLink={menuLinkHome} />
+      {goRegister && scroller.scrollTo('cadastrar',{offset: 10})}
+      <Menu menuLink={menuLinkHome} isRegister />
       <Cover></Cover>
       <About id="sobre" />
       <ServicesProvided id="serviços" />
       <HowItWorks id="#como-funciona" />
-      <RegisterSectionHomepage id="cadastrar" />
+      <RegisterSectionHomepage id="cadastrar" name="cadastrar" />
       <Footer />
     </>
   );
