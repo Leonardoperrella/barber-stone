@@ -1,4 +1,4 @@
-import { Card, Button } from "./styles";
+import { Card, CardFlip, Button } from "./styles";
 import { useUsers } from "../../providers/Users";
 import IcoPerson from "../../images/icoPerson.svg";
 import Flip from "react-card-flip";
@@ -37,11 +37,11 @@ const CardClient = ({ userId, dateTime, id, isDetails }) => {
 
   return (
     <Flip isFlipped={flip} flipDirection="horizontal">
-      <Card onClick={() => setFlip(true)}>
+      <CardFlip onClick={() => setFlip(true)}>
         <img src={IcoPerson} alt="" />
         <p>{!!users && `${users[userId][0]} ${users[userId][1]}`}</p>
         <p>{`${data} - ${time}`}</p>
-      </Card>
+      </CardFlip>
       <Card onClick={() => setFlip(false)} isVerso={isDetails ? false : true}>
         {isDetails ? (
           <>
