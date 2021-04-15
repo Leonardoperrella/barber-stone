@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Checkbox, FormControlLabel } from "@material-ui/core";
 
 export const FormComponent = styled.form`
   padding: 10px;
@@ -97,4 +98,34 @@ export const Price = styled.h4`
   & span {
     color: #bb8c4b;
   }
+`;
+
+export const DivCheck = styled.div`
+  max-width: 416px;
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  margin: 0 6px;
+`;
+
+export const FormControl = styled(FormControlLabel)``;
+
+export const CheckboxLazer = styled(Checkbox)`
+  margin-right: 20px;
+`;
+export const ImgCheck = styled.img`
+  margin-right: 20px;
+  border-radius: 10px;
+  width: 40px;
+`;
+export const LabelCheck = styled.span`
+  font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 38px;
+  color: #f7f4f3;
+  align-items: left;
 `;
