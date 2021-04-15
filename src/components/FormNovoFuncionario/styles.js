@@ -33,7 +33,7 @@ export const SpanError = styled.span`
   font-size: 1.25rem;
   font-weight: 400;
   letter-spacing: 1px;
-  color: red;
+  color: #ec8989;
   text-align: center;
   margin-top: 10px;
 `;

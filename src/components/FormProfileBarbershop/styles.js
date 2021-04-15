@@ -11,7 +11,7 @@ export const FormUpdate = styled.form`
 
 export const SpanError = styled.span`
   font-size: 1.25rem;
-  color: red;
+  color: #ec8989;
   text-align: center;
   margin: 5px;
 `;
@@ -96,7 +96,7 @@ export const ImgCheck = styled.img`
   margin-right: 20px;
   border-radius: 10px;
   width: 59px;
-  height:59px;
+  height: 59px;
 `;
 export const FormControl = styled(FormControlLabel)``;
 export const DivCheck = styled.div`
