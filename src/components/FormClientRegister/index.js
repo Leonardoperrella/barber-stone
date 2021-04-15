@@ -12,7 +12,10 @@ import {
   Label,
   DivInput,
 } from "../../styles/Form.styles";
-import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
+import {
+  existingEmail,
+  notifyRegisterSuccess,
+} from "../../services/notifyData";
 
 const FormClientRegister = () => {
   // const { login } = useProviderUser();
@@ -42,11 +45,13 @@ const FormClientRegister = () => {
       .then((response) => {
         console.log(response.data);
         notifyRegisterSuccess();
-        history.push("/");
+        setTimeout(() => {
+          history.push("/");
+        }, 2000);
       })
       .catch((e) => {
         console.log(e.response);
-        notifyError(e.response.data);
+        existingEmail(e.response.data);
       });
   };
 

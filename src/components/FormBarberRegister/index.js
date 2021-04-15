@@ -13,7 +13,10 @@ import {
   DivInput,
   TextArea,
 } from "../../styles/Form.styles";
-import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
+import {
+  existingEmail,
+  notifyRegisterSuccess,
+} from "../../services/notifyData";
 
 const FormBarberRegister = () => {
   const [error] = useState(false);
@@ -57,11 +60,13 @@ const FormBarberRegister = () => {
       .then((response) => {
         console.log(response.data);
         notifyRegisterSuccess();
-        history.push("/");
+        setTimeout(() => {
+          history.push("/");
+        }, 2000);
       })
       .catch((e) => {
         console.log(e.response);
-        notifyError(e.response.data);
+        existingEmail();
       });
   };
 

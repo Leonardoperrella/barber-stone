@@ -28,6 +28,7 @@ import { useSchedule } from "../../providers/Schedule";
 import { useUsers } from "../../providers/Users";
 import { useLocation } from "react-router-dom";
 import TransitionsModal from "../../components/ModalNewAgend";
+import Notification from "../../components/Notification";
 
 const BarberPage = () => {
   const barberUser = useLocation();
@@ -127,6 +128,7 @@ const BarberPage = () => {
         </Atracao>
       </BoxLazer>
       <Footer />
+      <Notification />
     </BodyPage>
   );
 };
