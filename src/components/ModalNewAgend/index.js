@@ -37,7 +37,7 @@ export default function TransitionsModal({ barberId }) {
           <div>
             <h2>Agendar novo atendimento</h2>
             <h4>Barbearia do seu zé</h4>
-            <FormAgendamentos barberId={barberId} />
+            <FormAgendamentos barberId={barberId} handleClose={handleClose} />
           </div>
         </FadeStyled>
       </ModalStyled>

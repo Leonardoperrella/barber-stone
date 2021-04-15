@@ -13,7 +13,10 @@ import {
   DivInput,
   TextArea,
 } from "../../styles/Form.styles";
-import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
+import {
+  existingEmail,
+  notifyRegisterSuccess,
+} from "../../services/notifyData";
 
 const FormBarberRegister = () => {
   const [error] = useState(false);
@@ -40,18 +43,30 @@ const FormBarberRegister = () => {
   };
 
   const onSubmit = (data) => {
-    data = { ...data, isBarber: true, rating: getRandomIntInclusive(1, 5) };
+    data = {
+      ...data,
+      isBarber: true,
+      rating: getRandomIntInclusive(1, 5),
+      leisureOptions: {
+        pool: false,
+        barbecue: false,
+        playGround: false,
+        bar: false,
+      },
+    };
 
     api
       .post("register", data)
       .then((response) => {
         console.log(response.data);
         notifyRegisterSuccess();
-        history.push("/");
+        setTimeout(() => {
+          history.push("/");
+        }, 2000);
       })
       .catch((e) => {
         console.log(e.response);
-        notifyError(e.response.data);
+        existingEmail();
       });
   };
 

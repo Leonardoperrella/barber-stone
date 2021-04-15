@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 import { menuLinkPerfilBarber } from "../../services/menuData";
@@ -14,12 +15,12 @@ import {
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import FormProfileBarberShop from "../../components/FormProfileBarbershop";
-import { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useSchedule } from "../../providers/Schedule";
 import TransitionsModal from "../../components/ModalNewFunc";
 import { useUser } from "../../providers/User";
+import { useSchedule } from "../../providers/Schedule";
+import Notification from "../../components/Notification";
 
 // temporário
 import perfil from "../../images/barberIcon.svg";
@@ -44,17 +45,9 @@ const BarberPerfilPage = () => {
   window.onresize = () =>
     window.innerWidth > 911 ? setIsDesktop(true) : setIsDesktop(false);
 
-  const buildArray = () => {
-    let array = [];
-    for (let i = 0; i < qtd; i++) {
-      array.push(i);
-    }
-    return array;
-  };
-
   useEffect(() => {
     getSchedule(`/scheduling/?barberId=${userId}`);
-  }, [schedule]);
+  }, []);
 
   useEffect(() => {
     getUser(userId);
@@ -94,7 +87,6 @@ const BarberPerfilPage = () => {
             sliderClass=""
             slidesToSlide={1}
             swipeable
-            arrows
           >
             {schedule.map(({ userId, dateTime, id }, index) => (
               <CardClient
@@ -115,6 +107,7 @@ const BarberPerfilPage = () => {
       <TextoDescritivo>Atualizar Dados</TextoDescritivo>
       <FormProfileBarberShop />
       <Footer />
+      <Notification />
     </BodyPage>
   );
 };

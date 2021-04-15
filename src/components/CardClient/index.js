@@ -5,10 +5,14 @@ import Flip from "react-card-flip";
 import { useState, useEffect } from "react";
 import api from "../../services/api";
 import { notifyDeleted } from "../../services/notifyData";
+import { useSchedule } from "../../providers/Schedule";
 
 const CardClient = ({ userId, dateTime, id, isDetails }) => {
   const token = JSON.parse(localStorage.getItem("token"));
+  const barberId = JSON.parse(localStorage.getItem("userId"));
+
   const { users, getUsers } = useUsers();
+  const { getSchedule } = useSchedule();
   const [flip, setFlip] = useState(false);
   const dateTimeUser = new Date(dateTime).toLocaleString();
   const data = dateTimeUser.split(" ")[0];
@@ -21,14 +25,7 @@ const CardClient = ({ userId, dateTime, id, isDetails }) => {
       })
       .then(() => {
         notifyDeleted();
-      })
-      .catch((e) => {});
-    api
-      .delete(`/scheduling/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then(() => {
-        notifyDeleted();
+        getSchedule(`/scheduling/?barberId=${barberId}`);
       })
       .catch((e) => {});
   };

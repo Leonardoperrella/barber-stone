@@ -53,7 +53,6 @@ const FormProfileBarberShop = () => {
 
   const onSubmit = (userData) => {
     userData = { ...userData, leisureOptions };
-    console.log(userData);
 
     api
       .patch(`/users/${userId}`, userData, {
@@ -75,16 +74,12 @@ const FormProfileBarberShop = () => {
     });
   };
 
-  const { pool, barbecue, playGround, bar } = leisureOptions;
-
   const getUser = () => {
     api
       .get(`/users/${userId}`)
       .then((response) => {
         setuser(response.data);
-        if (response.data.leisureOptions > 0) {
-          setLeisureOptions(response.data.leisureOptions);
-        }
+        setLeisureOptions(response.data.leisureOptions);
       })
       .catch((e) => {
         console.log(e.response);
@@ -99,6 +94,8 @@ const FormProfileBarberShop = () => {
     getUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const { pool, barbecue, playGround, bar } = leisureOptions;
 
   return (
     <>
@@ -153,8 +150,8 @@ const FormProfileBarberShop = () => {
                   checked={pool}
                   onChange={handleChange}
                   name="pool"
-                  icon={<ImgCheck src={Check} alt="" />}
-                  checkedIcon={<ImgCheck src={NoCheck} alt="" />}
+                  icon={<ImgCheck src={NoCheck} alt="" />}
+                  checkedIcon={<ImgCheck src={Check} alt="" />}
                 />
               }
               label={<LabelCheck>sinuca</LabelCheck>}
@@ -167,8 +164,8 @@ const FormProfileBarberShop = () => {
                   checked={barbecue}
                   onChange={handleChange}
                   name="barbecue"
-                  icon={<ImgCheck src={Check} alt="" />}
-                  checkedIcon={<ImgCheck src={NoCheck} alt="" />}
+                  icon={<ImgCheck src={NoCheck} alt="" />}
+                  checkedIcon={<ImgCheck src={Check} alt="" />}
                 />
               }
               label={<LabelCheck>Churrasco</LabelCheck>}
@@ -181,8 +178,8 @@ const FormProfileBarberShop = () => {
                   checked={playGround}
                   onChange={handleChange}
                   name="playGround"
-                  icon={<ImgCheck src={Check} alt="" />}
-                  checkedIcon={<ImgCheck src={NoCheck} alt="" />}
+                  icon={<ImgCheck src={NoCheck} alt="" />}
+                  checkedIcon={<ImgCheck src={Check} alt="" />}
                 />
               }
               label={<LabelCheck>playground</LabelCheck>}
@@ -195,8 +192,8 @@ const FormProfileBarberShop = () => {
                   checked={bar}
                   onChange={handleChange}
                   name="bar"
-                  icon={<ImgCheck src={Check} alt="" />}
-                  checkedIcon={<ImgCheck src={NoCheck} alt="" />}
+                  icon={<ImgCheck src={NoCheck} alt="" />}
+                  checkedIcon={<ImgCheck src={Check} alt="" />}
                 />
               }
               label={<LabelCheck>bar</LabelCheck>}

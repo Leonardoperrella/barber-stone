@@ -1,7 +1,14 @@
 import { bool } from "prop-types";
 import { StyledMenu } from "./styles";
 import { Link } from "react-scroll";
+
 const MenuItem = ({ open, menuLink }) => {
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const handleLogOut = () => {
+    localStorage.clear();
+  };
+
   return (
     <StyledMenu open={open} >
       {!!menuLink &&
@@ -20,6 +27,11 @@ const MenuItem = ({ open, menuLink }) => {
             );
           }
         })}
+      {token && (
+        <a onClick={handleLogOut} href="/">
+          LogOut
+        </a>
+      )}
     </StyledMenu>
   );
 };

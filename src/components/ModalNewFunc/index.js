@@ -37,7 +37,7 @@ export default function TransitionsModal() {
           <div>
             <h2>Cadastrar novo funcionário</h2>
             <h4>Barbearia do seu zé</h4>
-            <FormNovoFuncionario />
+            <FormNovoFuncionario handleClose={handleClose} />
           </div>
         </FadeStyled>
       </ModalStyled>

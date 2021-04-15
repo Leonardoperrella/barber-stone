@@ -28,6 +28,7 @@ import { useSchedule } from "../../providers/Schedule";
 import { useUsers } from "../../providers/Users";
 import { useLocation } from "react-router-dom";
 import TransitionsModal from "../../components/ModalNewAgend";
+import Notification from "../../components/Notification";
 
 const BarberPage = () => {
   const barberUser = useLocation();
@@ -54,7 +55,7 @@ const BarberPage = () => {
   };
 
   useEffect(() => {
-    getSchedule(`/scheduling/?barbeariaId=${barberUser.state.id}`);
+    // getSchedule(`/scheduling/?barbeariaId=${barberUser.state.id}`);
     getUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [schedule]);
@@ -127,6 +128,7 @@ const BarberPage = () => {
         </Atracao>
       </BoxLazer>
       <Footer />
+      <Notification />
     </BodyPage>
   );
 };
