@@ -54,7 +54,7 @@ const BarberPage = () => {
   };
 
   useEffect(() => {
-    getSchedule(`/scheduling/?barbeariaId=${barberUser.state.id}`);
+    // getSchedule(`/scheduling/?barbeariaId=${barberUser.state.id}`);
     getUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [schedule]);

@@ -17,6 +17,7 @@ export const ScheduleProvider = ({ children }) => {
       });
   };
 
+  console.log("providers");
   return (
     <ScheduleContext.Provider value={{ schedule, setSchedule, getSchedule }}>
       {children}
