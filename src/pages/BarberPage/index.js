@@ -69,7 +69,7 @@ const BarberPage = () => {
         {barberUser.state.description}
       </TextoDescritivo>
       <TextoDescritivo style={{}}>{barberUser.state.address}</TextoDescritivo>
-      <TransitionsModal />
+      <TransitionsModal barberId={barberUser.state.id} />
       <Icon src={IcoAgenda} alt="" />
       <TextoDescritivo style={{}}>clientes agendados</TextoDescritivo>
       <Container>

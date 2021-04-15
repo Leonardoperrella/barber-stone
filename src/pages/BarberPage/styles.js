@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import BackgroundHeader from "../../images/background-barber-profile.jpg";
+import Forbiden from "../../images/forbiden.png";
 
 export const responsive = {
   desktop: {
@@ -26,7 +27,7 @@ export const BodyPage = styled.div`
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  text-align:center;
+  text-align: center;
 `;
 
 export const BgPerfil = styled.div`

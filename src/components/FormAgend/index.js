@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import {
   FormComponent,
@@ -14,23 +13,25 @@ import {
 } from "./styles";
 
 import TextField from "@material-ui/core/TextField";
-
 import { ThemeProvider, createMuiTheme } from "@material-ui/core";
+import api from "../../services/api";
+import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
 
-const FormAgendamentos = () => {
-  // const { login } = useProviderUser();
-
-  const [error, setError] = useState(false);
-  const history = useHistory();
+const FormAgendamentos = ({ barberId }) => {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const userId = JSON.parse(localStorage.getItem("userId"));
+  const [error] = useState(false);
+  const [value, setValue] = useState("Apenas cabelo");
+  const [options] = useState({
+    "Apenas cabelo": 35,
+    "Apenas barba": 25,
+    "Cabelo + barba": 50,
+  });
 
   const schema = yup.object().shape({
-    name: yup.string().required("campo Obrigatório!"),
-    sobrenome: yup.string().required("campo Obrigatório!"),
-    email: yup.string().email("email inválido").required("campo Obrigatório!"),
-    senha: yup
-      .string()
-      .min(6, "mínimo de 6 caracteres")
-      .required("campo obrigatório!"),
+    dateTime: yup.date(),
+    service: yup.string(),
+    price: yup.string(),
   });
 
   const { register, handleSubmit, errors, reset } = useForm({
@@ -38,8 +39,44 @@ const FormAgendamentos = () => {
   });
 
   const onSubmit = (userData) => {
-    console.log(userData);
+    const { dateTime, service } = userData;
+    const price = options[service];
+    userData = {
+      ...userData,
+      dateTime: dateTime.getTime(),
+      price,
+      barberId: barberId,
+      userId: userId,
+    };
+
+    api
+      .post("/scheduling", userData, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        console.log(response);
+        notifyRegisterSuccess();
+      })
+      .catch((e) => {
+        console.log(e.response);
+        notifyError(e.response.data);
+      });
   };
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  const DateTime = new Date(tomorrow).toLocaleString().split(" ");
+  const day = DateTime[0].split("/")[0];
+  const month = DateTime[0].split("/")[1];
+  const year = DateTime[0].split("/")[2];
+  const hour = DateTime[1].split("/")[0].split(":")[0];
+  const minute = DateTime[1].split("/")[0].split(":")[1];
 
   const theme = createMuiTheme({
     palette: {
@@ -61,10 +98,11 @@ const FormAgendamentos = () => {
         <DivInput>
           <Label>Horário</Label>
           <TextField
-            id="datetime-local"
-            label="Next appointment"
+            name="dateTime"
+            inputRef={register}
+            label="Data e Hora"
             type="datetime-local"
-            defaultValue="2021-04-12T10:30"
+            defaultValue={`${year}-${month}-${day}T${hour}:${minute}`}
             InputLabelProps={{
               shrink: true,
             }}
@@ -72,17 +110,20 @@ const FormAgendamentos = () => {
         </DivInput>
         <DivInput>
           <Label>Serviço</Label>
-          <Select>
-            <option value="1" selected>
-              Apenas cabelo
-            </option>
-            <option value="2">Apenas barba</option>
-            <option value="3">Cabelo + barba</option>
+          <Select
+            onChange={handleChange}
+            value={value}
+            name="service"
+            ref={register}
+          >
+            <option value="Apenas cabelo">Apenas cabelo</option>
+            <option value="Apenas barba">Apenas barba</option>
+            <option value="Cabelo + barba">Cabelo + barba</option>
           </Select>
         </DivInput>
         <DivInput>
-          <Price>
-            Preço <span>R$30</span>
+          <Price name="price" ref={register}>
+            Preço <span>R$ {options[value]}</span>
           </Price>
         </DivInput>
         <DivInput>

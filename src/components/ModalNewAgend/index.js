@@ -5,7 +5,7 @@ import { Button, ModalStyled, FadeStyled } from "./styles";
 
 import FormAgendamentos from "../FormAgend";
 
-export default function TransitionsModal() {
+export default function TransitionsModal({ barberId }) {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -37,7 +37,7 @@ export default function TransitionsModal() {
           <div>
             <h2>Agendar novo atendimento</h2>
             <h4>Barbearia do seu zé</h4>
-            <FormAgendamentos />
+            <FormAgendamentos barberId={barberId} />
           </div>
         </FadeStyled>
       </ModalStyled>
