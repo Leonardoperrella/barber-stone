@@ -18,7 +18,7 @@ const RegisterSectionHomepage = () => {
         <div>
           <Card
             image={CustomerImage}
-            onClick={() => handleClick("/cadastro-barbearia")}
+            onClick={() => handleClick("/cadastro-cliente")}
           >
             <p>
               Seja um membro
@@ -27,7 +27,7 @@ const RegisterSectionHomepage = () => {
           </Card>
           <Card
             image={BarberImage}
-            onClick={() => handleClick("/cadastro-cliente")}
+            onClick={() => handleClick("/cadastro-barbearia")}
           >
             <p>
               Cadastre sua barbearia
