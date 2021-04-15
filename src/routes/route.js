@@ -1,22 +1,33 @@
 import { Redirect, Route as ReactDOMRoute } from "react-router-dom";
+import NotFound from "../pages/NotFoundPage";
+import { useHistory } from 'react-router-dom'
 
-const Route = ({ isPrivate = false, component: Component, ...rest }) => {
+const Route = ({ islogin, isprivate, isclient, isbarber, component: Component, ...rest }) => {
+
+  const history = useHistory()
+
   const token = JSON.parse(localStorage.getItem("token"));
+
+  const isBarber = JSON.parse(localStorage.getItem('isBarber'))
+
 
   return (
     <ReactDOMRoute
       {...rest}
       render={() => {
-        return isPrivate === !!token ? (
+        return isprivate === undefined && !!islogin === !!isprivate ? (
           <Component />
-        ) : (
+        ) : !!isprivate !== !!token || !!islogin === !!token ?  (
+          <Redirect to={{pathname: '/home'}} />
+        ) : !!islogin === !!token ? (
+          <Redirect to={{pathname: '/home'}} />
+        ) : isbarber === undefined && isclient === undefined ? (
           <Component />
-          // <Redirect
-          //   to={{
-          //     pathname: isPrivate ? "/" : "/home",
-          //   }}
-          // />
-        );
+        ) : !!isbarber === isBarber ? (
+          <Component />
+        ) : !!isclient === !isBarber ? (
+          <Component />
+        ) : <NotFound />
       }}
     />
   );

@@ -52,12 +52,10 @@ const ClientPerfilPage = () => {
     setFilteredSchedule(
       schedule.filter((obj) => obj.dateTime >= new Date().getTime())
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [schedule]);
 
   useEffect(() => {
     getUser(userId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

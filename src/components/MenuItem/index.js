@@ -10,7 +10,7 @@ const MenuItem = ({ open, menuLink }) => {
   };
 
   return (
-    <StyledMenu open={open}>
+    <StyledMenu open={open} >
       {!!menuLink &&
         menuLink.map(({ content, to, anchor }, index) => {
           if (anchor) {
