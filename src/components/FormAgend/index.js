@@ -28,6 +28,17 @@ const FormAgendamentos = ({ barberId }) => {
     "Cabelo + barba": 50,
   });
 
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  const DateTime = new Date(tomorrow).toLocaleString().split(" ");
+  const day = DateTime[0].split("/")[0];
+  const month = DateTime[0].split("/")[1];
+  const year = DateTime[0].split("/")[2];
+  const hour = DateTime[1].split("/")[0].split(":")[0];
+  const minute = DateTime[1].split("/")[0].split(":")[1];
+
   const schema = yup.object().shape({
     dateTime: yup.date(),
     service: yup.string(),
@@ -66,17 +77,6 @@ const FormAgendamentos = ({ barberId }) => {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-
-  const today = new Date();
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-
-  const DateTime = new Date(tomorrow).toLocaleString().split(" ");
-  const day = DateTime[0].split("/")[0];
-  const month = DateTime[0].split("/")[1];
-  const year = DateTime[0].split("/")[2];
-  const hour = DateTime[1].split("/")[0].split(":")[0];
-  const minute = DateTime[1].split("/")[0].split(":")[1];
 
   const theme = createMuiTheme({
     palette: {
