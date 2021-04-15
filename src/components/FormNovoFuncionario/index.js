@@ -23,7 +23,7 @@ import checked from "../../images/check.svg";
 
 import { notifyRegisterSuccess } from "../../services/notifyData";
 
-const FormNovoFuncionario = () => {
+const FormNovoFuncionario = ({ handleClose }) => {
   const [error] = useState(false);
 
   const [iconState, setIconState] = useState({
@@ -61,6 +61,7 @@ const FormNovoFuncionario = () => {
       })
       .then((response) => {
         console.log(response.data);
+        handleClose();
         notifyRegisterSuccess();
       })
       .catch((e) => {

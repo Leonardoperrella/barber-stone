@@ -17,7 +17,7 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core";
 import api from "../../services/api";
 import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
 
-const FormAgendamentos = ({ barberId }) => {
+const FormAgendamentos = ({ barberId, handleClose }) => {
   const token = JSON.parse(localStorage.getItem("token"));
   const userId = JSON.parse(localStorage.getItem("userId"));
   const [error] = useState(false);
@@ -66,6 +66,7 @@ const FormAgendamentos = ({ barberId }) => {
       })
       .then((response) => {
         console.log(response);
+        handleClose();
         notifyRegisterSuccess();
       })
       .catch((e) => {

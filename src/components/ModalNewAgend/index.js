@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { Button, ModalStyled, FadeStyled } from "./styles";
 
-import FormAgendamentos from "../FormAgend";
+import FormAgendamentos from "../FormAgendamentos";
 
 export default function TransitionsModal({ barberId }) {
   const [open, setOpen] = useState(false);
@@ -37,7 +37,7 @@ export default function TransitionsModal({ barberId }) {
           <div>
             <h2>Agendar novo atendimento</h2>
             <h4>Barbearia do seu zé</h4>
-            <FormAgendamentos barberId={barberId} />
+            <FormAgendamentos barberId={barberId} handleClose={handleClose} />
           </div>
         </FadeStyled>
       </ModalStyled>
