@@ -40,7 +40,17 @@ const FormBarberRegister = () => {
   };
 
   const onSubmit = (data) => {
-    data = { ...data, isBarber: true, rating: getRandomIntInclusive(1, 5) };
+    data = {
+      ...data,
+      isBarber: true,
+      rating: getRandomIntInclusive(1, 5),
+      leisureOptions: {
+        pool: false,
+        barbecue: false,
+        playGround: false,
+        bar: false,
+      },
+    };
 
     api
       .post("register", data)
