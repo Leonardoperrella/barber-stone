@@ -21,7 +21,7 @@ import api from "../../services/api";
 import check from "../../images/noCheck.svg";
 import checked from "../../images/check.svg";
 
-import notifyRegisterSuccess from "../Notification";
+import { notifyRegisterSuccess } from "../../services/notifyData";
 
 const FormNovoFuncionario = () => {
   const [error] = useState(false);
