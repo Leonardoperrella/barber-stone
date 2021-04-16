@@ -91,6 +91,11 @@ export const ImgLazer = styled.img`
   width: 275px;
   height: 275px;
 `;
+
+export const ImgLazerFalse = styled(ImgLazer)`
+  filter: grayscale(100%);
+`;
+
 export const Container = styled.div`
   max-width: 1030px;
   padding: 10px;
