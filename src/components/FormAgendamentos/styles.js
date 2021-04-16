@@ -10,6 +10,11 @@ export const DivInput = styled.div`
   flex-direction: column;
 `;
 
+export const DivInputCalendar = styled(DivInput)`
+  max-width: 250px;
+  margin: auto;
+`;
+
 export const Label = styled.p`
   font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
   font-size: 2rem;
@@ -87,10 +92,11 @@ export const Select = styled.select`
   border: 4px solid #f7f4f3;
   border-radius: 20px;
   color: #f7f4f3;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 
   & option {
     background-color: #1b2845;
+    text-align: center;
   }
 `;
 
@@ -102,21 +108,23 @@ export const Price = styled.h4`
 
 export const DivCheck = styled.div`
   max-width: 416px;
-  width: 90vw;
   display: flex;
   justify-content: center;
-  align-items: left;
+  align-items: center;
   flex-direction: column;
-  margin: 0 6px;
+  margin: 0 auto;
 `;
 
-export const FormControl = styled(FormControlLabel)``;
-
-export const CheckboxLazer = styled(Checkbox)`
-  margin-right: 20px;
+export const FormControl = styled(FormControlLabel)`
+  max-width: 350px;
+  display: flex;
+  justify-content: center;
+  margin: 0 !important;
 `;
+
+export const CheckboxLazer = styled(Checkbox)``;
+
 export const ImgCheck = styled.img`
-  margin-right: 20px;
   border-radius: 10px;
   width: 40px;
 `;
@@ -124,8 +132,12 @@ export const LabelCheck = styled.span`
   font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 25px;
+  font-size: 1.25rem;
   line-height: 38px;
   color: #f7f4f3;
   align-items: left;
+
+  @media screen and (min-width: 496px) {
+    font-size: 1.5rem;
+  }
 `;

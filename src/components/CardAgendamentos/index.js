@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Card, Button } from "./styles";
+import { Card, CardFlip, Button } from "./styles";
 import { useUsers } from "../../providers/Users";
 import { useState } from "react";
 import Flip from "react-card-flip";
@@ -37,14 +37,14 @@ const CardAgendamentos = ({ barberId, dateTime, price, id }) => {
 
   return (
     <Flip isFlipped={flip} flipDirection="horizontal">
-      <Card onClick={() => setFlip(true)}>
+      <CardFlip onClick={() => setFlip(true)}>
         <div>
           <img src={Tesoura} alt="tesoura dourada" />
         </div>
         <p>{!!users && `${users[barberId][0]}`}</p>
         <p>{`${data} - ${time}`}</p>
         <p>R$ {price}</p>
-      </Card>
+      </CardFlip>
       <Card onClick={() => setFlip(false)} isVerso>
         <Button onClick={() => onSubmit(id)}>Cancelar agendamento</Button>
         <Button>Alterar Agendamento</Button>

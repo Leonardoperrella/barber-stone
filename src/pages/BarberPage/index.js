@@ -12,23 +12,26 @@ import {
   Container,
   BoxLazer,
   Atracao,
+  ImgLazerFalse,
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import Footer from "../../components/Footer";
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "../../styles/global.css";
-import Sinuca from "../../images/sinuca.jpg";
-import Playground from "../../images/playground.jpg";
-import Churrasqueira from "../../images/churrasqueira.jpg";
 import IcoAgenda from "../../images/icoAgenda.svg";
-import Bar from "../../images/bar.jpg";
 import perfil from "../../images/barberIcon.svg";
 import { useSchedule } from "../../providers/Schedule";
 import { useUsers } from "../../providers/Users";
 import { useLocation } from "react-router-dom";
 import TransitionsModal from "../../components/ModalNewAgend";
 import Notification from "../../components/Notification";
+import { array } from "yup/lib/locale";
+
+import Sinuca from "../../images/sinuca.jpg";
+import Playground from "../../images/playground.jpg";
+import Churrasqueira from "../../images/churrasqueira.jpg";
+import Bar from "../../images/bar.jpg";
 
 const BarberPage = () => {
   const barberUser = useLocation();
@@ -59,6 +62,42 @@ const BarberPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   //});
 
+
+  const arrayLeisure = [];
+  arrayLeisure.push(barberUser.state.leisureOptions);
+
+  console.log(arrayLeisure);
+
+  const leisure = [
+    {
+      text: "Sinuca",
+      image: Sinuca,
+    },
+    {
+      text: "Bar",
+      image: Bar,
+    },
+    {
+      text: "Churrasqueira",
+      image: Churrasqueira,
+    },
+    {
+      text: "Playground",
+      image: Playground,
+    },
+  ];
+
+  arrayLeisure.map((l, i) => {
+    const SinucaBool = l.pool;
+    const BarBool = l.bar;
+    const ChurrasqueiraBool = l.barbecue;
+    const PlaygroundBool = l.playGround;
+
+    leisure[0].bool = SinucaBool;
+    leisure[1].bool = BarBool;
+    leisure[2].bool = ChurrasqueiraBool;
+    leisure[3].bool = PlaygroundBool;
+  });
 
   return (
     <BodyPage>
@@ -110,22 +149,16 @@ const BarberPage = () => {
         opções de lazer
       </TextoDescritivo>
       <BoxLazer>
-        <Atracao>
-          <TextoDescritivo>Sinuca</TextoDescritivo>
-          <ImgLazer src={Sinuca} alt="" />
-        </Atracao>
-        <Atracao>
-          <TextoDescritivo>Bar</TextoDescritivo>
-          <ImgLazer src={Bar} alt="" />
-        </Atracao>
-        <Atracao>
-          <TextoDescritivo>Churrasqueira</TextoDescritivo>
-          <ImgLazer src={Churrasqueira} alt="" />
-        </Atracao>
-        <Atracao>
-          <TextoDescritivo>Playground</TextoDescritivo>
-          <ImgLazer src={Playground} alt="" />
-        </Atracao>
+        {leisure.map((lazer, index) => (
+          <Atracao>
+            <TextoDescritivo>{lazer.text}</TextoDescritivo>
+            {lazer.bool ? (
+              <ImgLazer src={lazer.image} />
+            ) : (
+              <ImgLazerFalse src={lazer.image} />
+            )}
+          </Atracao>
+        ))}
       </BoxLazer>
       <Footer />
       <Notification />

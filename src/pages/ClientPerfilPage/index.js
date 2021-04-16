@@ -53,7 +53,9 @@ const ClientPerfilPage = () => {
     setFilteredSchedule(schedule.filter(e=>e.userId===userId))
   }, [schedule]);
 
-  console.log(schedule)
+  useEffect(() => {
+    getUser(userId);
+  }, [user]);
 
   return (
     <BodyPage>
@@ -64,8 +66,9 @@ const ClientPerfilPage = () => {
       <Estrelinha src={star} />
       <TextoFidelidade>Vale fidelidade</TextoFidelidade>
       <Descricao>
-        a cada dez serviços ganhe um de graça nas barbearias participantes
+        a cada dez serviços ganhe um corte de graça nas barbearias participantes
       </Descricao>
+      <Descricao isOther="true">Seus selos</Descricao>
       {user && user.scissors > 0 ? (
         <BoxFidelidade>
           {isDesktop && user && user.scissors < 5 ? (

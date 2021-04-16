@@ -38,7 +38,6 @@ export const Item = styled.div`
   height: 250px;
   width: 100%;
   margin: 0 15px;
-  background-color: #00008b;
   font-size: 4em;
 `;
 
@@ -112,7 +111,7 @@ export const TextoDescritivo = styled.p`
   text-align: center;
   max-width: 525px;
 
-  color: ${({ erro }) => erro && "#D2C65B"};
+  color: ${({ erro }) => erro && "#bb8c4b"};
 `;
 
 export const Descricao = styled.p`
@@ -121,7 +120,7 @@ export const Descricao = styled.p`
   padding: 5px;
   font-size: 1.75rem;
   margin: 10px auto;
-  color: #f7f4f3;
+  color: ${({ isOther }) => isOther && "#bb8c4b"};
   width: 90%;
   max-width: 496px;
 `;
@@ -139,14 +138,14 @@ export const ContFidelidade = styled.div`
   width: 80px;
   height: 80px;
   line-height: 80px;
-  border: 4px solid #faeb67;
+  border: 4px solid #bb8c4b;
   text-align: center;
   border-radius: 50%;
   font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 30px;
-  color: #faeb67;
+  color: #bb8c4b;
   box-sizing: border-box;
 `;
 

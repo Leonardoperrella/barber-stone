@@ -43,16 +43,8 @@ const FormNovoFuncionario = ({ handleClose }) => {
     resolver: yupResolver(schema),
   });
 
-  const handleChange = (event) => {
-    setIconState({
-      ...iconState,
-      [event.target.name]: event.target.checked,
-    });
-  };
-
   const onSubmit = (userData) => {
-    const { homeOffice } = iconState;
-    userData = { ...userData, homeOffice, barberId: userId };
+    userData = { ...userData, barberId: userId };
     console.log(userData);
 
     api
@@ -76,21 +68,6 @@ const FormNovoFuncionario = ({ handleClose }) => {
         <Input name="name" ref={register} />
         {!!errors && <SpanError>{errors.name?.message}</SpanError>}
       </DivInput>
-      <DivCheck id="DivCheck">
-        <FormControl
-          id="FormControl"
-          control={
-            <CheckboxLazer
-              icon={<ImgCheck src={check} />}
-              checkedIcon={<ImgCheck src={checked} />}
-              name="homeOffice"
-              checked={homeOffice}
-              onChange={handleChange}
-            />
-          }
-          label={<LabelCheck>HomeOffice</LabelCheck>}
-        />
-      </DivCheck>
       <DivInput>
         <ButtonForm type="submit">Cadastrar</ButtonForm>
       </DivInput>
