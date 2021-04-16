@@ -108,21 +108,23 @@ export const Price = styled.h4`
 
 export const DivCheck = styled.div`
   max-width: 416px;
-  width: 90vw;
   display: flex;
   justify-content: center;
-  align-items: left;
+  align-items: center;
   flex-direction: column;
-  margin: 0 6px;
+  margin: 0 auto;
 `;
 
-export const FormControl = styled(FormControlLabel)``;
-
-export const CheckboxLazer = styled(Checkbox)`
-  margin-right: 20px;
+export const FormControl = styled(FormControlLabel)`
+  max-width: 350px;
+  display: flex;
+  justify-content: center;
+  margin: 0 !important;
 `;
+
+export const CheckboxLazer = styled(Checkbox)``;
+
 export const ImgCheck = styled.img`
-  margin-right: 20px;
   border-radius: 10px;
   width: 40px;
 `;
@@ -130,8 +132,12 @@ export const LabelCheck = styled.span`
   font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 25px;
+  font-size: 1.25rem;
   line-height: 38px;
   color: #f7f4f3;
   align-items: left;
+
+  @media screen and (min-width: 496px) {
+    font-size: 1.5rem;
+  }
 `;
