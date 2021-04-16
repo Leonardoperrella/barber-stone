@@ -34,7 +34,7 @@ const BarberPage = () => {
   const barberUser = useLocation();
   const qtd = 4;
 
-  const { schedule, getSchedule } = useSchedule();
+  const { schedule } = useSchedule();
   const { getUsers } = useUsers();
 
   const userId = JSON.parse(localStorage.getItem("userId"));
@@ -55,10 +55,9 @@ const BarberPage = () => {
   };
 
   useEffect(() => {
-    // getSchedule(`/scheduling/?barbeariaId=${barberUser.state.id}`);
     getUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [schedule]);
+  });
 
   return (
     <BodyPage>
@@ -96,7 +95,7 @@ const BarberPage = () => {
           slidesToSlide={1}
           swipeable
         >
-          {schedule.map(({ userId, dateTime }, index) => (
+          {schedule.filter(e=>e.barberId===userId).map(({ userId, dateTime }, index) => (
             <CardClient
               key={index}
               userId={userId}

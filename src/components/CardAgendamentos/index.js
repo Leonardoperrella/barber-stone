@@ -6,8 +6,10 @@ import Flip from "react-card-flip";
 import Tesoura from "../../images/ScissorsGold.svg";
 import api from "../../services/api";
 import { notifyDeleted } from "../../services/notifyData";
+import { useSchedule } from "../../providers/Schedule";
 
 const CardAgendamentos = ({ barberId, dateTime, price, id }) => {
+  const { setGetSchedule } = useSchedule()
   const { users, getUsers } = useUsers();
   const token = JSON.parse(localStorage.getItem("token"));
   const [flip, setFlip] = useState(false);
@@ -16,12 +18,14 @@ const CardAgendamentos = ({ barberId, dateTime, price, id }) => {
   const time = dateTimeUser.split(" ")[1];
 
   const onSubmit = (id) => {
+    console.log(token)
     api
       .delete(`/scheduling/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
         notifyDeleted();
+        setGetSchedule(true)
       })
       .catch((e) => {});
   };

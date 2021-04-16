@@ -1,25 +1,26 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import api from "../../services/api";
 
 const ScheduleContext = createContext();
 
 export const ScheduleProvider = ({ children }) => {
   const [schedule, setSchedule] = useState([]);
+  const [getSchedule, setGetSchedule] = useState(false);
 
-  const getSchedule = (url) => {
+  useEffect(()=>{
     api
-      .get(url)
+      .get("/scheduling")
       .then((response) => {
         setSchedule(response.data);
       })
       .catch((e) => {
         console.log(e.response);
       });
-  };
+  },[getSchedule])
 
   console.log("providers");
   return (
-    <ScheduleContext.Provider value={{ schedule, setSchedule, getSchedule }}>
+    <ScheduleContext.Provider value={{ schedule, setGetSchedule }}>
       {children}
     </ScheduleContext.Provider>
   );
