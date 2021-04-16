@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useEffect, useState } from "react";
+import { useSchedule } from "../../providers/Schedule";
 import {
   FormComponent,
   SpanError,
@@ -19,6 +20,7 @@ import api from "../../services/api";
 import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
 
 const FormAgendamentos = ({ barberId, handleClose }) => {
+  const { getSchedule, setGetSchedule } = useSchedule()
   const token = JSON.parse(localStorage.getItem("token"));
   const userId = JSON.parse(localStorage.getItem("userId"));
   const [error] = useState(false);
@@ -63,7 +65,7 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
       })
       .catch((e) => {
         console.log(e.response);
-        notifyError(e.response.data);
+        notifyError(e.response);
       });
   };
 
@@ -89,11 +91,12 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
       .then((response) => {
         console.log(response);
         handleClose();
+        setGetSchedule(!getSchedule);
         notifyRegisterSuccess();
       })
       .catch((e) => {
         console.log(e.response);
-        notifyError(e.response.data);
+        notifyError(e.response);
       });
   };
 
