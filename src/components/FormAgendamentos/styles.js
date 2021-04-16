@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Checkbox, FormControlLabel } from "@material-ui/core";
+import { Checkbox, FormControlLabel, TextField } from "@material-ui/core";
 
 export const FormComponent = styled.form`
   padding: 10px;
@@ -20,6 +20,13 @@ export const Label = styled.p`
   font-size: 2rem;
   color: #f7f4f3;
   margin: 15px 0 5px;
+`;
+
+export const TextFieldStyled = styled(TextField)`
+  & fieldset {
+    border: 4px solid #f7f4f3;
+    border-radius: 15px;
+  }
 `;
 
 export const Calendar = styled.input`

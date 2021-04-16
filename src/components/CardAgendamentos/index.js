@@ -47,7 +47,6 @@ const CardAgendamentos = ({ barberId, dateTime, price, id }) => {
       </CardFlip>
       <Card onClick={() => setFlip(false)} isVerso>
         <Button onClick={() => onSubmit(id)}>Cancelar agendamento</Button>
-        <Button>Alterar Agendamento</Button>
       </Card>
     </Flip>
   );

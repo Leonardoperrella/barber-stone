@@ -4,10 +4,10 @@ import api from "../../services/api";
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState();
-  const token = JSON.parse(localStorage.getItem("token"));
+  const [user, setUser] = useState({});
 
   const getUser = (userId) => {
+    const token = JSON.parse(localStorage.getItem("token"));
     api
       .get(`/users/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },

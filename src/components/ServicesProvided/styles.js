@@ -27,7 +27,7 @@ export const ServiceCard = styled.div`
     margin: 25px auto;
     display: flex;
     flex-direction: column;
-    max-width: 725px;
+    width: 50%;
 
     & h4 {
       font-weight: 400;
@@ -57,6 +57,10 @@ export const ServiceCard = styled.div`
 `;
 
 export const ServiceCardTwo = styled(ServiceCard)`
+
+  & div {
+    width: 50%;
+  }
   @media screen and (min-width: 525px) {
     flex-direction: row-reverse;
     align-items: center;

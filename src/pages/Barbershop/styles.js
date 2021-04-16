@@ -28,6 +28,8 @@ export const Cover = styled.div`
 `;
 
 export const SectionCard = styled.section`
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 10px;
   cursor: grab;
 
