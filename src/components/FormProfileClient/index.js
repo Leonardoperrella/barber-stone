@@ -54,7 +54,9 @@ const FormProfileClient = () => {
 
   const getUser = () => {
     api
-      .get(`/users/${userId}`)
+      .get(`/users/${userId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => {
         setuser(response.data);
       })

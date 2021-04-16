@@ -103,10 +103,6 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-  // const handleChangeEmployee = (event) => {
-  //   const employeeId = event.target.value;
-
-  // };
 
   const theme = createMuiTheme({
     palette: {
@@ -153,11 +149,7 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
         </DivInput>
         <DivInput>
           <Label>Profissional</Label>
-          <Select
-            name="profissionalId"
-            ref={register}
-            // onChange={handleChangeEmployee}
-          >
+          <Select name="profissionalId" ref={register}>
             {employees.map((employee) => (
               <option value={employee.id}>{employee.name}</option>
             ))}

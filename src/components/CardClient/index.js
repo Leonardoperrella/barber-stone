@@ -18,14 +18,30 @@ const CardClient = ({ userId, dateTime, id, isDetails }) => {
   const data = dateTimeUser.split(" ")[0];
   const time = dateTimeUser.split(" ")[1];
 
-  const onSubmit = (id) => {
+  const onSubmit = (id, userId) => {
     api
       .delete(`/scheduling/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
         notifyDeleted();
+        updateClientStart(userId);
         getSchedule(`/scheduling/?barberId=${barberId}`);
+      })
+      .catch((e) => {});
+  };
+
+  const updateClientStart = (userId) => {
+    api
+      .patch(
+        `/users/${userId}`,
+        { scissors: users[userId][2] + 1 },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
       })
       .catch((e) => {});
   };
@@ -50,7 +66,9 @@ const CardClient = ({ userId, dateTime, id, isDetails }) => {
             <p>{`${data} - ${time}`}</p>
           </>
         ) : (
-          <Button onClick={() => onSubmit(id)}>Finalizar atendimento</Button>
+          <Button onClick={() => onSubmit(id, userId)}>
+            Finalizar atendimento
+          </Button>
         )}
       </Card>
     </Flip>
