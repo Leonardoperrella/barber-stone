@@ -18,9 +18,9 @@ const Route = ({ islogin, isprivate, isclient, isbarber, component: Component, .
         return isprivate === undefined && !!islogin === !!isprivate ? (
           <Component />
         ) : !!isprivate !== !!token || !!islogin === !!token ?  (
-          <Redirect to={{pathname: '/home'}} />
+          <Redirect to={{pathname: '/'}} />
         ) : !!islogin === !!token ? (
-          <Redirect to={{pathname: '/home'}} />
+          <Redirect to={{pathname: '/'}} />
         ) : isbarber === undefined && isclient === undefined ? (
           <Component />
         ) : !!isbarber === isBarber ? (

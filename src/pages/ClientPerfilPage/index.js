@@ -54,15 +54,16 @@ const ClientPerfilPage = () => {
   }, [schedule]);
 
   useEffect(() => {
-    getUser(userId);
-  }, [user]);
+      getUser(userId);
+  }, []);
 
+  console.log(user)
   return (
     <BodyPage>
       <Menu menuLink={menuLinkPerfilClient} />
       <BgPerfil />
       <ImgPerfil src={perfil} />
-      <Nome>{user && user.name}</Nome>
+      <Nome>{user.name}</Nome>
       <Estrelinha src={star} />
       <TextoFidelidade>Vale fidelidade</TextoFidelidade>
       <Descricao>

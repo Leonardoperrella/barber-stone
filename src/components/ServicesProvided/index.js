@@ -15,7 +15,9 @@ const ServicesProvided = () => {
       <ServicesProvidedContainer id="serviços">
         <Title>Serviços</Title>
         <ServiceCard>
-          <img src={image1} alt="imagem" />
+          <div>
+            <img src={image1} alt="imagem" />
+          </div>
           <div>
             <h4>Para clientes</h4>
             <p>
@@ -26,7 +28,9 @@ const ServicesProvided = () => {
           </div>
         </ServiceCard>
         <ServiceCardTwo>
-          <img src={image2} alt="image2" />
+          <div>
+            <img src={image2} alt="image2" />
+          </div>
           <div>
             <h4>Para barbeiros</h4>
             <p>
