@@ -7,17 +7,16 @@ export const ScheduleProvider = ({ children }) => {
   const [schedule, setSchedule] = useState([]);
   const [getSchedule, setGetSchedule] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     api
       .get("/scheduling")
       .then((response) => {
         setSchedule(response.data);
-        alert('schedule')
       })
       .catch((e) => {
         console.log(e.response);
       });
-  },[getSchedule])
+  }, [getSchedule]);
 
   console.log("providers");
   return (
