@@ -10,6 +10,11 @@ export const DivInput = styled.div`
   flex-direction: column;
 `;
 
+export const DivInputCalendar = styled(DivInput)`
+  max-width: 250px;
+  margin: auto;
+`;
+
 export const Label = styled.p`
   font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
   font-size: 2rem;
@@ -87,10 +92,11 @@ export const Select = styled.select`
   border: 4px solid #f7f4f3;
   border-radius: 20px;
   color: #f7f4f3;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 
   & option {
     background-color: #1b2845;
+    text-align: center;
   }
 `;
 
