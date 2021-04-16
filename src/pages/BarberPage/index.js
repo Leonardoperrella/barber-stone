@@ -54,10 +54,11 @@ const BarberPage = () => {
     return array;
   };
 
-  useEffect(() => {
-    getUsers();
+  //useEffect(() => {
+  //  getUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  });
+  //});
+
 
   return (
     <BodyPage>
@@ -95,7 +96,7 @@ const BarberPage = () => {
           slidesToSlide={1}
           swipeable
         >
-          {schedule.filter(e=>e.barberId===userId).map(({ userId, dateTime }, index) => (
+          {schedule.filter(e=>e.barberId===barberUser.state.id).map(({ userId, dateTime }, index) => (
             <CardClient
               key={index}
               userId={userId}

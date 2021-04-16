@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useEffect, useState } from "react";
+import { useSchedule } from "../../providers/Schedule";
 import {
   FormComponent,
   SpanError,
@@ -25,6 +26,7 @@ import check from "../../images/noCheck.svg";
 import checked from "../../images/check.svg";
 
 const FormAgendamentos = ({ barberId, handleClose }) => {
+  const { getSchedule, setGetSchedule } = useSchedule()
   const token = JSON.parse(localStorage.getItem("token"));
   const userId = JSON.parse(localStorage.getItem("userId"));
   const [error] = useState(false);
@@ -73,10 +75,11 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
       .then((response) => {
         setEmployees(response.data);
         setHomeOffice(response.data[0].home);
+
       })
       .catch((e) => {
         console.log(e.response);
-        notifyError(e.response.data);
+        notifyError(e.response);
       });
   };
 
@@ -107,11 +110,12 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
       .then((response) => {
         console.log(response);
         handleClose();
+        setGetSchedule(!getSchedule);
         notifyRegisterSuccess();
       })
       .catch((e) => {
         console.log(e.response);
-        notifyError(e.response.data);
+        notifyError(e.response);
       });
   };
 

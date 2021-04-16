@@ -53,6 +53,8 @@ const ClientPerfilPage = () => {
     setFilteredSchedule(schedule.filter(e=>e.userId===userId))
   }, [schedule]);
 
+  console.log(schedule)
+
   return (
     <BodyPage>
       <Menu menuLink={menuLinkPerfilClient} />

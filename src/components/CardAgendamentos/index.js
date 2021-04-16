@@ -9,7 +9,7 @@ import { notifyDeleted } from "../../services/notifyData";
 import { useSchedule } from "../../providers/Schedule";
 
 const CardAgendamentos = ({ barberId, dateTime, price, id }) => {
-  const { setGetSchedule } = useSchedule()
+  const { getSchedule, setGetSchedule } = useSchedule()
   const { users, getUsers } = useUsers();
   const token = JSON.parse(localStorage.getItem("token"));
   const [flip, setFlip] = useState(false);
@@ -25,7 +25,7 @@ const CardAgendamentos = ({ barberId, dateTime, price, id }) => {
       })
       .then(() => {
         notifyDeleted();
-        setGetSchedule(true)
+        setGetSchedule(!getSchedule);
       })
       .catch((e) => {});
   };

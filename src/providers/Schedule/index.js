@@ -12,6 +12,7 @@ export const ScheduleProvider = ({ children }) => {
       .get("/scheduling")
       .then((response) => {
         setSchedule(response.data);
+        alert('schedule')
       })
       .catch((e) => {
         console.log(e.response);
@@ -20,7 +21,7 @@ export const ScheduleProvider = ({ children }) => {
 
   console.log("providers");
   return (
-    <ScheduleContext.Provider value={{ schedule, setGetSchedule }}>
+    <ScheduleContext.Provider value={{ schedule, setGetSchedule, getSchedule }}>
       {children}
     </ScheduleContext.Provider>
   );
