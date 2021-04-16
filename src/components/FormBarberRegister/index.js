@@ -61,7 +61,7 @@ const FormBarberRegister = () => {
         console.log(response.data);
         notifyRegisterSuccess();
         setTimeout(() => {
-          history.push("/");
+          history.push("/entrar");
         }, 2000);
       })
       .catch((e) => {

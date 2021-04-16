@@ -28,7 +28,7 @@ const BarberRegisterPage = () => {
           <H1Title>Cadastre-se</H1Title>
           <FormBarberRegister />
           <ElemP>
-            Ja possui uma conta? <LinkGoTo to={"/"}>Entre Agora</LinkGoTo>
+            Ja possui uma conta? <LinkGoTo to={"/entrar"}>Entre Agora</LinkGoTo>
           </ElemP>
           <FooterForm />
         </ContainerForm>

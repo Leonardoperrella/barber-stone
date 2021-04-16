@@ -12,19 +12,28 @@ import Barbershop from "../pages/Barbershop";
 import BarberPage from "../pages/BarberPage";
 
 const Routes = () => {
-  
-  const isBarber = JSON.parse(localStorage.getItem('isBarber'))
+  const isBarber = JSON.parse(localStorage.getItem("isBarber"));
 
   return (
     <AnimatePresence exitBeforeEnter>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/login" component={LoginPage} islogin/>
+        <Route path="/entrar" component={LoginPage} islogin />
         <Route path="/cadastro-barbearia" component={BarberRegisterPage} />
         <Route path="/cadastro-cliente" component={ClientRegisterPage} />
-        <Route path="/perfil-cliente" component={ClientPerfilPage} isprivate isclient />
-        <Route path="/perfil-barbearia" component={BarberPerfilPage} isprivate isbarber />
-        <Route path="/detalhes-barbearia" component={BarberPage} isprivate/>
+        <Route
+          path="/perfil-cliente"
+          component={ClientPerfilPage}
+          isprivate
+          isclient
+        />
+        <Route
+          path="/perfil-barbearia"
+          component={BarberPerfilPage}
+          isprivate
+          isbarber
+        />
+        <Route path="/detalhes-barbearia" component={BarberPage} isprivate />
         <Route path="/barbearias" component={Barbershop} isprivate />
         <Route component={NotFound} />
       </Switch>
