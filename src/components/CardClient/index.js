@@ -10,9 +10,8 @@ import { useSchedule } from "../../providers/Schedule";
 const CardClient = ({ userId, dateTime, id, isDetails }) => {
   const token = JSON.parse(localStorage.getItem("token"));
   const barberId = JSON.parse(localStorage.getItem("userId"));
-
   const { users, getUsers } = useUsers();
-  const { getSchedule } = useSchedule();
+  const { getSchedule, setGetSchedule } = useSchedule();
   const [flip, setFlip] = useState(false);
   const dateTimeUser = new Date(dateTime).toLocaleString();
   const data = dateTimeUser.split(" ")[0];
@@ -26,16 +25,18 @@ const CardClient = ({ userId, dateTime, id, isDetails }) => {
       .then(() => {
         notifyDeleted();
         updateClientStart(userId);
-        getSchedule(`/scheduling/?barberId=${barberId}`);
+        setGetSchedule(!getSchedule);
       })
       .catch((e) => {});
   };
 
   const updateClientStart = (userId) => {
+    const scissors = users[userId][2];
+
     api
       .patch(
         `/users/${userId}`,
-        { scissors: users[userId][2] + 1 },
+        { scissors: scissors === 9 ? 0 : users[userId][2] + 1 },
         {
           headers: { Authorization: `Bearer ${token}` },
         }

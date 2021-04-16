@@ -57,12 +57,6 @@ const BarberPage = () => {
     return array;
   };
 
-  //useEffect(() => {
-  //  getUsers();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  //});
-
-
   const arrayLeisure = [];
   arrayLeisure.push(barberUser.state.leisureOptions);
 
@@ -135,14 +129,16 @@ const BarberPage = () => {
           slidesToSlide={1}
           swipeable
         >
-          {schedule.filter(e=>e.barberId===barberUser.state.id).map(({ userId, dateTime }, index) => (
-            <CardClient
-              key={index}
-              userId={userId}
-              dateTime={dateTime}
-              isDetails={true}
-            />
-          ))}
+          {schedule
+            .filter((e) => e.barberId === barberUser.state.id)
+            .map(({ userId, dateTime }, index) => (
+              <CardClient
+                key={index}
+                userId={userId}
+                dateTime={dateTime}
+                isDetails={true}
+              />
+            ))}
         </Carousel>
       </Container>
       <TextoDescritivo style={{ marginTop: "60px" }}>

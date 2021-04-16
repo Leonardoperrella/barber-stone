@@ -31,12 +31,10 @@ const BarberPerfilPage = () => {
   const [show, setShow] = useState(false);
   const closeModalHandler = () => setShow(false);
 
-  const { schedule, getSchedule } = useSchedule();
+  const { schedule } = useSchedule();
   const { user, getUser } = useUser();
 
   const userId = JSON.parse(localStorage.getItem("userId"));
-
-  const qtd = 4;
 
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth > 900 ? true : false
@@ -44,10 +42,6 @@ const BarberPerfilPage = () => {
 
   window.onresize = () =>
     window.innerWidth > 911 ? setIsDesktop(true) : setIsDesktop(false);
-
-  useEffect(() => {
-    getSchedule(`/scheduling/?barberId=${userId}`);
-  }, []);
 
   useEffect(() => {
     getUser(userId);
