@@ -137,6 +137,7 @@ const BarberPage = () => {
                 userId={userId}
                 dateTime={dateTime}
                 isDetails={true}
+                isClient
               />
             ))}
         </Carousel>
