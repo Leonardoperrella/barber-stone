@@ -15,6 +15,7 @@ import {
   CheckboxLazer,
   ImgCheck,
   LabelCheck,
+  DivInputCalendar,
 } from "./styles";
 
 import TextField from "@material-ui/core/TextField";
@@ -151,7 +152,7 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
   return (
     <ThemeProvider theme={theme}>
       <FormComponent onSubmit={handleSubmit(onSubmit)}>
-        <DivInput>
+        <DivInputCalendar>
           <Label>Horário</Label>
           <TextField
             name="dateTime"
@@ -163,7 +164,7 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
               shrink: true,
             }}
           />
-        </DivInput>
+        </DivInputCalendar>
         <DivInput>
           <Label>Serviço</Label>
           <Select
