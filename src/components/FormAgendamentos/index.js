@@ -118,8 +118,6 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
     },
   });
 
-  const min = `${year}-${month}-${day}T${hour}:${minute}`;
-
   return (
     <ThemeProvider theme={theme}>
       <FormComponent onSubmit={handleSubmit(onSubmit)}>
