@@ -6,16 +6,19 @@ const UsersContext = createContext();
 export const UsersProvider = ({ children }) => {
   const [users, setUsers] = useState();
   const [barberUsers, setBarberUsers] = useState();
+  const token = JSON.parse(localStorage.getItem("token"));
 
   const getUsers = () => {
     api
-      .get("/users")
+      .get("/users", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => {
         const object = {};
         response.data.forEach((obj) => {
-          object[obj.id] = [obj.name, obj.lastName];
+          object[obj.id] = [obj.name, obj.lastName, obj.scissors];
         });
-        setBarberUsers(response.data.filter(e=>e.isBarber));
+        setBarberUsers(response.data.filter((e) => e.isBarber));
         setUsers(object);
       })
       .catch((e) => {
@@ -24,7 +27,9 @@ export const UsersProvider = ({ children }) => {
   };
 
   return (
-    <UsersContext.Provider value={{ users, setUsers, getUsers, barberUsers, setBarberUsers }}>
+    <UsersContext.Provider
+      value={{ users, setUsers, getUsers, barberUsers, setBarberUsers }}
+    >
       {children}
     </UsersContext.Provider>
   );

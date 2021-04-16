@@ -53,8 +53,11 @@ const FormLogin = () => {
   };
 
   const getUser = async (userId) => {
+    const token = JSON.parse(localStorage.getItem("token"));
     await api
-      .get(`/users/${userId}`)
+      .get(`/users/${userId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => {
         localStorage.setItem(
           "isBarber",

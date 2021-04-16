@@ -9,31 +9,17 @@ import {
   ButtonForm,
   Label,
   DivInput,
-  DivCheck,
-  FormControl,
-  CheckboxLazer,
-  ImgCheck,
-  LabelCheck,
 } from "./styles";
 
 import api from "../../services/api";
-
-import check from "../../images/noCheck.svg";
-import checked from "../../images/check.svg";
 
 import { notifyRegisterSuccess } from "../../services/notifyData";
 
 const FormNovoFuncionario = ({ handleClose }) => {
   const [error] = useState(false);
 
-  const [iconState, setIconState] = useState({
-    homeOffice: false,
-  });
-
   const userId = JSON.parse(localStorage.getItem("userId"));
   const token = JSON.parse(localStorage.getItem("token"));
-
-  const { homeOffice } = iconState;
 
   const schema = yup.object().shape({
     name: yup.string().required("campo Obrigatório!"),
