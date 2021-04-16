@@ -10,11 +10,6 @@ import {
   Label,
   DivInput,
   Price,
-  DivCheck,
-  FormControl,
-  CheckboxLazer,
-  ImgCheck,
-  LabelCheck,
   DivInputCalendar,
 } from "./styles";
 
@@ -22,8 +17,6 @@ import TextField from "@material-ui/core/TextField";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core";
 import api from "../../services/api";
 import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
-import check from "../../images/noCheck.svg";
-import checked from "../../images/check.svg";
 
 const FormAgendamentos = ({ barberId, handleClose }) => {
   const token = JSON.parse(localStorage.getItem("token"));
@@ -31,18 +24,12 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
   const [error] = useState(false);
   const [value, setValue] = useState("Apenas cabelo");
   const [employees, setEmployees] = useState([]);
-  const [homeOffice, setHomeOffice] = useState();
+
   const [options] = useState({
     "Apenas cabelo": 35,
     "Apenas barba": 25,
     "Cabelo + barba": 50,
   });
-
-  const [iconState, setIconState] = useState({
-    home: false,
-  });
-
-  const { home } = iconState;
 
   const today = new Date();
   const tomorrow = new Date(today);
@@ -73,7 +60,6 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
       })
       .then((response) => {
         setEmployees(response.data);
-        setHomeOffice(response.data[0].home);
       })
       .catch((e) => {
         console.log(e.response);
@@ -85,11 +71,7 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
     getEmployee();
   }, []);
 
-  const onSubmit = (userData, event, isHomeOffice = false) => {
-    if (homeOffice) {
-      isHomeOffice = home;
-    }
-
+  const onSubmit = (userData) => {
     const { dateTime, service } = userData;
     const price = options[service];
     userData = {
@@ -98,7 +80,6 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
       price,
       barberId: barberId,
       userId: userId,
-      isHomeOffice: isHomeOffice,
     };
 
     api
@@ -116,24 +97,13 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
       });
   };
 
-  const handleChangeChecked = (event) => {
-    setIconState({
-      ...iconState,
-      [event.target.name]: event.target.checked,
-    });
-  };
-
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-  const handleChangeEmployee = (event) => {
-    const employeeId = event.target.value;
-    const employee = employees.filter(
-      (employee) => employee.id === Number(employeeId)
-    );
+  // const handleChangeEmployee = (event) => {
+  //   const employeeId = event.target.value;
 
-    setHomeOffice(employee[0].home);
-  };
+  // };
 
   const theme = createMuiTheme({
     palette: {
@@ -183,35 +153,13 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
           <Select
             name="profissionalId"
             ref={register}
-            onChange={handleChangeEmployee}
+            // onChange={handleChangeEmployee}
           >
             {employees.map((employee) => (
               <option value={employee.id}>{employee.name}</option>
             ))}
           </Select>
         </DivInput>
-        <DivInput>
-          <Price name="price" ref={register}>
-            Disponível Home Office? <span>{homeOffice ? "sim" : "não"}</span>
-          </Price>
-        </DivInput>
-        {homeOffice && (
-          <DivCheck id="DivCheck">
-            <FormControl
-              id="FormControl"
-              control={
-                <CheckboxLazer
-                  icon={<ImgCheck src={check} />}
-                  checkedIcon={<ImgCheck src={checked} />}
-                  name="home"
-                  checked={home}
-                  onChange={handleChangeChecked}
-                />
-              }
-              label={<LabelCheck>Serviço em HomeOffice ?</LabelCheck>}
-            />
-          </DivCheck>
-        )}
         <DivInput>
           <Price name="price" ref={register}>
             Preço <span>R$ {options[value]}</span>
