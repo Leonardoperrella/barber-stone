@@ -32,10 +32,12 @@ const CardClient = ({ userId, dateTime, id, isDetails }) => {
   };
 
   const updateClientStart = (userId) => {
+    const scissors = users[userId][2];
+
     api
       .patch(
         `/users/${userId}`,
-        { scissors: users[userId][2] + 1 },
+        { scissors: scissors === 9 ? 0 : users[userId][2] + 1 },
         {
           headers: { Authorization: `Bearer ${token}` },
         }
