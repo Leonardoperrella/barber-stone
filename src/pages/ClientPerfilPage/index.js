@@ -56,7 +56,7 @@ const ClientPerfilPage = () => {
 
   useEffect(() => {
     getUser(userId);
-  }, []);
+  }, [user]);
 
   return (
     <BodyPage>

@@ -52,7 +52,7 @@ const BarberPerfilPage = () => {
   useEffect(() => {
     getUser(userId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [user]);
 
   return (
     <BodyPage>
