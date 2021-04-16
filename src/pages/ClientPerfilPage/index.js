@@ -25,7 +25,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
 import { useUser } from "../../providers/User";
-
 // temporário
 import perfil from "../../images/perfilClient.jpg";
 import scissors from "../../images/ScissorsGold.svg";
@@ -34,12 +33,14 @@ import calendar from "../../images/calendar.svg";
 import clock from "../../images/clock.svg";
 
 const ClientPerfilPage = () => {
-  const { schedule, getSchedule } = useSchedule();
+  const { schedule } = useSchedule();
   const { user, getUser } = useUser();
 
-  const [filteredSchedule, setFilteredSchedule] = useState([]);
-
+  
   const userId = JSON.parse(localStorage.getItem("userId"));
+
+  const [filteredSchedule, setFilteredSchedule ] = useState([])
+  
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth > 900 ? true : false
   );
@@ -48,10 +49,8 @@ const ClientPerfilPage = () => {
     window.innerWidth > 900 ? setIsDesktop(true) : setIsDesktop(false);
 
   useEffect(() => {
-    getSchedule(`/scheduling/?userId=${userId}`);
-    setFilteredSchedule(
-      schedule.filter((obj) => obj.dateTime >= new Date().getTime())
-    );
+    getUser(userId);
+    setFilteredSchedule(schedule.filter(e=>e.userId===userId))
   }, [schedule]);
 
   useEffect(() => {
