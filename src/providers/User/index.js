@@ -4,7 +4,7 @@ import api from "../../services/api";
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
   const token = JSON.parse(localStorage.getItem("token"));
 
   const getUser = (userId) => {

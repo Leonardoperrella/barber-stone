@@ -29,7 +29,7 @@ const Login = () => {
           <FormLogin />
           <ElemP>
             Ainda não possui uma conta?{" "}
-            <LinkGoTo to={"/home"} isRegister>Cadastre-se</LinkGoTo>
+            <LinkGoTo to={"/"} isRegister>Cadastre-se</LinkGoTo>
           </ElemP>
           <FooterForm />
         </ContainerForm>

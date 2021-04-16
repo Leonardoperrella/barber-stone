@@ -24,7 +24,7 @@ export const menuLinkHome = [
   },
   {
     anchor: false,
-    to: `${!token ? "/" : `/perfil-${isBarber ? "barbearia" : "cliente"}`}`,
+    to: `${!token ? "/login" : `/perfil-${isBarber ? "barbearia" : "cliente"}`}`,
     content: `${!token ? "entrar" : "perfil"}`,
   },
 ];
@@ -32,7 +32,7 @@ export const menuLinkHome = [
 export const menuLinkPerfil = [
   {
     anchor: false,
-    to: "/home",
+    to: "/",
     content: "home",
   },
   {
@@ -42,7 +42,7 @@ export const menuLinkPerfil = [
   },
   {
     anchor: false,
-    to: `${!token ? "/" : `/perfil-${isBarber ? "barbearia" : "cliente"}`}`,
+    to: `${!token ? "/login" : `/perfil-${isBarber ? "barbearia" : "cliente"}`}`,
     content: `${!token ? "entrar" : "perfil"}`,
   },
 ];
@@ -50,7 +50,7 @@ export const menuLinkPerfil = [
 export const menuLinkPerfilClient = [
   {
     anchor: false,
-    to: "/home",
+    to: "/",
     content: "home",
   },
   {
@@ -68,7 +68,7 @@ export const menuLinkPerfilClient = [
 export const menuLinkPerfilBarber = [
   {
     anchor: false,
-    to: "/home",
+    to: "/",
     content: "home",
   },
   {

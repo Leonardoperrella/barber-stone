@@ -41,6 +41,7 @@ const BarberPage = () => {
   const { getUsers } = useUsers();
 
   const userId = JSON.parse(localStorage.getItem("userId"));
+  const isBarber = JSON.parse(localStorage.getItem("isBarber"));
 
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth > 900 ? true : false
@@ -103,9 +104,12 @@ const BarberPage = () => {
         {barberUser.state.description}
       </TextoDescritivo>
       <TextoDescritivo style={{}}>{barberUser.state.address}</TextoDescritivo>
-      <TransitionsModal barberId={barberUser.state.id} />
+      {!isBarber && (
+        <TransitionsModal barberId={barberUser.state.id} />
+      )}
       <Icon src={IcoAgenda} alt="" />
       <TextoDescritivo style={{}}>clientes agendados</TextoDescritivo>
+      {schedule.filter((e) => e.barberId === barberUser.state.id).length > 0 ? (
       <Container>
         <Carousel
           additionalTransfrom={0}
@@ -141,6 +145,11 @@ const BarberPage = () => {
             ))}
         </Carousel>
       </Container>
+      ) : (
+        <TextoDescritivo erro>
+          Em breve haverá clientes aqui!  ;)
+        </TextoDescritivo>
+      )}
       <TextoDescritivo style={{ marginTop: "60px" }}>
         opções de lazer
       </TextoDescritivo>

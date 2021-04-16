@@ -5,6 +5,7 @@ import * as yup from "yup";
 import api from "../../services/api";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import { useUser } from "../../providers/User";
 import {
   FormComponent,
   SpanError,
@@ -16,6 +17,8 @@ import {
 import { notifyError } from "../../services/notifyData";
 
 const FormLogin = () => {
+  
+  const { getUser } = useUser();
   const [error] = useState(false);
   const history = useHistory();
 
@@ -43,8 +46,7 @@ const FormLogin = () => {
         );
         localStorage.setItem("userId", JSON.stringify(sub));
         reset();
-
-        getUser(sub);
+        getUserr(sub);
       })
       .catch((e) => {
         notifyError(e.response.data);
@@ -52,7 +54,7 @@ const FormLogin = () => {
       });
   };
 
-  const getUser = async (userId) => {
+  const getUserr = async (userId) => {
     const token = JSON.parse(localStorage.getItem("token"));
     await api
       .get(`/users/${userId}`, {
