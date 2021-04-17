@@ -6,7 +6,7 @@ import HowItWorks from "../../components/HowItWorks";
 import RegisterSectionHomepage from "../../components/RegisterSectionHomepage";
 import Footer from "../../components/Footer";
 import { useLocation } from "react-router-dom";
-import { animateScroll as scroller } from "react-scroll";
+import { scroller } from "react-scroll";
 
 import { menuLinkHome } from "../../services/menuData";
 import { useState } from "react";
