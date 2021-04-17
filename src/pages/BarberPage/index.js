@@ -71,6 +71,7 @@ const BarberPage = () => {
     leisure[3].bool = PlaygroundBool;
   });
 
+  console.log(barberUser.state.id);
   return (
     <BodyPage>
       <Menu menuLink={menuLinkPerfil} />
