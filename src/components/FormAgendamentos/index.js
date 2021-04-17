@@ -64,13 +64,13 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
         setEmployees(response.data);
       })
       .catch((e) => {
-        console.log(e.response);
         notifyError(e.response);
       });
   };
 
   useEffect(() => {
     getEmployee();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onSubmit = (userData) => {
@@ -89,13 +89,11 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        console.log(response);
         handleClose();
         setGetSchedule(!getSchedule);
         notifyRegisterSuccess();
       })
       .catch((e) => {
-        console.log(e.response);
         notifyError(e.response);
       });
   };
@@ -151,8 +149,10 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
         <DivInput>
           <Label>Profissional</Label>
           <Select name="profissionalId" ref={register}>
-            {employees.map((employee) => (
-              <option value={employee.id}>{employee.name}</option>
+            {employees.map((employee, index) => (
+              <option key={index} value={employee.id}>
+                {employee.name}
+              </option>
             ))}
           </Select>
         </DivInput>

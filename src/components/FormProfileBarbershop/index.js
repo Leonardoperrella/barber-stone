@@ -20,7 +20,10 @@ import {
   CheckboxContainer,
   TextAreaInput,
 } from "./styles";
-import { notifyRegisterSuccess } from "../../services/notifyData";
+import {
+  notifyRegisterSuccess,
+  notifyErrorClient,
+} from "../../services/notifyData";
 import Check from "../../images/check.svg";
 import NoCheck from "../../images/noCheck.svg";
 
@@ -59,11 +62,10 @@ const FormProfileBarberShop = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        console.log(response.data);
         notifyRegisterSuccess();
       })
       .catch((e) => {
-        console.log(e.response);
+        notifyErrorClient(e.response);
       });
   };
 
@@ -82,9 +84,6 @@ const FormProfileBarberShop = () => {
       .then((response) => {
         setuser(response.data);
         setLeisureOptions(response.data.leisureOptions);
-      })
-      .catch((e) => {
-        console.log(e.response);
       });
   };
 
@@ -133,7 +132,7 @@ const FormProfileBarberShop = () => {
           {!!errors && <SpanError>{errors.state?.message}</SpanError>}
         </DivInput>
         <DivInput>
-          <Label>Descricao</Label>
+          <Label>Descrição</Label>
           <TextAreaInput
             name="description"
             ref={register}
@@ -143,7 +142,7 @@ const FormProfileBarberShop = () => {
           />
           {!!errors && <SpanError>{errors.description?.message}</SpanError>}
         </DivInput>
-        <LabelOptions isDesktop>Opções de lazer</LabelOptions>
+        <LabelOptions isDesktop>Opções de lazer disponíveis</LabelOptions>
         <CheckboxContainer>
           <DivCheck>
             <FormControl

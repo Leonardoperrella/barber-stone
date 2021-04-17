@@ -22,7 +22,7 @@ const RegisterSectionHomepage = () => {
           >
             <p>
               Seja um membro
-              <i class="fas fa-arrow-alt-circle-right"></i>
+              <i className="fas fa-arrow-alt-circle-right"></i>
             </p>
           </Card>
           <Card
@@ -31,7 +31,7 @@ const RegisterSectionHomepage = () => {
           >
             <p>
               Cadastre sua barbearia
-              <i class="fas fa-arrow-alt-circle-right"></i>
+              <i className="fas fa-arrow-alt-circle-right"></i>
             </p>
           </Card>
         </div>

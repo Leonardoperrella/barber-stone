@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import BackgroundHeader from "../../images/background-barber-profile.jpg";
-import Forbiden from "../../images/forbiden.png";
 
 export const responsive = {
   desktop: {

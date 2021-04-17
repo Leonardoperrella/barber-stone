@@ -58,14 +58,12 @@ const FormBarberRegister = () => {
     api
       .post("register", data)
       .then((response) => {
-        console.log(response.data);
         notifyRegisterSuccess();
         setTimeout(() => {
           history.push("/entrar");
         }, 2000);
       })
       .catch((e) => {
-        console.log(e.response);
         existingEmail();
       });
   };

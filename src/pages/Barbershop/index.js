@@ -34,13 +34,14 @@ const Barbershop = () => {
 
   useEffect(() => {
     getUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [barberUsers]);
 
   return (
     <Container>
       <Menu menuLink={menuLinkPerfil} />
       <Cover />
-      <h1>melhores barbeiras para você</h1>
+      <h1>melhores barbearias para você</h1>
       <SectionCard>
         <Carousel
           additionalTransfrom={0}
@@ -63,7 +64,6 @@ const Barbershop = () => {
           sliderClass=""
           slidesToSlide={1}
           swipeable
-          arrows
         >
           {!!barberUsers &&
             barberUsers.map((e) => (

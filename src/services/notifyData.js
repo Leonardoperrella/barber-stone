@@ -13,6 +13,27 @@ export const notifyError = (error) =>
     position: "top-center",
   });
 
+export const notifyErrorClient = () =>
+  toast.error("Erro inesperado na atualização do cadastro do cliente.", {
+    autoClose: 2000,
+    hideProgressBar: true,
+    position: "top-center",
+  });
+
+export const notifyErrorEmployee = () =>
+  toast.error("Erro inesperado na gravação do funcionário.", {
+    autoClose: 2000,
+    hideProgressBar: true,
+    position: "top-center",
+  });
+
+export const notifyErrorLogin = () =>
+  toast.error("Usario ou senha incorretos!", {
+    autoClose: 2000,
+    hideProgressBar: true,
+    position: "top-center",
+  });
+
 export const existingEmail = () =>
   toast.error("Email já cadastrado", {
     autoClose: 2000,
