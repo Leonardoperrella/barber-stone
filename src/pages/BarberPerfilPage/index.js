@@ -24,7 +24,7 @@ import Notification from "../../components/Notification";
 import perfil from "../../images/barberIcon.svg";
 import calendar from "../../images/calendar.svg";
 import clock from "../../images/clock.svg";
-import { animateScroll as scroll } from 'react-scroll'
+import { animateScroll as scroll } from "react-scroll";
 import ModalNewUser from "../../components/ModalNewUser";
 
 const BarberPerfilPage = () => {
@@ -35,6 +35,7 @@ const BarberPerfilPage = () => {
 
   useEffect(() => {
     getUser(userId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -90,12 +91,15 @@ const BarberPerfilPage = () => {
               Você ainda não possui nenhum cliente agendado
             </TextoDescritivo>
           )}
-        </>)}
-          <IconePequeno src={clock} />
-          <TextoDescritivo>{isNew ? `Complete seu cadastro` : `Atualizar Dados`}</TextoDescritivo>
-          <FormProfileBarberShop setRender={setRender} />
-          <Footer />
-          <Notification />
+        </>
+      )}
+      <IconePequeno src={clock} />
+      <TextoDescritivo>
+        {isNew ? `Complete seu cadastro` : `Atualizar Dados`}
+      </TextoDescritivo>
+      <FormProfileBarberShop setRender={setRender} />
+      <Footer />
+      <Notification />
     </BodyPage>
   );
 };
