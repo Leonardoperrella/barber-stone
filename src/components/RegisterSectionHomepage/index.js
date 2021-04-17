@@ -36,8 +36,8 @@ const RegisterSectionHomepage = () => {
           </Card>
         </div>
         <h4>
-          Já possui uma conta? Então basta <LinkGoTo to={"/"}>entrar </LinkGoTo>
-          e aproveitar!
+          Já possui uma conta? Então basta{" "}
+          <LinkGoTo to={"/entrar"}>entrar </LinkGoTo>e aproveitar!
         </h4>
       </Container>
     </>

@@ -7,7 +7,7 @@ import api from "../../services/api";
 import { notifyDeleted, notifyErrorClient } from "../../services/notifyData";
 import { useSchedule } from "../../providers/Schedule";
 
-const CardClient = ({ userId, dateTime, id, isDetails }) => {
+const CardClient = ({ userId, dateTime, id, isDetails, isClient }) => {
   const token = JSON.parse(localStorage.getItem("token"));
   const { users, getUsers } = useUsers();
   const { getSchedule, setGetSchedule } = useSchedule();
@@ -52,26 +52,57 @@ const CardClient = ({ userId, dateTime, id, isDetails }) => {
   }, []);
 
   return (
-    <Flip isFlipped={flip} flipDirection="horizontal">
-      <CardFlip onClick={() => setFlip(true)}>
-        <img src={IcoPerson} alt="" />
-        <p>{!!users && `${users[userId][0]} ${users[userId][1]}`}</p>
-        <p>{`${data} - ${time}`}</p>
-      </CardFlip>
-      <Card onClick={() => setFlip(false)} isVerso={isDetails ? false : true}>
-        {isDetails ? (
-          <>
+    <>
+      {isClient ? (
+        <Flip isFlipped={flip} flipDirection="horizontal">
+          <Card onClick={() => setFlip(true)}>
             <img src={IcoPerson} alt="" />
             <p>{!!users && `${users[userId][0]} ${users[userId][1]}`}</p>
             <p>{`${data} - ${time}`}</p>
-          </>
-        ) : (
-          <Button onClick={() => onSubmit(id, userId)}>
-            Finalizar atendimento
-          </Button>
-        )}
-      </Card>
-    </Flip>
+          </Card>
+          <Card
+            onClick={() => setFlip(false)}
+            isVerso={isDetails ? false : true}
+          >
+            {isDetails ? (
+              <>
+                <img src={IcoPerson} alt="" />
+                <p>{!!users && `${users[userId][0]} ${users[userId][1]}`}</p>
+                <p>{`${data} - ${time}`}</p>
+              </>
+            ) : (
+              <Button onClick={() => onSubmit(id, userId)}>
+                Finalizar atendimento
+              </Button>
+            )}
+          </Card>
+        </Flip>
+      ) : (
+        <Flip isFlipped={flip} flipDirection="horizontal">
+          <CardFlip onClick={() => setFlip(true)}>
+            <img src={IcoPerson} alt="" />
+            <p>{!!users && `${users[userId][0]} ${users[userId][1]}`}</p>
+            <p>{`${data} - ${time}`}</p>
+          </CardFlip>
+          <Card
+            onClick={() => setFlip(false)}
+            isVerso={isDetails ? false : true}
+          >
+            {isDetails ? (
+              <>
+                <img src={IcoPerson} alt="" />
+                <p>{!!users && `${users[userId][0]} ${users[userId][1]}`}</p>
+                <p>{`${data} - ${time}`}</p>
+              </>
+            ) : (
+              <Button onClick={() => onSubmit(id, userId)}>
+                Finalizar atendimento
+              </Button>
+            )}
+          </Card>
+        </Flip>
+      )}
+    </>
   );
 };
 

@@ -45,7 +45,7 @@ const FormClientRegister = () => {
       .then((response) => {
         notifyRegisterSuccess();
         setTimeout(() => {
-          history.push("/");
+          history.push("/entrar");
         }, 2000);
       })
       .catch((e) => {

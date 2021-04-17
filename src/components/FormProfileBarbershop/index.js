@@ -132,7 +132,7 @@ const FormProfileBarberShop = () => {
           {!!errors && <SpanError>{errors.state?.message}</SpanError>}
         </DivInput>
         <DivInput>
-          <Label>Descricao</Label>
+          <Label>Descrição</Label>
           <TextAreaInput
             name="description"
             ref={register}
@@ -142,7 +142,7 @@ const FormProfileBarberShop = () => {
           />
           {!!errors && <SpanError>{errors.description?.message}</SpanError>}
         </DivInput>
-        <LabelOptions isDesktop>Opções de lazer</LabelOptions>
+        <LabelOptions isDesktop>Opções de lazer disponíveis</LabelOptions>
         <CheckboxContainer>
           <DivCheck>
             <FormControl

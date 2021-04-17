@@ -16,7 +16,6 @@ import {
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import Footer from "../../components/Footer";
-import { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "../../styles/global.css";
 import IcoAgenda from "../../images/icoAgenda.svg";
@@ -117,6 +116,7 @@ const BarberPage = () => {
                   userId={userId}
                   dateTime={dateTime}
                   isDetails={true}
+                  isClient
                 />
               ))}
           </Carousel>
@@ -127,7 +127,7 @@ const BarberPage = () => {
         </TextoDescritivo>
       )}
       <TextoDescritivo style={{ marginTop: "60px" }}>
-        opções de lazer
+        opções de lazer disponíveis
       </TextoDescritivo>
       <BoxLazer>
         {leisure.map((lazer, index) => (

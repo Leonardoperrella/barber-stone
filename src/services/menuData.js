@@ -24,7 +24,9 @@ export const menuLinkHome = [
   },
   {
     anchor: false,
-    to: `${!token ? "/login" : `/perfil-${isBarber ? "barbearia" : "cliente"}`}`,
+    to: `${
+      !token ? "/entrar" : `/perfil-${isBarber ? "barbearia" : "cliente"}`
+    }`,
     content: `${!token ? "entrar" : "perfil"}`,
   },
 ];
@@ -42,7 +44,9 @@ export const menuLinkPerfil = [
   },
   {
     anchor: false,
-    to: `${!token ? "/login" : `/perfil-${isBarber ? "barbearia" : "cliente"}`}`,
+    to: `${
+      !token ? "/entrar" : `/perfil-${isBarber ? "barbearia" : "cliente"}`
+    }`,
     content: `${!token ? "entrar" : "perfil"}`,
   },
 ];
