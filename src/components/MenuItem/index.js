@@ -2,7 +2,7 @@ import { bool } from "prop-types";
 import { StyledMenu } from "./styles";
 import { Link } from "react-scroll";
 
-const MenuItem = ({ open, menuLink }) => {
+const MenuItem = ({ open, menuLink, isNew }) => {
   const token = JSON.parse(localStorage.getItem("token"));
 
   const handleLogOut = () => {
@@ -15,15 +15,19 @@ const MenuItem = ({ open, menuLink }) => {
         menuLink.map(({ content, to, anchor }, index) => {
           if (anchor) {
             return (
-              <Link key={index} activeClass="active" to={to} smooth={true}>
-                {content}
-              </Link>
+                <Link key={index} activeClass="active" to={to} smooth={true}>
+                  {content}
+                </Link>
             );
           } else {
             return (
-              <a href={to} key={index}>
-                {content}
-              </a>
+              <>
+                {!(isNew && to === '/barbearias') && (
+                <a href={to} key={index}>
+                  {content}
+                </a>
+                )}
+              </>
             );
           }
         })}

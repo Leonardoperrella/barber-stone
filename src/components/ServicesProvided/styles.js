@@ -56,6 +56,7 @@ export const ServiceCard = styled.div`
       @media screen and (min-width: 525px) {
         margin: 0 20px;
       }
+      
     }
   }
 `;
@@ -70,5 +71,11 @@ export const ServiceCardTwo = styled(ServiceCard)`
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-evenly;
+    }
+  
+  & div {
+    @media screen and (min-width: 800px) {
+        width: 50%;
+    }
   }
 `;
