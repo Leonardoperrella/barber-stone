@@ -8,7 +8,6 @@ import Footer from "../../components/Footer";
 import { useLocation } from "react-router-dom"
 import * as Scroll from 'react-scroll';
 import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-
 import { menuLinkHome } from "../../services/menuData";
 import { useState } from "react";
 import { useEffect } from "react";

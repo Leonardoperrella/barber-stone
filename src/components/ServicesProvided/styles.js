@@ -27,7 +27,10 @@ export const ServiceCard = styled.div`
     margin: 25px auto;
     display: flex;
     flex-direction: column;
-    width: 50%;
+
+    @media screen and (min-width: 800px) {
+        width: 50%;
+    }
 
     & h4 {
       font-weight: 400;
@@ -52,18 +55,21 @@ export const ServiceCard = styled.div`
       @media screen and (min-width: 525px) {
         margin: 0 20px;
       }
+      
     }
   }
 `;
 
 export const ServiceCardTwo = styled(ServiceCard)`
-
-  & div {
-    width: 50%;
-  }
   @media screen and (min-width: 525px) {
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-evenly;
+    }
+  
+  & div {
+    @media screen and (min-width: 800px) {
+        width: 50%;
+    }
   }
 `;
