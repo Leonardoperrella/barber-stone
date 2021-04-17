@@ -32,7 +32,7 @@ export const TextFieldStyled = styled(TextField)`
 export const Calendar = styled.input`
   border: 3px solid #f7f4f3;
   border-radius: 10px;
-  background-color: transparent;
+  background-color: #1b2845;
   color: #f7f4f3;
   font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
   padding: 10px;
@@ -54,7 +54,7 @@ export const ButtonForm = styled.button`
   border: 3px solid #f7f4f3;
   color: #f7f4f3;
   border-radius: 10px;
-  background-color: transparent;
+  background-color: #1b2845;
   font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
   font-size: 2rem;
   cursor: pointer;

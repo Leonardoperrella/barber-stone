@@ -25,7 +25,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
 import { useUser } from "../../providers/User";
-import { animateScroll as scroll } from 'react-scroll'
+import { animateScroll as scroll } from "react-scroll";
 import perfil from "../../images/perfilClient.jpg";
 import scissors from "../../images/ScissorsGold.svg";
 import star from "../../images/star.svg";
@@ -34,18 +34,18 @@ import clock from "../../images/clock.svg";
 import ModalNewUser from "../../components/ModalNewUser";
 
 const ClientPerfilPage = () => {
-
   const { schedule } = useSchedule();
   const { user, getUser, isNew } = useUser();
   const [render, setRender] = useState(false);
   const userId = JSON.parse(localStorage.getItem("userId"));
-  const [filteredSchedule, setFilteredSchedule ] = useState([])
-  
+  const [filteredSchedule, setFilteredSchedule] = useState([]);
+
   useEffect(() => {
     getUser(userId);
-    setFilteredSchedule(schedule.filter(e=>e.userId===userId))
+    setFilteredSchedule(schedule.filter((e) => e.userId === userId));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [schedule]);
-  
+
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth > 900 ? true : false
   );
@@ -54,7 +54,8 @@ const ClientPerfilPage = () => {
     window.innerWidth > 900 ? setIsDesktop(true) : setIsDesktop(false);
 
   useEffect(() => {
-      getUser(userId);
+    getUser(userId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -64,13 +65,14 @@ const ClientPerfilPage = () => {
       <Menu menuLink={menuLinkPerfilClient} isNew={isNew} />
       {!isNew && (
         <>
-            <BgPerfil />
+          <BgPerfil />
           <ImgPerfil src={perfil} />
           <Nome>{user.name}</Nome>
           <Estrelinha src={star} />
           <TextoFidelidade>Vale fidelidade</TextoFidelidade>
           <Descricao>
-            a cada dez serviços ganhe um corte de graça nas barbearias participantes
+            a cada dez serviços ganhe um corte de graça nas barbearias
+            participantes
           </Descricao>
           <Descricao isOther="true">Seus selos</Descricao>
           {user && user.scissors > 0 ? (
@@ -138,9 +140,11 @@ const ClientPerfilPage = () => {
           <Estrelinha src={clock} />
         </>
       )}
-        <IconePequeno src={clock} />
-        <TextoFidelidade>{isNew ? `Complete seu cadastro` : `Atualizar Dados`}</TextoFidelidade>
-        <FormProfileClient setRender={setRender} />
+      <IconePequeno src={clock} />
+      <TextoFidelidade>
+        {isNew ? `Complete seu cadastro` : `Atualizar Dados`}
+      </TextoFidelidade>
+      <FormProfileClient setRender={setRender} />
       <Footer />
       <Notification />
     </BodyPage>

@@ -22,7 +22,7 @@ export const Input = styled.input`
   border: 4px solid #f7f4f3;
   box-sizing: border-box;
   border-radius: 10px;
-  background-color: transparent;
+  background-color: #1b2845;
   font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -51,7 +51,7 @@ export const ButtonForm = styled.button`
   width: 90vw;
   border: 3px solid #f7f4f3;
   border-radius: 10px;
-  background-color: transparent;
+  background-color: #1b2845;
   font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
   font-size: 2rem;
   color: #f7f4f3;
