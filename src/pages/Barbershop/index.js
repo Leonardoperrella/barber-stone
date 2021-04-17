@@ -35,7 +35,7 @@ const Barbershop = () => {
   useEffect(() => {
     getUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [barberUsers]);
+  }, []);
 
   return (
     <Container>
@@ -66,8 +66,9 @@ const Barbershop = () => {
           swipeable
         >
           {!!barberUsers &&
-            barberUsers.map((e) => (
+            barberUsers.map((e, index) => (
               <CardBarber
+                key={index}
                 name={e.name}
                 rating={e.rating}
                 scissors={e.scissors}
