@@ -26,10 +26,12 @@ import {
 } from "../../services/notifyData";
 import Check from "../../images/check.svg";
 import NoCheck from "../../images/noCheck.svg";
+import { useUser } from '../../providers/User'
 
-const FormProfileBarberShop = () => {
+const FormProfileBarberShop = ({setRender}) => {
   const [error] = useState(false);
   const [user, setuser] = useState([]);
+  const { isNew, setIsNew } = useUser();
   const userId = JSON.parse(localStorage.getItem("userId"));
   const token = JSON.parse(localStorage.getItem("token"));
 
@@ -56,7 +58,11 @@ const FormProfileBarberShop = () => {
 
   const onSubmit = (userData) => {
     userData = { ...userData, leisureOptions };
-
+    const u = userData
+    if(!!u.address || !!u.phone || !!u.zipCode || !!u.city || !!u.state){
+      isNew && setRender(true)
+      setIsNew(false)
+    }
     api
       .patch(`/users/${userId}`, userData, {
         headers: { Authorization: `Bearer ${token}` },
