@@ -15,6 +15,7 @@ import {
   responsive,
   Container,
   TextoDescritivo,
+  IconePequeno,
 } from "./styles";
 import FormProfileClient from "../../components/FormProfileClient";
 import CardAgendamentos from "../../components/CardAgendamentos";
@@ -137,9 +138,8 @@ const ClientPerfilPage = () => {
           <Estrelinha src={clock} />
         </>
       )}
-      <div id='dados' name='dados'>
+        <IconePequeno src={clock} />
         <TextoFidelidade>{isNew ? `Complete seu cadastro` : `Atualizar Dados`}</TextoFidelidade>
-      </div>
         <FormProfileClient setRender={setRender} />
       <Footer />
       <Notification />

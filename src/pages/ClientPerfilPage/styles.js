@@ -160,3 +160,9 @@ export const Container = styled.div`
     justify-content: center;
   }
 `;
+
+export const IconePequeno = styled.img`
+  width: 80px;
+  height: 80px;
+  margin-top: 15px;
+`;

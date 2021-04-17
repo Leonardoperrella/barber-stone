@@ -4,7 +4,6 @@ import * as yup from "yup";
 import { useState, useEffect } from "react";
 import api from "../../services/api";
 import { useUser } from '../../providers/User'
-import ModalNewUser from '../ModalNewUser'
 import {
   SpanError,
   Input,
