@@ -10,12 +10,12 @@ const HowItWorks = () => {
     {
       step: 2,
       color: "#BB8C4B",
-      text: "Veja tudo o que a barbearia oferece",
+      text: "Veja tudo o que ela te oferece",
     },
     {
       step: 3,
       color: "#335C81",
-      text: "Agende um horário presencial ou à domicílio*",
+      text: "Agende o melhor horário para você",
     },
   ];
 
@@ -23,7 +23,6 @@ const HowItWorks = () => {
     <>
       <HowItWorksContainer id="como-funciona">
         <h1>Como funciona</h1>
-
         <CardDiv>
           {steps.map((currentStep, index) => (
             <div>
@@ -34,8 +33,6 @@ const HowItWorks = () => {
             </div>
           ))}
         </CardDiv>
-
-        <p>*conforme disponibilidade do estabelecimento</p>
       </HowItWorksContainer>
     </>
   );

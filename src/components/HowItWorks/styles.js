@@ -26,7 +26,7 @@ export const HowItWorksContainer = styled.section`
     font-size: 1.75rem;
     font-weight: 400;
     text-align: center;
-    margin: 10px 0;
+    margin: 10px 15px;
   }
 `;
 
@@ -44,8 +44,14 @@ export const Card = styled.div`
 export const CardDiv = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   max-width: 1024px;
   margin: auto;
+
+  & div {
+    max-width: 250px;
+  }
 
   @media screen and (min-width: 625px) {
     flex-direction: row;
