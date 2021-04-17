@@ -5,7 +5,7 @@ import Fade from "@material-ui/core/Fade";
 
 export const Button = styled.button`
   background-color: #f7f4f3;
-  padding: 20px;
+  padding: 15px;
   outline: none;
   cursor: pointer;
   border-radius: 20px;
@@ -13,7 +13,7 @@ export const Button = styled.button`
   align-items: center;
   color: #1b2845;
   font-family: "Bebas Neue", cursive;
-  font-size: 2rem;
+  font-size: 1.5rem;
   border: 5px solid #f7f4f3;
   margin: 10px 0;
   position: relative;
@@ -40,9 +40,17 @@ export const Button = styled.button`
     color: #f7f4f3;
   }
 
+  @media screen and (min-width: 525px) {
+    font-size: 2rem;
+  }
+
   & i {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-right: 10px;
+
+    @media screen and (min-width: 525px) {
+      font-size: 3rem;
+    }
   }
 `;
 
@@ -62,7 +70,6 @@ export const FadeStyled = styled(Fade)`
   max-width: 496px;
   background-color: #1b2845;
   text-align: center;
-  overflow-y: scroll;
   max-height: 75vh;
 
   & h2 {

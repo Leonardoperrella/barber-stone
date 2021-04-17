@@ -14,7 +14,8 @@ export const Container = styled.section`
 export const Cover = styled.div`
   background-image: url(${background});
   background-size: cover;
-  background-position: center;
+  background-attachment: fixed;
+  background-position: bottom;
   height: 250px;
 
   &::before {
