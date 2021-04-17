@@ -41,7 +41,7 @@ export const ContainerLogin = styled(GlobalnWrapStyled)`
   }
 `;
 
-export const ButtonWrap = styled.button`
+export const ButtonWrap = styled.div`
   padding: 0px;
   outline: none;
   border: 0;

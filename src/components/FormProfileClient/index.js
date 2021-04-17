@@ -37,14 +37,11 @@ const FormProfileClient = () => {
   });
 
   const onSubmit = (userData) => {
-    console.log(userData);
-
     api
       .patch(`/users/${userId}`, userData, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        console.log(response.data);
         notifyRegisterSuccess();
       })
       .catch((e) => {
@@ -59,9 +56,6 @@ const FormProfileClient = () => {
       })
       .then((response) => {
         setuser(response.data);
-      })
-      .catch((e) => {
-        console.log(e.response);
       });
   };
 

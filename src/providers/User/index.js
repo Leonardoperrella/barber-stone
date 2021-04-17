@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
         setUser(response.data);
       })
       .catch((e) => {
-        console.log(e.response);
+        console.log(e.data);
       });
   };
 

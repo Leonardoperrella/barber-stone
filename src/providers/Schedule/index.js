@@ -8,17 +8,11 @@ export const ScheduleProvider = ({ children }) => {
   const [getSchedule, setGetSchedule] = useState(false);
 
   useEffect(() => {
-    api
-      .get("/scheduling")
-      .then((response) => {
-        setSchedule(response.data);
-      })
-      .catch((e) => {
-        console.log(e.response);
-      });
+    api.get("/scheduling").then((response) => {
+      setSchedule(response.data);
+    });
   }, [getSchedule]);
 
-  console.log("providers");
   return (
     <ScheduleContext.Provider value={{ schedule, setGetSchedule, getSchedule }}>
       {children}

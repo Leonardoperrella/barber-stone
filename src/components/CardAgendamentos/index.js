@@ -9,7 +9,7 @@ import { notifyDeleted } from "../../services/notifyData";
 import { useSchedule } from "../../providers/Schedule";
 
 const CardAgendamentos = ({ barberId, dateTime, price, id }) => {
-  const { getSchedule, setGetSchedule } = useSchedule()
+  const { getSchedule, setGetSchedule } = useSchedule();
   const { users, getUsers } = useUsers();
   const token = JSON.parse(localStorage.getItem("token"));
   const [flip, setFlip] = useState(false);
@@ -18,7 +18,6 @@ const CardAgendamentos = ({ barberId, dateTime, price, id }) => {
   const time = dateTimeUser.split(" ")[1];
 
   const onSubmit = (id) => {
-    console.log(token)
     api
       .delete(`/scheduling/${id}`, {
         headers: { Authorization: `Bearer ${token}` },

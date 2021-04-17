@@ -34,6 +34,7 @@ const Barbershop = () => {
 
   useEffect(() => {
     getUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [barberUsers]);
 
   return (
@@ -63,7 +64,6 @@ const Barbershop = () => {
           sliderClass=""
           slidesToSlide={1}
           swipeable
-          arrows
         >
           {!!barberUsers &&
             barberUsers.map((e) => (

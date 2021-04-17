@@ -8,7 +8,7 @@ const Cover = () => {
       <CoverContainer>
         <img src={Logo} alt="logo" />
 
-        <i class="fas fa-chevron-down"></i>
+        <i className="fas fa-chevron-down"></i>
       </CoverContainer>
     </>
   );
