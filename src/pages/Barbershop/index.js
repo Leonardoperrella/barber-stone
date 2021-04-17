@@ -40,7 +40,7 @@ const Barbershop = () => {
     <Container>
       <Menu menuLink={menuLinkPerfil} />
       <Cover />
-      <h1>melhores barbeiras para você</h1>
+      <h1>melhores barbearias para você</h1>
       <SectionCard>
         <Carousel
           additionalTransfrom={0}
