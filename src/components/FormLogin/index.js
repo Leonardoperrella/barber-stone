@@ -5,7 +5,6 @@ import * as yup from "yup";
 import api from "../../services/api";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
-import { useUser } from "../../providers/User";
 import {
   FormComponent,
   SpanError,
@@ -17,8 +16,6 @@ import {
 import { notifyError } from "../../services/notifyData";
 
 const FormLogin = () => {
-  
-  const { getUser } = useUser();
   const [error] = useState(false);
   const history = useHistory();
 
@@ -46,15 +43,14 @@ const FormLogin = () => {
         );
         localStorage.setItem("userId", JSON.stringify(sub));
         reset();
-        getUserr(sub);
+        getUser(sub);
       })
       .catch((e) => {
         notifyError(e.response.data);
-        console.log(e.response.data);
       });
   };
 
-  const getUserr = async (userId) => {
+  const getUser = async (userId) => {
     const token = JSON.parse(localStorage.getItem("token"));
     await api
       .get(`/users/${userId}`, {
@@ -66,14 +62,10 @@ const FormLogin = () => {
           JSON.stringify(response.data.isBarber) || false
         );
         goToProfile(response.data.isBarber, userId);
-      })
-      .catch((e) => {
-        console.log(e.response);
       });
   };
 
   const goToProfile = (isBarber) => {
-    console.log(isBarber);
     if (isBarber) {
       history.push("/perfil-barbearia");
     } else {

@@ -26,8 +26,8 @@ const HowItWorks = () => {
 
         <CardDiv>
           {steps.map((currentStep, index) => (
-            <div>
-              <Card key={index} style={{ backgroundColor: currentStep.color }}>
+            <div key={index}>
+              <Card style={{ backgroundColor: currentStep.color }}>
                 {currentStep.step}
               </Card>
               <h4>{currentStep.text}</h4>

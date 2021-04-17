@@ -16,17 +16,14 @@ import {
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import Footer from "../../components/Footer";
-import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "../../styles/global.css";
 import IcoAgenda from "../../images/icoAgenda.svg";
 import perfil from "../../images/barberIcon.svg";
 import { useSchedule } from "../../providers/Schedule";
-import { useUsers } from "../../providers/Users";
 import { useLocation } from "react-router-dom";
 import TransitionsModal from "../../components/ModalNewAgend";
 import Notification from "../../components/Notification";
-import { array } from "yup/lib/locale";
 
 import Sinuca from "../../images/sinuca.jpg";
 import Playground from "../../images/playground.jpg";
@@ -35,33 +32,13 @@ import Bar from "../../images/bar.jpg";
 
 const BarberPage = () => {
   const barberUser = useLocation();
-  const qtd = 4;
 
   const { schedule } = useSchedule();
-  const { getUsers } = useUsers();
 
-  const userId = JSON.parse(localStorage.getItem("userId"));
   const isBarber = JSON.parse(localStorage.getItem("isBarber"));
-
-  const [isDesktop, setIsDesktop] = useState(
-    window.innerWidth > 900 ? true : false
-  );
-
-  window.onresize = () =>
-    window.innerWidth > 911 ? setIsDesktop(true) : setIsDesktop(false);
-
-  const buildArray = () => {
-    let array = [];
-    for (let i = 0; i < qtd; i++) {
-      array.push(i);
-    }
-    return array;
-  };
 
   const arrayLeisure = [];
   arrayLeisure.push(barberUser.state.leisureOptions);
-
-  console.log(arrayLeisure);
 
   const leisure = [
     {
@@ -82,7 +59,7 @@ const BarberPage = () => {
     },
   ];
 
-  arrayLeisure.map((l, i) => {
+  arrayLeisure.forEach((l, i) => {
     const SinucaBool = l.pool;
     const BarBool = l.bar;
     const ChurrasqueiraBool = l.barbecue;
@@ -154,7 +131,7 @@ const BarberPage = () => {
       </TextoDescritivo>
       <BoxLazer>
         {leisure.map((lazer, index) => (
-          <Atracao>
+          <Atracao key={index}>
             <TextoDescritivo>{lazer.text}</TextoDescritivo>
             {lazer.bool ? (
               <ImgLazer src={lazer.image} />

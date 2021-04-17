@@ -12,8 +12,6 @@ import Barbershop from "../pages/Barbershop";
 import BarberPage from "../pages/BarberPage";
 
 const Routes = () => {
-  const isBarber = JSON.parse(localStorage.getItem("isBarber"));
-
   return (
     <AnimatePresence exitBeforeEnter>
       <Switch>

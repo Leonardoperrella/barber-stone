@@ -11,7 +11,7 @@ const ButtonBackToHome = () => {
 
   return (
     <Button onClick={goToHome}>
-      <i class="fas fa-chevron-left"></i>
+      <i className="fas fa-chevron-left"></i>
       voltar para a home
     </Button>
   );
