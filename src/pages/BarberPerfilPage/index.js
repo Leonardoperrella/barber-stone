@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 import { menuLinkPerfilBarber } from "../../services/menuData";
@@ -28,25 +28,16 @@ import calendar from "../../images/calendar.svg";
 import clock from "../../images/clock.svg";
 
 const BarberPerfilPage = () => {
-  const [show, setShow] = useState(false);
-  const closeModalHandler = () => setShow(false);
-
   const { schedule } = useSchedule();
   const { user, getUser } = useUser();
 
   const userId = JSON.parse(localStorage.getItem("userId"));
 
-  const [isDesktop, setIsDesktop] = useState(
-    window.innerWidth > 900 ? true : false
-  );
-
-  window.onresize = () =>
-    window.innerWidth > 911 ? setIsDesktop(true) : setIsDesktop(false);
-
   useEffect(() => {
     getUser(userId);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  }, []);
 
   return (
     <BodyPage>

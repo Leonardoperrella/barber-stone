@@ -6,9 +6,9 @@ const UsersContext = createContext();
 export const UsersProvider = ({ children }) => {
   const [users, setUsers] = useState();
   const [barberUsers, setBarberUsers] = useState();
-  const token = JSON.parse(localStorage.getItem("token"));
 
   const getUsers = () => {
+    const token = JSON.parse(localStorage.getItem("token"));
     api
       .get("/users", {
         headers: { Authorization: `Bearer ${token}` },
@@ -20,9 +20,6 @@ export const UsersProvider = ({ children }) => {
         });
         setBarberUsers(response.data.filter((e) => e.isBarber));
         setUsers(object);
-      })
-      .catch((e) => {
-        console.log(e.response);
       });
   };
 

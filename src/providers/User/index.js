@@ -24,7 +24,7 @@ export const UserProvider = ({ children }) => {
         }
       })
       .catch((e) => {
-        console.log(e.response);
+        console.log(e.data);
       });
   };
 

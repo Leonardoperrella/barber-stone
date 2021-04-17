@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useUsers } from "../../providers/Users";
 import { useHistory } from "react-router-dom";
 
-const CardBarber = ({ name, rating, scissors, id }) => {
+const CardBarber = ({ name, rating, id }) => {
   const history = useHistory();
 
   const [array, setArray] = useState([]);
@@ -32,8 +32,8 @@ const CardBarber = ({ name, rating, scissors, id }) => {
         <img src={BarberIcon} alt="barber-icon" />
         <h4>{name}</h4>
         <ScissorsRate>
-          {array.map((e) => (
-            <img src={Star} alt="scissors-icon" />
+          {array.map((e, index) => (
+            <img key={index} src={Star} alt="scissors-icon" />
           ))}
         </ScissorsRate>
       </Card>

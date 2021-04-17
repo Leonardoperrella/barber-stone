@@ -13,7 +13,10 @@ import {
 
 import api from "../../services/api";
 
-import { notifyRegisterSuccess } from "../../services/notifyData";
+import {
+  notifyRegisterSuccess,
+  notifyErrorEmployee,
+} from "../../services/notifyData";
 
 const FormNovoFuncionario = ({ handleClose }) => {
   const [error] = useState(false);
@@ -31,19 +34,17 @@ const FormNovoFuncionario = ({ handleClose }) => {
 
   const onSubmit = (userData) => {
     userData = { ...userData, barberId: userId };
-    console.log(userData);
 
     api
       .post(`/employee`, userData, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => {
-        console.log(response.data);
+      .then(() => {
         handleClose();
         notifyRegisterSuccess();
       })
       .catch((e) => {
-        console.log(e.response);
+        notifyErrorEmployee(e.response);
       });
   };
 

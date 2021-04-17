@@ -64,9 +64,6 @@ const FormProfileClient = ({ setRender }) => {
         const u = response.data;
         setuser(u);
       })
-      .catch((e) => {
-        console.log(e.response);
-      });
   };
 
   function refreshPage() {

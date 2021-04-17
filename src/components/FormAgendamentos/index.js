@@ -12,15 +12,15 @@ import {
   DivInput,
   Price,
   DivInputCalendar,
+  TextFieldStyled,
 } from "./styles";
 
-import TextField from "@material-ui/core/TextField";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core";
 import api from "../../services/api";
 import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
 
 const FormAgendamentos = ({ barberId, handleClose }) => {
-  const { getSchedule, setGetSchedule } = useSchedule()
+  const { getSchedule, setGetSchedule } = useSchedule();
   const token = JSON.parse(localStorage.getItem("token"));
   const userId = JSON.parse(localStorage.getItem("userId"));
   const [error] = useState(false);
@@ -45,13 +45,13 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
   const minute = DateTime[1].split("/")[0].split(":")[1];
 
   const schema = yup.object().shape({
-    dateTime: yup.date(),
+    dateTime: yup.date().min(tomorrow, "Mínimo de 24h para agendar"),
     service: yup.string(),
     price: yup.string(),
     profissionalId: yup.string(),
   });
 
-  const { register, handleSubmit, errors, reset } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -64,13 +64,13 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
         setEmployees(response.data);
       })
       .catch((e) => {
-        console.log(e.response);
         notifyError(e.response);
       });
   };
 
   useEffect(() => {
     getEmployee();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onSubmit = (userData) => {
@@ -89,13 +89,11 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        console.log(response);
         handleClose();
         setGetSchedule(!getSchedule);
         notifyRegisterSuccess();
       })
       .catch((e) => {
-        console.log(e.response);
         notifyError(e.response);
       });
   };
@@ -123,7 +121,7 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
       <FormComponent onSubmit={handleSubmit(onSubmit)}>
         <DivInputCalendar>
           <Label>Horário</Label>
-          <TextField
+          <TextFieldStyled
             name="dateTime"
             inputRef={register}
             label="Data e Hora"
@@ -133,6 +131,7 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
               shrink: true,
             }}
           />
+          {!!errors && <SpanError>{errors.dateTime?.message}</SpanError>}
         </DivInputCalendar>
         <DivInput>
           <Label>Serviço</Label>
@@ -150,8 +149,10 @@ const FormAgendamentos = ({ barberId, handleClose }) => {
         <DivInput>
           <Label>Profissional</Label>
           <Select name="profissionalId" ref={register}>
-            {employees.map((employee) => (
-              <option value={employee.id}>{employee.name}</option>
+            {employees.map((employee, index) => (
+              <option key={index} value={employee.id}>
+                {employee.name}
+              </option>
             ))}
           </Select>
         </DivInput>

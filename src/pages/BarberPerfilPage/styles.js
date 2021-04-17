@@ -4,17 +4,17 @@ import BackgroundHeader from "../../images/background-barber-profile.jpg";
 
 export const responsive = {
   desktop: {
-    breakpoint: { max: 3000, min: 992 },
+    breakpoint: { max: 3000, min: 1024 },
     items: 3,
     slidesToSlide: 1, // optional, default to 1.
   },
   tablet: {
-    breakpoint: { max: 992, min: 625 },
+    breakpoint: { max: 1024, min: 725 },
     items: 2,
     slidesToSlide: 1, // optional, default to 1.
   },
   mobile: {
-    breakpoint: { max: 625, min: 0 },
+    breakpoint: { max: 725, min: 0 },
     items: 1,
     slidesToSlide: 1, // optional, default to 1.
   },

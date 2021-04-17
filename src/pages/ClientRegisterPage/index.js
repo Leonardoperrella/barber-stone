@@ -28,7 +28,7 @@ const ClientRegisterPage = () => {
           <H1Title>Cadastre-se</H1Title>
           <FormClientRegister />
           <ElemP>
-            Ja possui uma conta? <LinkGoTo to={"/"}>Entre Agora</LinkGoTo>
+            Ja possui uma conta? <LinkGoTo to={"/entrar"}>Entre Agora</LinkGoTo>
           </ElemP>
           <FooterForm />
         </ContainerForm>

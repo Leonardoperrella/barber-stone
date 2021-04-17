@@ -54,23 +54,41 @@ export const Label = styled.p`
 export const ButtonForm = styled.button`
   max-width: 416px;
   width: 90vw;
-  height: 63px;
-  border: 4px solid #f7f4f3;
+  border: 3px solid #f7f4f3;
   border-radius: 10px;
   background-color: transparent;
   font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 32px;
-  line-height: 38px;
+  font-size: 2rem;
   color: #f7f4f3;
   margin: 10px;
   outline: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding: 5px;
+  margin-top: 20px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #f7f4f3;
+    width: 0;
+    height: 100%;
+    transition: 0.3s;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
 
   &:hover {
     background-color: white;
-    color: black;
-    cursor: pointer;
+    color: #1b2845;
+    transition: 0.3s;
   }
 `;
 

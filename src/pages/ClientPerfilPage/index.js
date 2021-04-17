@@ -12,7 +12,6 @@ import {
   BoxFidelidade,
   Tesoura,
   ContFidelidade,
-  Logo,
   responsive,
   Container,
   TextoDescritivo,
@@ -25,7 +24,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
 import { useUser } from "../../providers/User";
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { animateScroll as scroll } from 'react-scroll'
 import perfil from "../../images/perfilClient.jpg";
 import scissors from "../../images/ScissorsGold.svg";
 import star from "../../images/star.svg";
@@ -56,8 +55,6 @@ const ClientPerfilPage = () => {
   useEffect(() => {
       getUser(userId);
   }, []);
-
-  console.log(isNew)
 
   return (
     <BodyPage>

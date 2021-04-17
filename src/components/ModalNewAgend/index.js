@@ -19,7 +19,7 @@ export default function TransitionsModal({ barberId }) {
   return (
     <div>
       <Button type="button" onClick={handleOpen}>
-        <i class="fas fa-plus-circle"></i>
+        <i className="fas fa-plus-circle"></i>
         Novo Agendamento
       </Button>
       <ModalStyled

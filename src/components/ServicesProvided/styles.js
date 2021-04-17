@@ -24,12 +24,12 @@ export const ServiceCard = styled.div`
   }
 
   & div {
-    margin: 25px auto;
+    margin: 15px auto;
     display: flex;
     flex-direction: column;
 
-    @media screen and (min-width: 800px) {
-        width: 50%;
+    @media screen and (min-width: 525px) {
+      width: 50%;
     }
 
     & h4 {
@@ -40,6 +40,7 @@ export const ServiceCard = styled.div`
 
       @media screen and (min-width: 525px) {
         margin: 0;
+        width: 100%;
       }
     }
 
@@ -61,6 +62,11 @@ export const ServiceCard = styled.div`
 `;
 
 export const ServiceCardTwo = styled(ServiceCard)`
+  & div {
+    @media screen and (min-width: 525px) {
+      width: 50%;
+    }
+  }
   @media screen and (min-width: 525px) {
     flex-direction: row-reverse;
     align-items: center;
