@@ -118,7 +118,9 @@ export const ImgLazer = styled.img`
   transform: translateY(-50%);
 `;
 
-export const ImgLazerFalse = styled(ImgLazer)``;
+export const ImgLazerFalse = styled(ImgLazer)`
+  opacity: 0.7;
+`;
 
 export const Container = styled.div`
   max-width: 1030px;
