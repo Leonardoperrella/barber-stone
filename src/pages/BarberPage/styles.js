@@ -115,7 +115,7 @@ export const BoxLazer = styled.div`
   max-width: 908px;
   display: flex;
   flex-direction: column;
-  @media (min-width: 912px) {
+  @media screen and (min-width: 912px) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;

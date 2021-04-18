@@ -7,7 +7,7 @@ export const FooterContainer = styled.section`
   justify-content: center;
   text-align: center;
   z-index: 1;
-  @media (max-width: 1023px) {
+  @media screen and (max-width: 1023px) {
     display: none;
   }
 

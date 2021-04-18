@@ -6,7 +6,7 @@ export const FooterContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  @media (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     display: none;
   }
 
