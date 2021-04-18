@@ -13,6 +13,7 @@ import {
   BoxLazer,
   Atracao,
   ImgLazerFalse,
+  BackImg,
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import Footer from "../../components/Footer";
@@ -24,6 +25,7 @@ import { useSchedule } from "../../providers/Schedule";
 import { useLocation } from "react-router-dom";
 import TransitionsModal from "../../components/ModalNewAgend";
 import Notification from "../../components/Notification";
+import Forbiden from "../../images/forbiden.png";
 
 import Sinuca from "../../images/sinuca.jpg";
 import Playground from "../../images/playground.jpg";
@@ -71,7 +73,7 @@ const BarberPage = () => {
     leisure[3].bool = PlaygroundBool;
   });
 
-  console.log(barberUser.state.id);
+  console.log(leisure);
   return (
     <BodyPage>
       <Menu menuLink={menuLinkPerfil} />
@@ -135,9 +137,13 @@ const BarberPage = () => {
           <Atracao key={index}>
             <TextoDescritivo>{lazer.text}</TextoDescritivo>
             {lazer.bool ? (
-              <ImgLazer src={lazer.image} />
+              <BackImg image={lazer.image} isGray={false}>
+                <ImgLazer isGray={false} />
+              </BackImg>
             ) : (
-              <ImgLazerFalse src={lazer.image} />
+              <BackImg image={lazer.image} isGray>
+                <ImgLazerFalse src={Forbiden} isGray />
+              </BackImg>
             )}
           </Atracao>
         ))}
