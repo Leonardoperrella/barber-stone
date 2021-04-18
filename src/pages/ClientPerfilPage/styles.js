@@ -91,9 +91,6 @@ export const Tesoura = styled.img`
 `;
 
 export const TextoFidelidade = styled.p`
-  font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: normal;
   padding: 5px;
   font-size: 3rem;
   margin: 5px auto;
@@ -165,4 +162,10 @@ export const IconePequeno = styled.img`
   width: 80px;
   height: 80px;
   margin-top: 15px;
+`;
+
+export const TextoComplete = styled.p`
+  font-size: 1.75rem;
+  margin: 10px;
+  text-align: center;
 `;

@@ -16,6 +16,7 @@ import {
   Container,
   TextoDescritivo,
   IconePequeno,
+  TextoComplete,
 } from "./styles";
 import FormProfileClient from "../../components/FormProfileClient";
 import CardAgendamentos from "../../components/CardAgendamentos";
@@ -137,13 +138,15 @@ const ClientPerfilPage = () => {
               Você ainda não possui agendamentos
             </TextoDescritivo>
           )}
-          <Estrelinha src={clock} />
         </>
       )}
       <IconePequeno src={clock} />
       <TextoFidelidade>
         {isNew ? `Complete seu cadastro` : `Atualizar Dados`}
       </TextoFidelidade>
+      <TextoComplete>
+        Conclua aqui seu cadastro para poder avançar
+      </TextoComplete>
       <FormProfileClient setRender={setRender} />
       <Footer />
       <Notification />

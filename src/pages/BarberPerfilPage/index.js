@@ -12,6 +12,7 @@ import {
   IconePequeno,
   Container,
   responsive,
+  TextoComplete,
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import FormProfileBarberShop from "../../components/FormProfileBarbershop";
@@ -52,7 +53,7 @@ const BarberPerfilPage = () => {
           <TransitionsModal />
           <IconePequeno src={calendar} />
           <TextoDescritivo>Seus clientes agendados</TextoDescritivo>
-          {schedule.length > 0 ? (
+          {schedule.filter((e) => e.barberId === userId).length > 0 ? (
             <Container>
               <Carousel
                 additionalTransfrom={0}
@@ -76,14 +77,16 @@ const BarberPerfilPage = () => {
                 slidesToSlide={1}
                 swipeable
               >
-                {schedule.map(({ userId, dateTime, id }, index) => (
-                  <CardClient
-                    key={index}
-                    userId={userId}
-                    dateTime={dateTime}
-                    id={id}
-                  />
-                ))}
+                {schedule
+                  .filter((e) => e.barberId === userId)
+                  .map(({ userId, dateTime, id }, index) => (
+                    <CardClient
+                      key={index}
+                      userId={userId}
+                      dateTime={dateTime}
+                      id={id}
+                    />
+                  ))}
               </Carousel>
             </Container>
           ) : (
@@ -97,6 +100,9 @@ const BarberPerfilPage = () => {
       <TextoDescritivo>
         {isNew ? `Complete seu cadastro` : `Atualizar Dados`}
       </TextoDescritivo>
+      <TextoComplete>
+        Conclua aqui seu cadastro para poder avançar
+      </TextoComplete>
       <FormProfileBarberShop setRender={setRender} />
       <Footer />
       <Notification />
