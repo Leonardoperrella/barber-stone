@@ -53,7 +53,7 @@ const BarberPerfilPage = () => {
           <TransitionsModal />
           <IconePequeno src={calendar} />
           <TextoDescritivo>Seus clientes agendados</TextoDescritivo>
-          {schedule.filter((e) => e.barberId === userId).length > 0 ? (
+          {schedule.filter((e) => e.barberId === Number(userId)).length > 0 ? (
             <Container>
               <Carousel
                 additionalTransfrom={0}
@@ -78,7 +78,7 @@ const BarberPerfilPage = () => {
                 swipeable
               >
                 {schedule
-                  .filter((e) => e.barberId === userId)
+                  .filter((e) => e.barberId === Number(userId))
                   .map(({ userId, dateTime, id }, index) => (
                     <CardClient
                       key={index}
