@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 import BackgroundHeader from "../../images/background-barber-profile.jpg";
 
-import forbiden from "../../images/forbiden.png";
-
 export const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 992 },

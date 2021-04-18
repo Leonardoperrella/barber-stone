@@ -1,6 +1,4 @@
 import styled from "styled-components";
-
-import { FONTS } from "../../styles/theme";
 import VersoBackground from "../../images/versoCardAgendamentos.jpg";
 
 export const Card = styled.div`

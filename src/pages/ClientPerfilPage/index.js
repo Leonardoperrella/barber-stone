@@ -7,7 +7,6 @@ import {
   ImgPerfil,
   Nome,
   Estrelinha,
-  TextoFidelidade,
   Descricao,
   BoxFidelidade,
   Tesoura,
@@ -26,7 +25,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSchedule } from "../../providers/Schedule";
 import { useUser } from "../../providers/User";
-import { animateScroll as scroll } from "react-scroll";
 import perfil from "../../images/perfilClient.jpg";
 import scissors from "../../images/ScissorsGold.svg";
 import star from "../../images/star.svg";
@@ -62,11 +60,11 @@ const ClientPerfilPage = () => {
   return (
     <BodyPage>
       {render && <ModalNewUser />}
-      {!isNew && scroll.scrollTo(0)}
+      {!isNew}
       <Menu menuLink={menuLinkPerfilClient} isNew={isNew} />
       {!isNew && (
         <>
-          <BgPerfil />
+          <BgPerfil id="perfil" />
           <ImgPerfil src={perfil} />
           <Nome>{user.name}</Nome>
           <Estrelinha src={star} />

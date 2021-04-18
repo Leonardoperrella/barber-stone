@@ -25,7 +25,6 @@ import Notification from "../../components/Notification";
 import perfil from "../../images/barberIcon.svg";
 import calendar from "../../images/calendar.svg";
 import clock from "../../images/clock.svg";
-import { animateScroll as scroll } from "react-scroll";
 import ModalNewUser from "../../components/ModalNewUser";
 
 const BarberPerfilPage = () => {
@@ -42,7 +41,7 @@ const BarberPerfilPage = () => {
   return (
     <BodyPage>
       {render && <ModalNewUser />}
-      {!isNew && scroll.scrollTo(0)}
+      {!isNew}
       <Menu menuLink={menuLinkPerfilBarber} />
       {!isNew && (
         <>

@@ -48,8 +48,8 @@ const FormClientRegister = () => {
           history.push("/entrar");
         }, 2000);
       })
-      .catch((e) => {
-        existingEmail(e.response.data);
+      .catch(() => {
+        existingEmail();
       });
   };
 
