@@ -8,7 +8,7 @@ export const StyledBurger = styled.button`
   justify-content: space-around;
   width: 2rem;
   height: 2rem;
-  background: transparent;
+  background-color: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -21,7 +21,7 @@ export const StyledBurger = styled.button`
   div {
     width: 2rem;
     height: 0.25rem;
-    background: ${({ theme }) => theme.primaryLight};
+    background-color: ${({ theme }) => theme.primaryLight};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;

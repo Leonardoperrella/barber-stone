@@ -2,12 +2,12 @@ export const theme = {
   primaryDark: "#1B2845",
   primaryLight: "#EFFFFA",
   primaryHover: "#65AFFF",
-  background: "#1B2845",
+  backgroundColor: "#1B2845",
   mobile: "576px",
 };
 
 export const COLORS = {
-  background: "#F7F4F3",
+  backgroundColor: "#F7F4F3",
   highlight: "#FF4654",
   foreground: "#FFFFFF",
   text: "#1f1e1e",
