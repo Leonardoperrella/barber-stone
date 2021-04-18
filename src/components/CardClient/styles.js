@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import VersoBackground from "../../images/versoCardAgendamentos.jpg";
-import { FONTS } from "../../styles/theme";
 
 export const Card = styled.div`
   background-color: #bb8c4b;
@@ -13,6 +12,7 @@ export const Card = styled.div`
   width: 260px;
   height: 260px;
   background-image: ${(props) => props.isVerso && `url(${VersoBackground})`};
+  text-align: center;
 
   & img {
     width: 50px;
