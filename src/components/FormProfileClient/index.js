@@ -13,7 +13,10 @@ import {
   FormUpdate,
   ButtonsDiv,
 } from "./styles";
-import { notifyError, notifyRegisterSuccess } from "../../services/notifyData";
+import {
+  notifyErrorUser,
+  notifyRegisterSuccess,
+} from "../../services/notifyData";
 
 const FormProfileClient = ({ setRender }) => {
   const { isNew, setIsNew } = useUser();
@@ -46,11 +49,11 @@ const FormProfileClient = ({ setRender }) => {
       .patch(`/users/${userId}`, userData, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => {
+      .then(() => {
         notifyRegisterSuccess();
       })
       .catch((e) => {
-        notifyError(e.response);
+        notifyErrorUser(e.response);
       });
   };
 

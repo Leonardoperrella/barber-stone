@@ -13,7 +13,7 @@ import {
   Label,
   DivInput,
 } from "../../styles/Form.styles";
-import { notifyError } from "../../services/notifyData";
+import { notifyErrorLogin } from "../../services/notifyData";
 
 const FormLogin = () => {
   const [error] = useState(false);
@@ -45,8 +45,8 @@ const FormLogin = () => {
         reset();
         getUser(sub);
       })
-      .catch((e) => {
-        notifyError(e.response.data);
+      .catch(() => {
+        notifyErrorLogin();
       });
   };
 

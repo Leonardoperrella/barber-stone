@@ -20,6 +20,13 @@ export const notifyErrorClient = () =>
     position: "top-center",
   });
 
+export const notifyErrorUser = () =>
+  toast.error("Erro inesperado na atualização do cadastro de usuário.", {
+    autoClose: 2000,
+    hideProgressBar: true,
+    position: "top-center",
+  });
+
 export const notifyErrorEmployee = () =>
   toast.error("Erro inesperado na gravação do funcionário.", {
     autoClose: 2000,
