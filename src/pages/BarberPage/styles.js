@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import BackgroundHeader from "../../images/background-barber-profile.jpg";
 
+import forbiden from "../../images/forbiden.png";
+
 export const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 992 },
@@ -108,6 +110,7 @@ export const Container = styled.div`
     justify-content: center;
   }
 `;
+
 export const BoxLazer = styled.div`
   max-width: 908px;
   display: flex;
@@ -118,6 +121,7 @@ export const BoxLazer = styled.div`
     justify-content: space-between;
   }
 `;
+
 export const Atracao = styled.div`
   max-width: 450px;
   width: 100%;
