@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+<div align="center">
+    <img src="./src/images/Logo.svg" />
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Índice
 
-## Available Scripts
+1. [Sobre](#Sobre)
+2. [Objetivo](#Objetivo)
+3. [Tecnologias e ferramentas](#Tecnologias-e-ferramentas)
+4. [Projeto](#Projeto)
+5. [Desenvolvimento](#Desenvolvimento)
 
-In the project directory, you can run:
+<div align="center">
 
-### `yarn start`
+# Sobre
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Após uma pesquisa sobre os serviços prestados por barbearias este projeto foi desenvolvido pensando em como poderíamos aperfeiçoar os atendimentos de barbearias, tanto para clientes como para barbeiros e empresários.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br></br>
 
-### `yarn test`
+# Objetivo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Nosso objetivo desde o princípio foi criar uma solução viável para os usuários de barbearias e também para barbeiros que tem encontrado dificuldades para gerir as demandas de seus estabelecimentos.
 
-### `yarn build`
+<br></br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Tecnologias e ferramentas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Este projeto foi desenvolvido principalmente com React JS. Estas são todas as bibliotecas que utilizamos:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Componentes e estilos
 
-### `yarn eject`
+Material-UI
+Styled-components
+Framer Motion
+React Card Flip
+React Multi Carousel
+React Scroll
+React Toastify
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Rotas e API
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+React Router DOM
+Axios
+Jwt-decode
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Formulários
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+React Hook Form
+Yup
 
-## Learn More
+## Testes
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Cypress
+Jest
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br></br>
 
-### Code Splitting
+# Projeto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Estas são algumas demonstrações do projeto Barberstone:
 
-### Analyzing the Bundle Size
+<h2 align="center">Página Inicial</h2>
+<img src="./src/images/gifs/home.gif">
+Apresentação da aplicação. Além das boas-vindas ao usuário, dá uma breve introdução de como ela pode lhe ajudar.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<br></br>
 
-### Making a Progressive Web App
+<h2 align="center">Perfil Cliente</h2>
+<img src="./src/images/gifs/client.gif">
+O usuaŕio tem acesso aos seus últimos atendimentos e aos seus dados pessoais que podem ser importantes para o agendamento.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<br></br>
 
-### Advanced Configuration
+<h2 align="center">Perfil Barbearia</h2>
+<img src="./src/images/gifs/barber.gif">
+A barbearia por sua vez, controla todos os seus agendamentos, podendo finalizá-los e adicionar novos barbeiros que aparecerão como opção para o cliente.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<br></br>
 
-### Deployment
+<h2 align="center">Usuário acessando página da Barbearia</h2>
+<img src="./src/images/gifs/agendamentos.gif">
+Quando o usuário acessa o perfil de uma barbearia ele tem acesso aos últimos agendamentos daquele estabelecimento, além das informações cadastradas pela própria barbearia afim de atrair a atenção dos seus clientes, como as opções de lazer.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<br></br>
 
-### `yarn build` fails to minify
+## Figma
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Aqui está o link para o figma do projeto Barberstone
+[Figma Barberstone](https://www.figma.com/file/2Pa4xeue7LrQJ7cUypoTnl/Capstone?node-id=0%3A1)
+
+<br></br>
+
+# Desenvolvimento
+
+Este projeto foi desenvolvido por:
+
+## André Vieira - Quality Assurance
+
+[LinkedIn](https://www.linkedin.com/in/andreluizhillerv/)
+[Github](https://github.com/AndrelhVieira)
+
+## Leonardo Perrella - Tech Lead
+
+[LinkedIn](https://www.linkedin.com/in/leonardo-augusto-perrella/)
+[Github](https://github.com/Leonardoperrella)
+
+## Leandro Arruda - Scrum Master
+
+[LinkedIn](https://www.linkedin.com/in/leandro-arruda-26b8b11b3/)
+[Github](https://github.com/leandroNarruda)
+
+<br></br>
+
+<div align="center">
+    <img src="./src/images/Logo.svg" />
+</div>
+
+</div>
