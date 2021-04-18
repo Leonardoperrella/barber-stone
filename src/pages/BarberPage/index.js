@@ -89,7 +89,7 @@ const BarberPage = () => {
         <Container>
           <Carousel
             additionalTransfrom={0}
-            arrows={false}
+            arrows
             autoPlay
             autoPlaySpeed={3000}
             centerMode={false}

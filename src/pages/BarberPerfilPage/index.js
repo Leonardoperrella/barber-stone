@@ -12,6 +12,7 @@ import {
   IconePequeno,
   Container,
   responsive,
+  TextoComplete,
 } from "./styles";
 import CardClient from "../../components/CardClient";
 import FormProfileBarberShop from "../../components/FormProfileBarbershop";
@@ -56,7 +57,7 @@ const BarberPerfilPage = () => {
             <Container>
               <Carousel
                 additionalTransfrom={0}
-                arrows={false}
+                arrows
                 autoPlay
                 autoPlaySpeed={3000}
                 centerMode={false}
@@ -96,9 +97,13 @@ const BarberPerfilPage = () => {
         </>
       )}
       <IconePequeno src={clock} />
-      <TextoDescritivo>
-        {isNew ? `Complete seu cadastro` : `Atualizar Dados`}
-      </TextoDescritivo>
+      {isNew ? (
+        <TextoComplete>
+          Complete seu cadastro aqui seu cadastro para poder avançar
+        </TextoComplete>
+      ) : (
+        <TextoDescritivo>Atualizar Dados</TextoDescritivo>
+      )}
       <FormProfileBarberShop setRender={setRender} />
       <Footer />
       <Notification />

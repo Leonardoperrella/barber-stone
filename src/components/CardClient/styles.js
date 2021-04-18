@@ -43,13 +43,36 @@ export const CardFlip = styled(Card)`
 
 export const Button = styled.button`
   background-color: transparent;
-  border: 4px solid white;
+  color: #f7f4f3;
+  border: 3px solid #f7f4f3;
+  border-radius: 20px;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.75rem;
+  padding: 15px;
   outline: none;
-  color: white;
-  height: 100px;
-  border-radius: 15px;
   cursor: pointer;
-  font-size: 1.5rem;
-  font-family: ${FONTS.normal};
-  margin: 15px auto;
+  position: relative;
+  z-index: 1;
+  display: block;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #f7f4f3;
+    width: 0;
+    transition: 0.3s;
+    height: 100%;
+    border-radius: 15px;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+
+  &:hover {
+    color: #bb8c4b;
+  }
 `;

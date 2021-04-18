@@ -72,22 +72,31 @@ const FormBarberRegister = () => {
     <FormComponent onSubmit={handleSubmit(onSubmit)}>
       <DivInput>
         <Label>Nome</Label>
-        <Input name="name" ref={register} />
+        <Input name="name" ref={register} placeholder="barbearia do seu zé" />
         {!!errors && <SpanError>{errors.name?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Email</Label>
-        <Input name="email" ref={register} />
+        <Input name="email" ref={register} placeholder="barber@mail.com" />
         {!!errors && <SpanError>{errors.email?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Senha</Label>
-        <Input name="password" type="password" ref={register} />
+        <Input
+          name="password"
+          type="password"
+          ref={register}
+          placeholder="zeze123"
+        />
         {!!errors && <SpanError>{errors.password?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Descrição</Label>
-        <TextArea name="description" ref={register} />
+        <TextArea
+          name="description"
+          ref={register}
+          placeholder="A melhor barbearia da região!"
+        />
         {!!errors && <SpanError>{errors.description?.message}</SpanError>}
       </DivInput>
       <DivInput>

@@ -91,9 +91,6 @@ export const Tesoura = styled.img`
 `;
 
 export const TextoFidelidade = styled.p`
-  font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: normal;
   padding: 5px;
   font-size: 3rem;
   margin: 5px auto;
@@ -112,6 +109,12 @@ export const TextoDescritivo = styled.p`
   max-width: 525px;
 
   color: ${({ erro }) => erro && "#bb8c4b"};
+`;
+
+export const TextoComplete = styled(TextoDescritivo)`
+  font-size: 2.5rem;
+  margin: 10px;
+  text-align: center;
 `;
 
 export const Descricao = styled.p`

@@ -27,7 +27,7 @@ export default function ModalNewUser() {
         <FadeStyled in={open}>
           <div>
             <Img src={Fechar} alt="close" onClick={handleClose} />
-            <h2>Seja muito bem vindo ao barberstone!!!</h2>
+            <h2>Seja muito bem-vindo ao barberstone!!!</h2>
             {!isBarber ? (
               <p>
                 Aqui você encontra as melhores barbearias da sua região, agenda

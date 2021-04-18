@@ -58,7 +58,13 @@ export const TextoDescritivo = styled.p`
   text-align: center;
   max-width: 525px;
 
-  color: ${({ erro }) => erro && "#D2C65B"};
+  color: ${({ erro }) => erro && "#bb8c4b"};
+`;
+
+export const TextoComplete = styled(TextoDescritivo)`
+  font-size: 2.5rem;
+  margin: 10px;
+  text-align: center;
 `;
 
 export const Icon = styled.img`

@@ -52,7 +52,7 @@ const FormNovoFuncionario = ({ handleClose }) => {
     <FormComponent onSubmit={handleSubmit(onSubmit)}>
       <DivInput>
         <Label>nome do funcionário</Label>
-        <Input name="name" ref={register} />
+        <Input name="name" ref={register} placeholder="joao" />
         {!!errors && <SpanError>{errors.name?.message}</SpanError>}
       </DivInput>
       <DivInput>
