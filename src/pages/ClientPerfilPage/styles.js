@@ -97,7 +97,7 @@ export const TextoFidelidade = styled.p`
   color: #f7f4f3;
   text-align: center;
 
-  @media (min-width: 900px) {
+  @media screen and (min-width: 900px) {
     font-size: 68px;
   }
 `;

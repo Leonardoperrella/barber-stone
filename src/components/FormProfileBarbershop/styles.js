@@ -33,7 +33,7 @@ export const Input = styled.input`
   color: #f7f4f3;
   outline: none;
 
-  @media (min-width: 912px) {
+  @media screen and (min-width: 912px) {
     max-width: ${(props) => (props.isDesktop ? `873px` : `416px`)};
   }
 `;
@@ -45,7 +45,7 @@ export const Label = styled.p`
   color: #f7f4f3;
   margin: 0;
 
-  @media (min-width: 912px) {
+  @media screen and (min-width: 912px) {
     max-width: ${(props) => props.isDesktop && `873px`};
     width: ${(props) => props.isDesktop && `873px`};
   }

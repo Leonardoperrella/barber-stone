@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { GlobalnWrapStyled } from "../../components/GlobalWrap/style";
 
 export const ContainerForm = styled(GlobalnWrapStyled)`
-  @media (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     position: absolute;
     top: 0;
     margin: 0;
@@ -18,7 +18,7 @@ export const ContainerForm = styled(GlobalnWrapStyled)`
 `;
 
 export const ContainerLogin = styled(GlobalnWrapStyled)`
-  @media (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     position: fixed;
     top: 0;
     margin: 0;
@@ -70,10 +70,10 @@ export const H1Login = styled.h1`
   padding: 0 70px;
   z-index: 1;
   display: none;
-  @media (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     display: block;
   }
-  @media (min-width: 1094px) {
+  @media screen and (min-width: 1094px) {
     margin: 50px 0;
   }
 `;

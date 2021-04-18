@@ -11,6 +11,25 @@ body {
   height: 400px;
 }
 
+.goToTop {
+  border: none;
+  background-color: transparent;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  color: #f7f4f3;
+  font-size: 1.5rem;
+  height: 3rem;
+  outline: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 496px) {
+  .goToTop {
+    font-size: 2rem;
+  }
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 15px;

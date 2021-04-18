@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BackGroundImageStyled = styled.div`
-  @media (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     background-image: url(${({ image }) => image});
     position: fixed;
     width: 100%;
