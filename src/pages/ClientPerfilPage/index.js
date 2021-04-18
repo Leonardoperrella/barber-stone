@@ -70,7 +70,7 @@ const ClientPerfilPage = () => {
           <ImgPerfil src={perfil} />
           <Nome>{user.name}</Nome>
           <Estrelinha src={star} />
-          <TextoFidelidade>Vale fidelidade</TextoFidelidade>
+          <TextoDescritivo>Vale fidelidade</TextoDescritivo>
           <Descricao>
             a cada dez serviços ganhe um corte de graça nas barbearias
             participantes
@@ -95,7 +95,7 @@ const ClientPerfilPage = () => {
             </TextoDescritivo>
           )}
           <Estrelinha src={calendar} />
-          <TextoFidelidade>Seus agendamentos</TextoFidelidade>
+          <TextoDescritivo>Seus agendamentos</TextoDescritivo>
           {filteredSchedule.length > 0 ? (
             <Container>
               <Carousel
@@ -141,12 +141,13 @@ const ClientPerfilPage = () => {
         </>
       )}
       <IconePequeno src={clock} />
-      <TextoFidelidade>
-        {isNew ? `Complete seu cadastro` : `Atualizar Dados`}
-      </TextoFidelidade>
-      <TextoComplete>
-        Conclua aqui seu cadastro para poder avançar
-      </TextoComplete>
+      {isNew ? (
+        <TextoComplete>
+          Complete seu cadastro aqui seu cadastro para poder avançar
+        </TextoComplete>
+      ) : (
+        <TextoDescritivo>Atualizar Dados</TextoDescritivo>
+      )}
       <FormProfileClient setRender={setRender} />
       <Footer />
       <Notification />

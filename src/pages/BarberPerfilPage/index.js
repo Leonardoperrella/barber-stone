@@ -97,12 +97,13 @@ const BarberPerfilPage = () => {
         </>
       )}
       <IconePequeno src={clock} />
-      <TextoDescritivo>
-        {isNew ? `Complete seu cadastro` : `Atualizar Dados`}
-      </TextoDescritivo>
-      <TextoComplete>
-        Conclua aqui seu cadastro para poder avançar
-      </TextoComplete>
+      {isNew ? (
+        <TextoComplete>
+          Complete seu cadastro aqui seu cadastro para poder avançar
+        </TextoComplete>
+      ) : (
+        <TextoDescritivo>Atualizar Dados</TextoDescritivo>
+      )}
       <FormProfileBarberShop setRender={setRender} />
       <Footer />
       <Notification />

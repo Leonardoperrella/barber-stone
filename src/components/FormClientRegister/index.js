@@ -57,22 +57,27 @@ const FormClientRegister = () => {
     <FormComponent onSubmit={handleSubmit(onSubmit)}>
       <DivInput>
         <Label>Nome</Label>
-        <Input name="name" ref={register} />
+        <Input name="name" ref={register} placeholder="João" />
         {!!errors && <SpanError>{errors.name?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Sobrenome</Label>
-        <Input name="lastName" ref={register} />
+        <Input name="lastName" ref={register} placeholder="da silva" />
         {!!errors && <SpanError>{errors.lastName?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Email</Label>
-        <Input name="email" ref={register} />
+        <Input name="email" ref={register} placeholder="joao@mail.com" />
         {!!errors && <SpanError>{errors.email?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Senha</Label>
-        <Input name="password" type="password" ref={register} />
+        <Input
+          name="password"
+          type="password"
+          ref={register}
+          placeholder="joao123"
+        />
         {!!errors && <SpanError>{errors.password?.message}</SpanError>}
       </DivInput>
       <DivInput>

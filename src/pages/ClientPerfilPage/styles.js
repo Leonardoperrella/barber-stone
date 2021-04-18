@@ -111,6 +111,12 @@ export const TextoDescritivo = styled.p`
   color: ${({ erro }) => erro && "#bb8c4b"};
 `;
 
+export const TextoComplete = styled(TextoDescritivo)`
+  font-size: 2.5rem;
+  margin: 10px;
+  text-align: center;
+`;
+
 export const Descricao = styled.p`
   width: 90vw;
   text-align: center;
@@ -162,10 +168,4 @@ export const IconePequeno = styled.img`
   width: 80px;
   height: 80px;
   margin-top: 15px;
-`;
-
-export const TextoComplete = styled.p`
-  font-size: 1.75rem;
-  margin: 10px;
-  text-align: center;
 `;

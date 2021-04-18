@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useState, useEffect } from "react";
 import api from "../../services/api";
-import { useUser } from '../../providers/User'
+import { useUser } from "../../providers/User";
 import {
   SpanError,
   Input,
@@ -38,9 +38,9 @@ const FormProfileClient = ({ setRender }) => {
 
   const onSubmit = (userData) => {
     const u = userData;
-    if(!!u.phone || !!u.zipCode || !!u.city || !!u.state || !!u.address){
-      isNew && setRender(true)
-      setIsNew(false)
+    if (!!u.phone || !!u.zipCode || !!u.city || !!u.state || !!u.address) {
+      isNew && setRender(true);
+      setIsNew(false);
     }
     api
       .patch(`/users/${userId}`, userData, {
@@ -62,7 +62,7 @@ const FormProfileClient = ({ setRender }) => {
       .then((response) => {
         const u = response.data;
         setuser(u);
-      })
+      });
   };
 
   function refreshPage() {
@@ -72,38 +72,68 @@ const FormProfileClient = ({ setRender }) => {
   useEffect(() => {
     getUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); 
+  }, []);
 
   return (
     <FormUpdate onSubmit={handleSubmit(onSubmit)}>
       <DivInput>
         <Label>Nome</Label>
-        <Input name="name" ref={register} defaultValue={userr.name} />
+        <Input
+          name="name"
+          ref={register}
+          defaultValue={userr.name}
+          placeholder="joao"
+        />
         {!!errors && <SpanError>{errors.name?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Sobrenome</Label>
-        <Input name="lastName" ref={register} defaultValue={userr.lastName} />
+        <Input
+          name="lastName"
+          ref={register}
+          defaultValue={userr.lastName}
+          placeholder="da silva"
+        />
         {!!errors && <SpanError>{errors.lastName?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Telefone</Label>
-        <Input name="phone" ref={register} defaultValue={userr.phone} />
+        <Input
+          name="phone"
+          ref={register}
+          defaultValue={userr.phone}
+          placeholder="12345678"
+        />
         {!!errors && <SpanError>{errors.phone?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>CEP</Label>
-        <Input name="zipCode" ref={register} defaultValue={userr.zipCode} />
+        <Input
+          name="zipCode"
+          ref={register}
+          defaultValue={userr.zipCode}
+          placeholder="12345678"
+        />
         {!!errors && <SpanError>{errors.zipCode?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Cidade</Label>
-        <Input name="city" ref={register} defaultValue={userr.city} />
+        <Input
+          name="city"
+          ref={register}
+          defaultValue={userr.city}
+          placeholder="curitiba"
+        />
         {!!errors && <SpanError>{errors.city?.message}</SpanError>}
       </DivInput>
       <DivInput>
         <Label>Estado</Label>
-        <Input name="state" ref={register} defaultValue={userr.state} />
+        <Input
+          name="state"
+          ref={register}
+          defaultValue={userr.state}
+          placeholder="paraná"
+        />
         {!!errors && <SpanError>{errors.state?.message}</SpanError>}
       </DivInput>
       <DivInput>
@@ -113,6 +143,7 @@ const FormProfileClient = ({ setRender }) => {
           ref={register}
           isDesktop
           defaultValue={userr.address}
+          placeholder="rua mimosa, 123"
         />
         {!!errors && <SpanError>{errors.address?.message}</SpanError>}
       </DivInput>

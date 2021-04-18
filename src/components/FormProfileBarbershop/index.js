@@ -26,9 +26,9 @@ import {
 } from "../../services/notifyData";
 import Check from "../../images/check.svg";
 import NoCheck from "../../images/noCheck.svg";
-import { useUser } from '../../providers/User'
+import { useUser } from "../../providers/User";
 
-const FormProfileBarberShop = ({setRender}) => {
+const FormProfileBarberShop = ({ setRender }) => {
   const [error] = useState(false);
   const [user, setuser] = useState([]);
   const { isNew, setIsNew } = useUser();
@@ -58,10 +58,10 @@ const FormProfileBarberShop = ({setRender}) => {
 
   const onSubmit = (userData) => {
     userData = { ...userData, leisureOptions };
-    const u = userData
-    if(!!u.address || !!u.phone || !!u.zipCode || !!u.city || !!u.state){
-      isNew && setRender(true)
-      setIsNew(false)
+    const u = userData;
+    if (!!u.address || !!u.phone || !!u.zipCode || !!u.city || !!u.state) {
+      isNew && setRender(true);
+      setIsNew(false);
     }
     api
       .patch(`/users/${userId}`, userData, {
@@ -109,32 +109,62 @@ const FormProfileBarberShop = ({setRender}) => {
       <FormUpdate onSubmit={handleSubmit(onSubmit)}>
         <DivInput>
           <Label>Novo Nome</Label>
-          <Input name="name" ref={register} defaultValue={user.name} />
+          <Input
+            name="name"
+            ref={register}
+            defaultValue={user.name}
+            placeholder="barbearia do seu zé"
+          />
           {!!errors && <SpanError>{errors.name?.message}</SpanError>}
         </DivInput>
         <DivInput>
           <Label>Endereço</Label>
-          <Input name="address" ref={register} defaultValue={user.address} />
+          <Input
+            name="address"
+            ref={register}
+            defaultValue={user.address}
+            placeholder="rua bergamota, 123"
+          />
           {!!errors && <SpanError>{errors.address?.message}</SpanError>}
         </DivInput>
         <DivInput>
           <Label>Telefone</Label>
-          <Input name="phone" ref={register} defaultValue={user.phone} />
+          <Input
+            name="phone"
+            ref={register}
+            defaultValue={user.phone}
+            placeholder="123456789"
+          />
           {!!errors && <SpanError>{errors.phone?.message}</SpanError>}
         </DivInput>
         <DivInput>
           <Label>CEP</Label>
-          <Input name="zipCode" ref={register} defaultValue={user.zipCode} />
+          <Input
+            name="zipCode"
+            ref={register}
+            defaultValue={user.zipCode}
+            placeholder="12345678"
+          />
           {!!errors && <SpanError>{errors.zipCode?.message}</SpanError>}
         </DivInput>
         <DivInput>
           <Label>Cidade</Label>
-          <Input name="city" ref={register} defaultValue={user.city} />
+          <Input
+            name="city"
+            ref={register}
+            defaultValue={user.city}
+            placeholder="curitiba"
+          />
           {!!errors && <SpanError>{errors.city?.message}</SpanError>}
         </DivInput>
         <DivInput>
           <Label>Estado</Label>
-          <Input name="state" ref={register} defaultValue={user.state} />
+          <Input
+            name="state"
+            ref={register}
+            defaultValue={user.state}
+            placeholder="paraná"
+          />
           {!!errors && <SpanError>{errors.state?.message}</SpanError>}
         </DivInput>
         <DivInput>
@@ -145,6 +175,7 @@ const FormProfileBarberShop = ({setRender}) => {
             style={{ height: "150px" }}
             isDesktop
             defaultValue={user.description}
+            placeholder="a melhor barbearia da região!"
           />
           {!!errors && <SpanError>{errors.description?.message}</SpanError>}
         </DivInput>

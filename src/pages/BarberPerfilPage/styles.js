@@ -53,17 +53,18 @@ export const Nome = styled.h2`
 `;
 
 export const TextoDescritivo = styled.p`
-  padding: 5px;
-  font-size: 3rem;
-  margin: 5px auto;
-  color: #f7f4f3;
+  font-size: 2rem;
+  margin: 10px;
   text-align: center;
+  max-width: 525px;
 
-  @media (min-width: 900px) {
-    font-size: 68px;
-  }
+  color: ${({ erro }) => erro && "#bb8c4b"};
+`;
 
-  color: ${({ erro }) => erro && "#D2C65B"};
+export const TextoComplete = styled(TextoDescritivo)`
+  font-size: 2.5rem;
+  margin: 10px;
+  text-align: center;
 `;
 
 export const Icon = styled.img`
@@ -106,10 +107,4 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
   }
-`;
-
-export const TextoComplete = styled.p`
-  font-size: 1.75rem;
-  margin: 10px;
-  text-align: center;
 `;
