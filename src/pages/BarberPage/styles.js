@@ -87,15 +87,38 @@ export const Descricao = styled.p`
   color: #f7f4f3;
 `;
 
-export const ImgLazer = styled.img`
-  border-radius: 10px;
+export const BackImg = styled.div`
+  position: relative;
   width: 275px;
   height: 275px;
+  margin: 0 auto;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-size: cover;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(${({ image }) => image});
+    filter: ${({ isGray }) => (isGray ? "grayscale(100%)" : "grayscale(0%)")};
+  }
 `;
 
-export const ImgLazerFalse = styled(ImgLazer)`
-  filter: grayscale(100%);
+export const ImgLazer = styled.img`
+  display: ${({ isGray }) => !isGray && "none"};
+  position: absolute;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 15%;
+  transform: translateY(-50%);
 `;
+
+export const ImgLazerFalse = styled(ImgLazer)``;
 
 export const Container = styled.div`
   max-width: 1030px;
@@ -124,4 +147,6 @@ export const Atracao = styled.div`
   max-width: 450px;
   width: 100%;
   text-align: center;
+  margin-bottom: 25px;
+  margin-top: 25px;
 `;
