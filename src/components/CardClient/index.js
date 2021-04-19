@@ -41,11 +41,9 @@ const CardClient = ({ userId, dateTime, id, isDetails, isClient }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((resp) => {
-        console.log(resp);
-      })
-      .catch((e) => {
-        notifyErrorClient(e);
+      .then(() => {})
+      .catch(() => {
+        notifyErrorClient();
       });
   };
 
