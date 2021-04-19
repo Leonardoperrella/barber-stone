@@ -25,7 +25,7 @@ import { useSchedule } from "../../providers/Schedule";
 import { useLocation } from "react-router-dom";
 import TransitionsModal from "../../components/ModalNewAgend";
 import Notification from "../../components/Notification";
-import ImageX from "../../images/imageX.png";
+import ImageX from "../../images/ImageX.png";
 
 import Sinuca from "../../images/sinuca.jpg";
 import Playground from "../../images/playground.jpg";
