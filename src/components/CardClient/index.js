@@ -11,6 +11,7 @@ const CardClient = ({ userId, dateTime, id, isDetails, isClient }) => {
   const token = JSON.parse(localStorage.getItem("token"));
   const { users, getUsers } = useUsers();
   const { getSchedule, setGetSchedule } = useSchedule();
+  const [scissors, setScissors] = useState(0);
   const [flip, setFlip] = useState(false);
   const dateTimeUser = new Date(dateTime).toLocaleString();
   const data = dateTimeUser.split(" ")[0];
@@ -30,7 +31,7 @@ const CardClient = ({ userId, dateTime, id, isDetails, isClient }) => {
   };
 
   const updateClientStart = (userId) => {
-    const scissors = users[userId][2];
+    setScissors(users[userId][2]);
 
     api
       .patch(
@@ -40,16 +41,18 @@ const CardClient = ({ userId, dateTime, id, isDetails, isClient }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then(() => {})
+      .then((resp) => {
+        console.log(resp);
+      })
       .catch((e) => {
-        notifyErrorClient(e.data);
+        notifyErrorClient(e);
       });
   };
 
   useEffect(() => {
     getUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [scissors]);
 
   return (
     <>
